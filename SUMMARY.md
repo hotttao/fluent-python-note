@@ -30,4 +30,6 @@
     * [6.2 属性描述符](abc/descriptor.md)
     * [6.3 类元编程](abc/prepare.md)
 * [7. 附录](appendix/README.md)
-    * [7.1 python 资源](appendix/blog.md)
+    * [7.1 python 资源](appendix/python_org.md)
+    * [7.2 程序设计思想](appendix/programming.md)
+    * [7.3 本书资源](appendix/this_book.md)
