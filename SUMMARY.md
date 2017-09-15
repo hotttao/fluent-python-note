@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [1. 数据模型](structure/README.md)
     * [1.1 Python 数据模型](structure/data_module.md)
-    * [1.2 数组](structure/list.md)
+    * [1.2 序列](structure/list.md)
     * [1.3 字典和集合](structure/dict.md)
     * [1.4 文本和字节序列](structure/string.md)
 * [2. 函数](function/README.md)
