@@ -96,7 +96,7 @@ python 真假判断：
 |增量赋值位运算符| \_\_ilshift\_\_、 \_\_irshift\_\_、 \_\_iand\_\_、 \_\_ixor\_\_、 \_\_ior\_\_|
 
 
-#### 附注
+## 附注
 **len 为什么不是普通方法**
   - 对于内置类型，len() 直接从C 结构体里读取对象长度，完全不会调用任何方法
   - len 之所以不是一个普通方法，是为了让 Python 自带的数据结构
@@ -117,6 +117,8 @@ python 真假判断：
 ## 延伸阅读
 Python:
   - Data Model:<https://docs.python.org/3/reference/datamodel.html>  
+  - format: <https://docs.python.org/2/library/string.html#formatstring-syntax>
+  - \_\_str\_\_:<http://stackoverflow.com/questions/1436703/difference-between-str-and-repr-in-python>
 
 书籍：
   - 《 Python 技术手册（第 2 版）》-  对属性访问机制的描述
@@ -136,3 +138,32 @@ blog:
 **面向方面编程**
   - java: AspectJ
   - pyhton: zope.interface <http://docs.zope.org/zope.interface/>
+
+
+## 示例代码
+```python
+from math import hypot
+
+class Vector:
+
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def __repr__(self):
+        return 'Vector(%r, %r)' % (self.x, self.y)
+
+    def __abs__(self):
+        return hypot(self.x, self.y)
+
+    def __bool__(self):
+        return bool(abs(self))
+
+    def __add__(self, other):
+        x = self.x + other.x
+        y = self.y + other.y
+        return Vector(x, y)
+
+    def __mul__(self, scalar):
+        return Vector(self.x * scalar, self.y * scalar)
+```
