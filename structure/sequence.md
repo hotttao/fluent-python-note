@@ -26,7 +26,7 @@
   - 包括
     - tuple、 str 和 bytes
 
-![内置类型概览](../image/sequence_abc.png)
+![内置序列类型概览](../image/sequence_abc.png)
 
 ## 2. 内置序列类型
 ### 2.1 列表
@@ -134,7 +134,7 @@ OrderedDict([('name', 'Delhi NCR'), ('country', 'IN'), ('population',
 |s.\_\_delitem\_\_(p) |•| |把位于 p 的元素删除|
 |s.extend(it) |•| |把可迭代对象 it 追加给 s|
 |s.\_\_getitem\_\_(p) |•| •| s[p]，获取位置 p 的元素|
-|s.\_\_getnewargs\_\_()| •| |在 pickle 中支持更加优化的序列化|
+|s.\_\_getnewargs\_\_()| |•| 在 pickle 中支持更加优化的序列化|
 |s.index(e) |•| •| 在 s 中找到元素 e 第一次出现的位置|
 |s.insert(p, e) |•| |在位置 p 之前插入元素 e|
 |s.\_\_iter\_\_() |•| •| 获取 s 的迭代器|
@@ -301,22 +301,22 @@ array.array:
 |s.\_\_add(s2)\_\_ |•| •| s + s2 ，拼接|
 |s.\_\_iadd(s2)\_\_ |•| •| s += s2 ，就地拼接|
 |s.append(e) |• |• |在尾部添加一个元素|
-|s.byteswap |• | |翻转数组内每个元素的字节序列，转换字节序|
+|s.byteswap ||• |翻转数组内每个元素的字节序列，转换字节序|
 |s.clear() |• | |删除所有元素|
 |s.\_\_contains\_\_(e) |• |• |s 是否含有 e|
 |s.copy() |• | |对列表浅复制|
-|s.\_\_copy\_\_() |•| |对 copy.copy 的支持|
+|s.\_\_copy\_\_() | |•| 对 copy.copy 的支持|
 |s.count(e) |• |• |s 中 e 出现的次数|
 |s.\_\_deepcopy\_\_() |•| |对 copy.deepcopy 的支持|
 |s.\_\_delitem\_\_(p) |•| •| 删除位置 p 的元素|
 |s.extend(it) |• |• |将可迭代对象 it 里的元素添加到尾部|
-|s.frombytes(b) |• | |将压缩成机器值的字节序列读出来添加到尾部|
-|s.fromfile(f, n) |•| |将二进制文件 f 内含有机器值读出来添加到尾部，最多添加 n 项|
-|s.fromlist(l) |•| |将列表里的元素添加到尾部，如果其中任何一个元素导致了TypeError 异常，那么所有的添加都会取消|
+|s.frombytes(b)  | |• |将压缩成机器值的字节序列读出来添加到尾部|
+|s.fromfile(f, n) ||•| 将二进制文件 f 内含有机器值读出来添加到尾部，最多添加 n 项|
+|s.fromlist(l) | |•| 将列表里的元素添加到尾部，如果其中任何一个元素导致了TypeError 异常，那么所有的添加都会取消|
 |s.\_\_getitem\_\_(p) |• |• |s[p]，读取位置 p 的元素|
 |s.index(e) |• |• |找到 e 在序列中第一次出现的位置|
 |s.insert(p, e) |• |• |在位于 p 的元素之前插入元素 e|
-|s.itemsize |• | |数组中每个元素的长度是几个字节|
+|s.itemsize | |• |数组中每个元素的长度是几个字节|
 |s.\_\_iter\_\_() |• |• |返回迭代器|
 |s.\_\_len\_\_() |• |• |len(s)，序列的长度|
 |s.\_\_mul\_\_(n) |• |•| s * n，重复拼接|
@@ -328,10 +328,10 @@ array.array:
 |s.\_\_reversed\_\_() |• | |返回一个从尾部开始扫描元素的迭代器|
 |s.\_\_setitem\_\_(p, e) |•| •| s[p] = e，把位于 p 位置的元素替换成 e|
 |s.sort([key], [revers]) |•| | 就地排序序列，可选参数有 key 和 reverse|
-|s.tobytes() |• | |把所有元素的机器值用 bytes 对象的形式返回|
-|s.tofile(f) |• | |把所有元素以机器值的形式写入一个文件|
-|s.tolist() |•| |把数组转换成列表，列表里的元素类型是数字对象|
-|s.typecode |• | |返回只有一个字符的字符串，代表数组元素|
+|s.tobytes() ||• | 把所有元素的机器值用 bytes 对象的形式返回|
+|s.tofile(f) | |• | 把所有元素以机器值的形式写入一个文件|
+|s.tolist() | |•| 把数组转换成列表，列表里的元素类型是数字对象|
+|s.typecode | |• | 返回只有一个字符的字符串，代表数组元素|
 
 附注:python3.4 后数组不再支持 array.sort()方法
 `a = array.array(a.typecode, sorted(a))`
@@ -453,15 +453,15 @@ deque([40, 30, 20, 10, 3, 4, 5, 6, 7, 8], maxlen=10)
 |s.\_\_add\_\_(s2) |•| |s + s2，拼接|
 |s.\_\_iadd\_\_(s2) |• |•| s += s2，就地拼接|
 |s.append(e) |•| • |添加一个元素到最右侧（到最后一个元素之后）|
-|s.appendleft(e) |• | |添加一个元素到最左侧（到第一个元素之前）|
+|s.appendleft(e) | |• |添加一个元素到最左侧（到第一个元素之前）|
 |s.clear() |•| •| 删除所有元素|
 |s.\_\_contains\_\_(e) |•| |s 是否含有 e|
 |s.copy() |•| |对列表浅复制|
-|s.\_\_copy\_\_() |•| |对 copy.copy（浅复制）的支持|
+|s.\_\_copy\_\_() | |•|对 copy.copy（浅复制）的支持|
 |s.count(e) |•| •| s 中 e 出现的次数|
 |s.\_\_delitem\_\_(p) |• |• |把位置 p 的元素移除|
 |s.extend(i) |• |• |将可迭代对象 i 中的元素添加到尾部|
-|s.extendleft(i) |•| |将可迭代对象 i 中的元素添加到头部|
+|s.extendleft(i)  ||•|将可迭代对象 i 中的元素添加到头部|
 |s.\_\_getitem\_\_(p) |• |• |s[p]，读取位置 p 的元素|
 |s.index(e) |• | |找到 e 在序列中第一次出现的位置|
 |s.insert(p, e) |• | |在位于 p 的元素之前插入元素 e|
@@ -471,11 +471,11 @@ deque([40, 30, 20, 10, 3, 4, 5, 6, 7, 8], maxlen=10)
 |s.\_\_imul\_\_(n) |•| |s *= n，就地重复拼接|
 |s.\_\_rmul\_\_(n) |•| |n * s，反向重复拼接 *|
 |s.pop() |• |• |移除最后一个元素并返回它的值 #|
-|s.popleft() |•| |移除第一个元素并返回它的值|
+|s.popleft() ||•| 移除第一个元素并返回它的值|
 |s.remove(e) |• |• |移除序列里第一次出现的 e 元素|
 |s.reverse() |• |• |调转序列中元素的位置|
 |s.\_\_reversed\_\_() |• |• |返回一个从尾部开始扫描元素的迭代器|
-|s.rotate(n) |• | |把 n 个元素从队列的一端移到另一端|
+|s.rotate(n) | |• | 把 n 个元素从队列的一端移到另一端|
 |s.\_\_setitem\_\_(p, e) |• |• |s[p] = e，把位于 p 位置的元素替换成 e|
 |s.sort([key], [revers]) |• | |就地排序序列，可选参数有 key 和 reverse|
 
