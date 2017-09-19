@@ -32,13 +32,13 @@
 ### 2.1 列表
 #### 列表推导
   - list comprehension 简称为 listcomps
-  - 适用:只用列表推导来创建新的列表，并且尽量保持简短
+  - 适用: 只用列表推导来创建新的列表，并且尽量保持简短
   - 特点:
     - Python3 列表推导有局部作用域，不会有变量泄漏的问题
     - Python2 在列表推导中 for 关键词之后的赋值操作可能会影响列表推导上下文中的同名变量
 
 ```python
-Python 2.7.6 (default, Mar 22 2014, 22:59:38)
+Python 2.7.6 (default, Mar 22 2014, 22: 59: 38)
 [GCC 4.8.2] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
 >>> x = 'my precious'
@@ -48,8 +48,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 #### 生成器表达式
   - generator expression 简称为 genexps
-  - 语法:与列表推导类似，把方括号换成圆括号
-  - 特点:遵守了迭代器协议，可以逐个地产出元素
+  - 语法: 与列表推导类似，把方括号换成圆括号
+  - 特点: 遵守了迭代器协议，可以逐个地产出元素
 
 ```python
 >>> symbols = '$¢£¥€¤'
@@ -62,9 +62,9 @@ array('I', [36, 162, 163, 165, 8364, 164])
 
 ### 2.2 元组
 #### 元组拆包
-  - 适用:可以应用到任何可迭代对象上
-  - 要求:被可迭代对象中的元素数量必须要跟接受这些元素的空档数一致
-  - 语法: Python3
+  - 适用: 可以应用到任何可迭代对象上
+  - 要求: 被可迭代对象中的元素数量必须要跟接受这些元素的空档数一致
+  - 语法:  Python3
     - \* 表示忽略多余元素
     - 平行赋值中， * 前缀只能用在一个变量名前面，但是这个变量可以出现在赋值表达式的任意位置
     - 可以是嵌套的，只要接受元组的嵌套结构符合表达式本身的嵌套结构
@@ -93,14 +93,14 @@ array('I', [36, 162, 163, 165, 8364, 164])
 
 #### 具名元组
 collections.namedtuple
-  - 作用:工厂函数，用来构建一个带字段名的元组和一个有名字的类
+  - 作用: 工厂函数，用来构建一个带字段名的元组和一个有名字的类
   - 特点:
     - 实例所消耗的内存跟元组是一样的,因为字段名都被存在对应的类里面
     - 实例跟普通的对象实例比起来也要小一些，因为Python 不会用 \_\_dict\_\_ 来存放这些实例的属性
   - 专有属性:
-    - 类属性 \_fields:包含这个类所有字段名称的元组
-    - 类方法 \_make(iterable):接受一个可迭代对象来生成这类的实例
-    - 实例方法 \_asdict():把具名元组以 collections.OrderedDict 的形式返回
+    - 类属性 \_fields: 包含这个类所有字段名称的元组
+    - 类方法 \_make(iterable): 接受一个可迭代对象来生成这类的实例
+    - 实例方法 \_asdict(): 把具名元组以 collections.OrderedDict 的形式返回
 
 ```python
 >>> from collections import namedtuple
@@ -123,7 +123,7 @@ OrderedDict([('name', 'Delhi NCR'), ('country', 'IN'), ('population',
 
 #### 列表与元组对比
 |方法|列表|元组|作用|
-|:---|:---|:---|:---|
+|: ---|: ---|: ---|: ---|
 |s.\_\_add\_\_(s2) |•| • |s + s2，拼接|
 |s.\_\_iadd\_\_(s2)|•| |s += s2，就地拼接|
 |s.append(e) |•| |在尾部添加一个新元素|
@@ -152,43 +152,43 @@ OrderedDict([('name', 'Delhi NCR'), ('country', 'IN'), ('population',
 ## 3. 序列用法
 ### 3.1 切片用法
 #### 实现概览
-seq[a\:b\:c]
-  - a\:b\:c - 只能作为索引或者下标用在 [] 中来返回一个切片对象: slice(a, b, c)
+seq[a\: b\: c]
+  - a\: b\: c - 只能作为索引或者下标用在 [] 中来返回一个切片对象:  slice(a, b, c)
   - 求值的时候， Python会调用 seq.\_\_getitem\_\_(slice(start, stop, step))
 
 #### 用法概览
 1. 可以给切片命名,比用硬编码的数字区间要方便得多
 2. 多维切片 - 以逗号分开的多个索引或者是切片
-  - 实现:要得到 a[i, j] 的值， Python 会调用 a.\_\_getitem\_\_((i, j))
-  - 附注:Python 内置的序列类型都是一维的，只支持单一的索引
+  - 实现: 要得到 a[i, j] 的值， Python 会调用 a.\_\_getitem\_\_((i, j))
+  - 附注: Python 内置的序列类型都是一维的，只支持单一的索引
 3. 省略
-  - 语法:正确书写方法是三个英语句号（...）
-  - 实现:省略在 Python 解析器眼里是一个符号，而实际上它是 Ellipsis 对
-象的别名，而 Ellipsis 对象又是 ellipsis 类的单一实例；可以当作切片规范的一部分，
-也可以用在函数的参数清单中，比如 f(a, ..., z)，或 a[i:...]
-  - 应用:numpy  eg:如果 x 是四维数组，那么 x[i, ...] 就是 x[i, :, :, :]
-  - 附注:还未发现 Python 标准库里有任何 Ellipsis 或者是多维索引的用法
+  - 语法: 正确书写方法是三个英语句号（...）
+  - 实现: 省略在 Python 解析器眼里是一个符号，而实际上它是 Ellipsis 对
+象的别名，而 Ellipsis 对象又是 ellipsis 类的单一实例;  可以当作切片规范的一部分，
+也可以用在函数的参数清单中，比如 f(a, ..., z)，或 a[i: ...]
+  - 应用: numpy  eg: 如果 x 是四维数组，那么 x[i, ...] 就是 x[i, : , : , : ]
+  - 附注: 还未发现 Python 标准库里有任何 Ellipsis 或者是多维索引的用法
 4. 给切片赋值
-  - 用法:把切片放在赋值语句的左边，或把它作为 del 操作的对象
-  - 语法:如果赋值的对象是一个切片，那么赋值语句的右侧必须是个可迭代对象
+  - 用法: 把切片放在赋值语句的左边，或把它作为 del 操作的对象
+  - 语法: 如果赋值的对象是一个切片，那么赋值语句的右侧必须是个可迭代对象
 ```python
 >>> l = list(range(10))
 >>> l
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
->>> l[2:5] = [20, 30]
+>>> l[2: 5] = [20, 30]
 >>> l
 [0, 1, 20, 30, 5, 6, 7, 8, 9]
->>> del l[5:7]
+>>> del l[5: 7]
 >>> l
 [0, 1, 20, 30, 5, 8, 9]
->>> l[3::2] = [11, 22]
+>>> l[3: : 2] = [11, 22]
 >>> l
 [0, 1, 20, 11, 5, 22, 9]
->>> l[2:5] = 100 ➊
+>>> l[2: 5] = 100 ➊
 Traceback (most recent call last):
 File "<stdin>", line 1, in <module>
-TypeError: can only assign an iterable
->>> l[2:5] = [100]
+TypeError:  can only assign an iterable
+>>> l[2: 5] = [100]
 >>> l
 [0, 1, 100, 22, 9]
 ```
@@ -213,13 +213,13 @@ seq+=a:
     - 如果seq实现了 \_\_iadd\_\_(就地加法)， 调用此方法
     - 未实现，表达式相当于 seq = seq + a，调用seq.\_\_add\_\_(a) 返回一个新对象
     并赋值给seq
-  - 可变序列:一般都实现了  \_\_iadd\_\_ 方法，因此 += 是就地加法
-  - 不可变序列:不支持这个操作，使用\_\_add\_\_方法返回一个新对象
+  - 可变序列: 一般都实现了  \_\_iadd\_\_ 方法，因此 += 是就地加法
+  - 不可变序列: 不支持这个操作，使用\_\_add\_\_方法返回一个新对象
 
 #### 性能问题
 1. 对不可变序列进行重复拼接操作的话，效率会很低，因为每次都有一个新对象，而解释器
 需要把原来对象中的元素先复制到新的对象里，然后再追加新的元素
-2. str 是一个例外，因为对字符串做 += 实在是太普遍了，所以 CPython 对它做了优化；
+2. str 是一个例外，因为对字符串做 += 实在是太普遍了，所以 CPython 对它做了优化;  
 为 str 初始化内存的时候，程序会为它留出额外的可扩展空间，因此进行增量操作的时候，
 并不会涉及复制原有字符串到新位置这类操作
 
@@ -229,7 +229,7 @@ seq+=a:
 >>> t[2] += [50, 60]
 Traceback (most recent call last):
 File "<stdin>", line 1, in <module>
-TypeError: 'tuple' object does not support item assignment
+TypeError:  'tuple' object does not support item assignment
 >>> t
 (1, 2, [30, 40, 50, 60])
 
@@ -259,18 +259,18 @@ TypeError: 'tuple' object does not support item assignment
   - 可以接受任何形式的可迭代对象作为参数，甚至包括不可变序列或生成器
   - 不管接受的是怎样的参数，最后都会返回一个列表
 3. 可选参数(二者都有)
-  - reverse - 默认为False，升序输出；True 降序输出
+  - reverse - 默认为False，升序输出;  True 降序输出
   - key - 只有一个参数的函数，用于产生排序比较的对比关键字，默认用元素自己的值来排序
-  - 附注:排序算法是稳定的
+  - 附注: 排序算法是稳定的
 
 ### 3.5 用bisect来管理已排序的序列
 bisect(a, x[, lo[, hi]])
-  - a:一个有序的序列
-  - x:待查找元素
-  - lo:默认值是 0，用于限定搜索的下线
-  - hi:默认值是序列的长度，用于限定搜索的上线
-  - 作用:返回一个位置，该位置前面的 a 的值，都小于或等于 needle 的值
-  - 应用:在很长的有序序列中作为 index 的替代，用来更快地查找一个元素的位置
+  - a: 一个有序的序列
+  - x: 待查找元素
+  - lo: 默认值是 0，用于限定搜索的下线
+  - hi: 默认值是序列的长度，用于限定搜索的上线
+  - 作用: 返回一个位置，该位置前面的 a 的值，都小于或等于 needle 的值
+  - 应用: 在很长的有序序列中作为 index 的替代，用来更快地查找一个元素的位置
   - bisect_right==bisect - 返回跟它相等的元素之后的位置
   - bisect_left - 返回跟它相等的元素之前的位置
 ```python
@@ -283,7 +283,7 @@ bisect(a, x[, lo[, hi]])
 ```
 
 insort(seq, item[, lo[, hi]]):
-  - 作用:有序插入，把变量 item 插入到序列 seq 中，并能保持 seq 的升序顺序
+  - 作用: 有序插入，把变量 item 插入到序列 seq 中，并能保持 seq 的升序顺序
   - insort_right == insort - 在 insect_right 返回的位置插入
   - insort_left - 在bisect_left 返回的位置插入
 
@@ -294,10 +294,10 @@ array.array:
   - 直接存放的数字的字节，而不是对象的引用，效率更高，内存更小
   - 支持所有跟可变序列有关的操作
 
-**表2-2:列表和数组的属性和方法**  
+**表2-2: 列表和数组的属性和方法**  
 
 |方法|列表|数组|作用|
-|:---|:---|:---|:---|
+|: ---|: ---|: ---|: ---|
 |s.\_\_add(s2)\_\_ |•| •| s + s2 ，拼接|
 |s.\_\_iadd(s2)\_\_ |•| •| s += s2 ，就地拼接|
 |s.append(e) |• |• |在尾部添加一个元素|
@@ -333,7 +333,7 @@ array.array:
 |s.tolist() | |•| 把数组转换成列表，列表里的元素类型是数字对象|
 |s.typecode | |• | 返回只有一个字符的字符串，代表数组元素|
 
-附注:python3.4 后数组不再支持 array.sort()方法
+附注: python3.4 后数组不再支持 array.sort()方法
 `a = array.array(a.typecode, sorted(a))`
 
 ```python
@@ -358,8 +358,8 @@ True
 
 ### 4.2 内存视图
 memoryview:
-  - 作用:让用户在不复制内容的情况下操作同一个数组的不同切片
-  - 介绍:<http://stackoverflow.com/
+  - 作用: 让用户在不复制内容的情况下操作同一个数组的不同切片
+  - 介绍: <http: //stackoverflow.com/
 questions/4845418/when-should-a-memoryview-be-used/>
 
 memoryview.cast
@@ -390,33 +390,33 @@ Numpy:
 ```python
 >>> import numpy
 >>> floats = numpy.loadtxt('floats-10M-lines.txt') ➊
->>> floats[-3:] ➋
+>>> floats[-3: ] ➋
 array([ 3016362.69195522, 535281.10514262, 4566560.44373946])
 >>> floats *= .5 ➌
->>> floats[-3:]
+>>> floats[-3: ]
 array([ 1508181.34597761, 267640.55257131, 2283280.22186973])
 >>> from time import perf_counter as pc ➍ # 导入精度和性能都比较高的计时器 >=3.3
->>> t0 = pc(); floats /= 3; pc() - t0 ➎
+>>> t0 = pc();  floats /= 3;  pc() - t0 ➎
 0.03690556302899495
 >>> numpy.save('floats-10M', floats) ➏ # 把数组存入后缀为 .npy 的二进制文件
 # load 方法利用了一种叫作内存映射的机制，在内存不足的情况下仍然可以对数组做切片
 >>> floats2 = numpy.load('floats-10M.npy', 'r+') ➐
 >>> floats2 *= 6
->>> floats2[-3:] ➑
+>>> floats2[-3: ] ➑
 memmap([3016362.69195522, 535281.10514262, 4566560.44373946])
 ```
 
 Scipy:
   - 提供了很多跟科学计算有关的算法，专为线性代数、数值积分和统计学而设计
-  - Netlib:<http://www.netlib.org>
+  - Netlib: <http: //www.netlib.org>
   -  SciPy 把基于C 和 Fortran 的工业级数学计算功能用交互式且高度抽象的 Python 包装起来
 
 扩展包:
-  - pandas: <http://pandas.pydata.org>
-  - Blaze: <http://blaze.pydata.org>
+  - pandas:  <http: //pandas.pydata.org>
+  - Blaze:  <http: //blaze.pydata.org>
 
 ### 4.4 队列
-collections.deque:双向队列
+collections.deque: 双向队列
   - 优势:
     - 线程安全，可以快速从两端添加或者删除元素
     - 新建一个双向队列时，可指定队列的大小，队列满时在一端新增元素会自动删除另一端的顶端元素
@@ -446,10 +446,10 @@ deque([3, 4, 5, 6, 7, 8, 9, 11, 22, 33], maxlen=10)
 deque([40, 30, 20, 10, 3, 4, 5, 6, 7, 8], maxlen=10)
 ```
 
-表2-3:列表和双向队列的方法
+表2-3: 列表和双向队列的方法
 
 |方法|列表|双向队列|作用|
-|:---|:---|:---|:---|
+|: ---|: ---|: ---|: ---|
 |s.\_\_add\_\_(s2) |•| |s + s2，拼接|
 |s.\_\_iadd\_\_(s2) |• |•| s += s2，就地拼接|
 |s.append(e) |•| • |添加一个元素到最右侧（到最后一个元素之后）|
@@ -507,37 +507,37 @@ heapq:
 
 ## 常用模块
 bisect:
-  - url:<https://docs.python.org/3/library/bisect.html>
-  - 介绍:二分查找
+  - url: <https: //docs.python.org/3/library/bisect.html>
+  - 介绍: 二分查找
 
 sortedcollection:
-  - url:< http://code.activestate.com/recipes/577197-sortedcollection/>
-  - 介绍:排序集合模块。集成了 bisect 功能，比独立的 bisect 更易用
+  - url: < http: //code.activestate.com/recipes/577197-sortedcollection/>
+  - 介绍: 排序集合模块。集成了 bisect 功能，比独立的 bisect 更易用
 
 pickle:
-  - url:<https://docs.python.org/3/library/pickle.html>
-  - 介绍:快速序列化数字类型 eg:pickle.dump
-  - 附注:可以处理几乎所有的内置数字类型，包含复数、嵌套集合，甚至用户自定义的类
+  - url: <https: //docs.python.org/3/library/pickle.html>
+  - 介绍: 快速序列化数字类型 eg: pickle.dump
+  - 附注: 可以处理几乎所有的内置数字类型，包含复数、嵌套集合，甚至用户自定义的类
 
 
 ## 延伸阅读
 Python:
-  - sorted 用法:<https://docs.python.org/3/howto/sorting.html>
-  - \*extra 句法:<https://www.python.org/dev/peps/pep-3132/>
+  - sorted 用法: <https: //docs.python.org/3/howto/sorting.html>
+  - \*extra 句法: <https: //www.python.org/dev/peps/pep-3132/>
   - 可迭代对象拆包:
-    - <http://bugs.python.org/issue2292>
-    - <https://www.python.org/dev/peps/pep-0448/>
-  - collections:<https://docs.python.org/3/library/collections.html>
+    - <http: //bugs.python.org/issue2292>
+    - <https: //www.python.org/dev/peps/pep-0448/>
+  - collections: <https: //docs.python.org/3/library/collections.html>
 
 blog:
-- memoryview:<http://eli.thegreenplace.net/2011/11/28/less-copies-in-python-with-the-buffer-protocol-and-memoryviews/>
+- memoryview: <http: //eli.thegreenplace.net/2011/11/28/less-copies-in-python-with-the-buffer-protocol-and-memoryviews/>
 
 实用工具
   - Python Tutor:
-    - url: <http://www.pythontutor.com>
-    - 介绍: 对 Python 运行原理进行可视化分析的工具
+    - url:  <http: //www.pythontutor.com>
+    - 介绍:  对 Python 运行原理进行可视化分析的工具
   - IPython:
-    - url: <http://ipython.org/notebook.html>
+    - url:  <http: //ipython.org/notebook.html>
 
 书籍:
   - 《 Python Cookbook（第 3 版）中文版》重点放在了 Python 的语义上
@@ -555,4 +555,4 @@ blog:
 
 **Timesort**
   - sorted 和 list.sort 背后的排序算法是 Timsort
-  - 它是一种自适应算法，会根据原始数据的顺序特点交替使用插入排序和归并排序，以达到最佳效率 <https://en.wikipedia.org/wiki/Timsort>
+  - 它是一种自适应算法，会根据原始数据的顺序特点交替使用插入排序和归并排序，以达到最佳效率 <https: //en.wikipedia.org/wiki/Timsort>
