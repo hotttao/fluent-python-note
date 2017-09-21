@@ -358,14 +358,15 @@ True
 
 ### 4.2 内存视图
 memoryview:
-  - 作用: 让用户在不复制内容的情况下操作同一个数组的不同切片
-  - 介绍: <http: //stackoverflow.com/
-questions/4845418/when-should-a-memoryview-be-used/>
+  - 作用：允许在二进制数据结构之间共享内存,
+    - 通过其他二进制序列、打包的数组构建 memoryvideo对象时，不会复制字节序列
+    - 对 memoryview 对象的切片，也不会复制字节序列
+  - 介绍:
+    - <http://stackoverflow.com/questions/4845418/when-should-a-memoryview-be-used/>
+    - <https://docs.python.org/3/library/stdtypes.html#memory-views>
 
 memoryview.cast
-  - 概念跟数组模块类似，能用不同的方式读写同一块内存数据,内容
-字节不会随意移动
-  - 会把同一块内存里的内容打包成一个全新的 memoryview 对象
+  - 类似于类型转换，能用不同的方式读写同一块内存数据
 
 ```python
 # 通过改变数组中的一个字节来更新数组里某个元素的值 44 页
