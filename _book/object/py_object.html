@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>1. 数据模型 · GitBook</title>
+        <title>3.2 Python风格对象 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="data_module.html" />
+    <link rel="next" href="slice.html" />
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="rubbish_collection.html" />
     
 
     </head>
@@ -102,9 +102,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="./">
+        <li class="chapter " data-level="1.2" data-path="../structure/">
             
-                <a href="./">
+                <a href="../structure/">
             
                     
                     1. 数据模型
@@ -116,9 +116,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="data_module.html">
+        <li class="chapter " data-level="1.2.1" data-path="../structure/data_module.html">
             
-                <a href="data_module.html">
+                <a href="../structure/data_module.html">
             
                     
                     1.1 Python 数据模型
@@ -129,9 +129,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="sequence.html">
+        <li class="chapter " data-level="1.2.2" data-path="../structure/sequence.html">
             
-                <a href="sequence.html">
+                <a href="../structure/sequence.html">
             
                     
                     1.2 序列
@@ -142,9 +142,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="mapping.html">
+        <li class="chapter " data-level="1.2.3" data-path="../structure/mapping.html">
             
-                <a href="mapping.html">
+                <a href="../structure/mapping.html">
             
                     
                     1.3 字典和集合
@@ -155,9 +155,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="string.html">
+        <li class="chapter " data-level="1.2.4" data-path="../structure/string.html">
             
-                <a href="string.html">
+                <a href="../structure/string.html">
             
                     
                     1.4 文本和字节序列
@@ -231,9 +231,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../object/">
+        <li class="chapter " data-level="1.4" data-path="./">
             
-                <a href="../object/">
+                <a href="./">
             
                     
                     3. 面向对象
@@ -245,9 +245,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../object/rubbish_collection.html">
+        <li class="chapter " data-level="1.4.1" data-path="rubbish_collection.html">
             
-                <a href="../object/rubbish_collection.html">
+                <a href="rubbish_collection.html">
             
                     
                     3.1 对象引用与垃圾回收
@@ -258,9 +258,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../object/py_object.html">
+        <li class="chapter active" data-level="1.4.2" data-path="py_object.html">
             
-                <a href="../object/py_object.html">
+                <a href="py_object.html">
             
                     
                     3.2 Python风格对象
@@ -271,9 +271,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../object/slice.html">
+        <li class="chapter " data-level="1.4.3" data-path="slice.html">
             
-                <a href="../object/slice.html">
+                <a href="slice.html">
             
                     
                     3.3 序列的散列和切片
@@ -284,9 +284,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="../object/abstract.html">
+        <li class="chapter " data-level="1.4.4" data-path="abstract.html">
             
-                <a href="../object/abstract.html">
+                <a href="abstract.html">
             
                     
                     3.4 抽象基类
@@ -297,9 +297,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="../object/inherit.html">
+        <li class="chapter " data-level="1.4.5" data-path="inherit.html">
             
-                <a href="../object/inherit.html">
+                <a href="inherit.html">
             
                     
                     3.5 类继承
@@ -310,9 +310,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.6" data-path="../object/overload.html">
+        <li class="chapter " data-level="1.4.6" data-path="overload.html">
             
-                <a href="../object/overload.html">
+                <a href="overload.html">
             
                     
                     3.6 运算符重载
@@ -590,7 +590,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >1. 数据模型</a>
+        <a href=".." >3.2 Python风格对象</a>
     </h1>
 </div>
 
@@ -605,22 +605,88 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="1-&#x6570;&#x636E;&#x6A21;&#x578B;">1. &#x6570;&#x636E;&#x6A21;&#x578B;</h1>
-<blockquote>
-<p>&#x672C;&#x6587;&#x4E3A;&#x300A;&#x6D41;&#x7545;&#x7684;Python&#x300B;&#x7684;&#x8BFB;&#x4E66;&#x7B14;&#x8BB0;&#xFF0C;&#x5F3A;&#x70C8;&#x63A8;&#x8350;&#x9605;&#x8BFB;&#x539F;&#x4E66;<br>Fluent Python by Luciano Ramalho (O&#x2019;Reilly). Copyright
-2015 Luciano Ramalho, 978-1-491-94600-8.</p>
-</blockquote>
-<h2 id="&#x5185;&#x5BB9;&#x6982;&#x8981;">&#x5185;&#x5BB9;&#x6982;&#x8981;</h2>
+                                <h1 id="32-python&#x98CE;&#x683C;&#x5BF9;&#x8C61;">3.2 Python&#x98CE;&#x683C;&#x5BF9;&#x8C61;</h1>
+<h2 id="&#x6458;&#x8981;">&#x6458;&#x8981;</h2>
+<p>&#x9E2D;&#x5B50;&#x7C7B;&#x578B;&#xFF1A;&#x6309;&#x7167;&#x9884;&#x5B9A;&#x884C;&#x4E3A;&#x5B9E;&#x73B0;&#x5BF9;&#x8C61;&#x6240;&#x9700;&#x7684;&#x65B9;&#x6CD5;</p>
+<h2 id="&#x5BF9;&#x8C61;&#x8868;&#x793A;&#x5F62;&#x5F0F;">&#x5BF9;&#x8C61;&#x8868;&#x793A;&#x5F62;&#x5F0F;</h2>
 <ol>
-<li>Python &#x7684;&#x6570;&#x636E;&#x6A21;&#x578B;&#x6982;&#x8FF0;(data model)</li>
-<li>&#x96C6;&#x5408;&#x7C7B;&#x578B;&#xFF1A;<ul>
-<li>&#x5E8F;&#x5217;(sequence)</li>
-<li>&#x6620;&#x5C04;(mapping)</li>
-<li>&#x96C6;&#x5408;(set)</li>
+<li>_<em>str_</em>:str()</li>
+<li>_<em>repr_</em>:repr()</li>
+<li>_<em>bytes_</em>:bytes() -- &#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x7684;&#x5B57;&#x8282;&#x5E8F;&#x5217;&#x8868;&#x793A;&#x5F62;&#x5F0F;</li>
+<li>_<em>format_</em>:format() str.format()</li>
+<li>_<em>int_</em> :int()</li>
+<li>_<em>float_</em>:float()</li>
+<li>_<em>complex_</em> :complex()</li>
+</ol>
+<h2 id="&#x7279;&#x6B8A;&#x65B9;&#x6CD5;&#xFF1A;">&#x7279;&#x6B8A;&#x65B9;&#x6CD5;&#xFF1A;</h2>
+<ol>
+<li>_<em>iter_</em>:&#x628A;&#x7C7B;&#x53D8;&#x6210;&#x53EF;&#x8FED;&#x4EE3;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x6837;&#x624D;&#x80FD;&#x62C6;&#x5305;</li>
+</ol>
+<h2 id="classmethod">classmethod</h2>
+<p>&#x4F5C;&#x7528;&#xFF1A;</p>
+<ul>
+<li>&#x5B9A;&#x4E49;&#x64CD;&#x4F5C;&#x7C7B;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x64CD;&#x4F5C;&#x5B9E;&#x4F8B;&#x7684;&#x65B9;&#x6CD5;</li>
+<li>classmethod &#x6700;&#x5E38;&#x89C1;&#x7684;&#x7528;&#x9014;&#x662F;&#x5B9A;&#x4E49;&#x5907;&#x9009;&#x6784;&#x9020;&#x65B9;&#x6CD5;</li>
+</ul>
+<p>staticmethod&#xFF1A;</p>
+<ul>
+<li>&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x666E;&#x901A;&#x7684;&#x51FD;&#x6570;</li>
+<li>&#x5728;&#x7C7B;&#x7684;&#x5B9A;&#x4E49;&#x4F53;&#x4E2D;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728;&#x6A21;&#x5757;&#x5C42;&#x5B9A;&#x4E49;</li>
+</ul>
+<h2 id="&#x53EF;&#x6563;&#x5217;">&#x53EF;&#x6563;&#x5217;</h2>
+<p>&#x9700;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ol>
+<li>_<em>hash_</em>:<ul>
+<li>&#x5E94;&#x8BE5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6574;&#x6570;</li>
+<li>&#x8FD8;&#x8981;&#x8003;&#x8651;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x7684;&#x6563;&#x5217;&#x503C;&#xFF08; _<em>eq_</em> &#x65B9;&#x6CD5;&#x4E5F;&#x8981;&#x4F7F;&#x7528;&#xFF09;</li>
+<li>&#x6700;&#x597D;&#x4F7F;&#x7528;&#x4F4D;&#x8FD0;&#x7B97;&#x7B26;&#x5F02;&#x6216;&#xFF08; ^&#xFF09;&#x6DF7;&#x5408;&#x5404;&#x5206;&#x91CF;&#x7684;&#x6563;&#x5217;&#x503C;</li>
 </ul>
 </li>
-<li>&#x5B57;&#x7B26;&#x4E32;(str)&#x548C;&#x5B57;&#x8282;&#x5E8F;&#x5217;(bytes)</li>
+<li>_<em>eq_</em>:</li>
+<li>&#x5BF9;&#x8C61;&#x4E0D;&#x53EF;&#x53D8;</li>
 </ol>
+<h2 id="&#x79C1;&#x6709;&#x5C5E;&#x6027;">&#x79C1;&#x6709;&#x5C5E;&#x6027;</h2>
+<p>&#x5B9A;&#x4E49;&#xFF1A;</p>
+<ul>
+<li>&#x4E24;&#x4E2A;&#x524D;&#x5BFC;&#x4E0B;&#x5212;&#x7EBF;&#xFF0C;&#x5C3E;&#x90E8;&#x6CA1;&#x6709;&#x6216;&#x6700;&#x591A;&#x6709;&#x4E00;&#x4E2A;&#x4E0B;&#x5212;&#x7EBF;&#x547D;&#x540D;&#x7684;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;</li>
+<li>Python &#x4F1A;&#x628A;&#x5C5E;&#x6027;&#x540D;&#x5B58;&#x5165;&#x5B9E;&#x4F8B;&#x7684; _<em>dict_</em> &#x5C5E;&#x6027;&#x4E2D;&#xFF0C;&#x800C;&#x4E14;&#x4F1A;&#x5728;&#x524D;&#x9762;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A;&#x4E0B;&#x5212;&#x7EBF;&#x548C;&#x7C7B;&#x540D;</li>
+<li>Python &#x89E3;&#x91CA;&#x5668;&#x4E0D;&#x4F1A;&#x5BF9;&#x4F7F;&#x7528;&#x5355;&#x4E2A;&#x4E0B;&#x5212;&#x7EBF;&#x7684;&#x5C5E;&#x6027;&#x540D;&#x505A;&#x7279;&#x6B8A;&#x5904;&#x7406;</li>
+</ul>
+<p>&#x76EE;&#x7684;&#xFF1A;&#x907F;&#x514D;&#x610F;&#x5916;&#x8BBF;&#x95EE;&#xFF0C;&#x4E0D;&#x80FD;&#x9632;&#x6B62;&#x6545;&#x610F;&#x505A;&#x9519;&#x4E8B;</p>
+<h2 id="slots">_<em>slots_</em></h2>
+<p>&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#xFF1A;</p>
+<ul>
+<li>&#x9ED8;&#x8BA4; Python &#x5728;&#x5B9E;&#x4F8B;&#x4E2D;&#x540D;&#x4E3A; _<em>dict_</em> &#x7684;&#x5B57;&#x5178;&#x91CC;&#x5B58;&#x50A8;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;</li>
+<li>_<em>slots_</em>:&#x8BA9;&#x89E3;&#x91CA;&#x5668;&#x5728;&#x5143;&#x7EC4;&#x4E2D;&#x5B58;&#x50A8;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#xFF0C;&#x800C;&#x4E0D;&#x7528;&#x5B57;&#x5178;</li>
+<li>&#x7EE7;&#x627F;&#x81EA;&#x8D85;&#x7C7B;&#x7684; _<em>slots_</em> &#x5C5E;&#x6027;&#x6CA1;&#x6709;&#x6548;&#x679C;,Python &#x53EA;&#x4F1A;&#x4F7F;&#x7528;&#x5404;&#x4E2A;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49;&#x7684; slots &#x5C5E;&#x6027;</li>
+</ul>
+<p>__slots&#x7279;&#x6027;:</p>
+<ul>
+<li>&#x5728;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49; _<em>slots_<em> &#x5C5E;&#x6027;&#x7684;&#x76EE;&#x7684;&#x662F;&#x544A;&#x8BC9;&#x89E3;&#x91CA;&#x5668;&#xFF1A;&#x201C;&#x8FD9;&#x4E2A;&#x7C7B;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x90FD;&#x5728;&#x8FD9;&#x513F;&#x4E86;&#xFF01;&#x201D;Python &#x4F1A;&#x5728;&#x5404;&#x4E2A;&#x5B9E;&#x4F8B;&#x4E2D;&#x4F7F;&#x7528;&#x7C7B;&#x4F3C;&#x5143;&#x7EC4;&#x7684;&#x7ED3;&#x6784;&#x5B58;&#x50A8;&#x5B9E;&#x4F8B;&#x53D8;&#x91CF;&#xFF0C;&#x4ECE;&#x800C;&#x907F;&#x514D;&#x4F7F;&#x7528;&#x6D88;&#x8017;&#x5185;&#x5B58;&#x7684; __dict</em></em> &#x5C5E;&#x6027;</li>
+<li>&#x5982;&#x679C;&#x8981;&#x5904;&#x7406;&#x6570;&#x767E;&#x4E07;&#x4E2A;&#x6570;&#x503C;&#x5BF9;&#x8C61;&#xFF0C;&#x5E94;&#x8BE5;&#x4F7F;&#x7528; NumPy &#x6570;&#x7EC4;</li>
+<li>&#x5728;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49; _<em>slots_<em> &#x5C5E;&#x6027;&#x4E4B;&#x540E;&#xFF0C;&#x5B9E;&#x4F8B;&#x4E0D;&#x80FD;&#x518D;&#x6709; __slots</em></em> &#x4E2D;&#x6240;&#x5217;&#x540D;&#x79F0;&#x4E4B;&#x5916;&#x7684;&#x5176;&#x4ED6;&#x5C5E;&#x6027;</li>
+<li>&#x5982;&#x679C;&#x628A; _<em>dict_<em> &#x8FD9;&#x4E2A;&#x540D;&#x79F0;&#x6DFB;&#x52A0;&#x5230; _<em>slots_</em>&#x4E2D;&#xFF0C;&#x5B9E;&#x4F8B;&#x4F1A;&#x5728;&#x5143;&#x7EC4;&#x4E2D;&#x4FDD;&#x5B58;&#x5404;&#x4E2A;&#x5B9E;&#x4F8B;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x6B64;&#x5916;&#x8FD8;&#x652F;&#x6301;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x5C5E;&#x6027;&#xFF0C;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#x5B58;&#x50A8;&#x5728;&#x5E38;&#x89C4;&#x7684; __dict\</em></em> &#x4E2D;</li>
+</ul>
+<p>__slots&#x95EE;&#x9898;:</p>
+<ul>
+<li>&#x6BCF;&#x4E2A;&#x5B50;&#x7C7B;&#x90FD;&#x8981;&#x5B9A;&#x4E49; _<em>slots_<em> &#x5C5E;&#x6027;&#xFF0C;&#x56E0;&#x4E3A;&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x5FFD;&#x7565;&#x7EE7;&#x627F;&#x7684; __slots</em></em> &#x5C5E;&#x6027;</li>
+<li>&#x5B9E;&#x4F8B;&#x53EA;&#x80FD;&#x62E5;&#x6709; _<em>slots_<em> &#x4E2D;&#x5217;&#x51FA;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x9664;&#x975E;&#x628A; &apos;_<em>dict_</em>&apos; &#x52A0;&#x5165; __slots\</em></em> &#x4E2D;</li>
+<li>&#x5982;&#x679C;&#x4E0D;&#x628A; &apos;_<em>weakref_<em>&apos; &#x52A0;&#x5165; __slots</em></em>&#xFF0C;&#x5B9E;&#x4F8B;&#x5C31;&#x4E0D;&#x80FD;&#x4F5C;&#x4E3A;&#x5F31;&#x5F15;&#x7528;&#x7684;&#x76EE;&#x6807;</li>
+</ul>
+<p>_<em>weakref_</em>:</p>
+<ul>
+<li>&#x8BA9;&#x5BF9;&#x8C61;&#x652F;&#x6301;&#x5F31;&#x5F15;&#x7528;</li>
+<li>&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;&#x7C7B;&#x4E2D;&#x9ED8;&#x8BA4;&#x5C31;&#x6709; _<em>weakref_</em> &#x5C5E;&#x6027;</li>
+<li>&#x5982;&#x679C;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49;&#x4E86; _<em>slots_<em> &#x5C5E;&#x6027;&#xFF0C;&#x800C;&#x4E14;&#x60F3;&#x628A;&#x5B9E;&#x4F8B;&#x4F5C;&#x4E3A;&#x5F31;&#x5F15;&#x7528;&#x7684;&#x76EE;&#x6807;&#xFF0C;&#x90A3;&#x4E48;&#x8981;&#x628A; &apos;_<em>weakref_</em>&apos;&#x6DFB;&#x52A0;&#x5230; __slots</em></em> &#x4E2D;</li>
+</ul>
+<h2 id="&#x7C7B;&#x5C5E;&#x6027;&#x8986;&#x76D6;">&#x7C7B;&#x5C5E;&#x6027;&#x8986;&#x76D6;</h2>
+<h2 id="&#x5EF6;&#x4F38;&#x9605;&#x8BFB;">&#x5EF6;&#x4F38;&#x9605;&#x8BFB;</h2>
+<h3 id="python">Python:</h3>
+<p>&#x6807;&#x51C6;&#x5E93;</p>
+<h3 id="blog">blog:</h3>
+<h3 id="&#x5B9E;&#x7528;&#x5DE5;&#x5177;">&#x5B9E;&#x7528;&#x5DE5;&#x5177;</h3>
+<h3 id="&#x4E66;&#x7C4D;">&#x4E66;&#x7C4D;:</h3>
+<h2 id="&#x9644;&#x6CE8;">&#x9644;&#x6CE8;</h2>
 
                                 
                                 </section>
@@ -648,12 +714,12 @@
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="rubbish_collection.html" class="navigation navigation-prev " aria-label="Previous page: 3.1 对象引用与垃圾回收">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="data_module.html" class="navigation navigation-next " aria-label="Next page: 1.1 Python 数据模型">
+                <a href="slice.html" class="navigation navigation-next " aria-label="Next page: 3.3 序列的散列和切片">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -664,7 +730,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1. 数据模型","level":"1.2","depth":1,"next":{"title":"1.1 Python 数据模型","level":"1.2.1","depth":2,"path":"structure/data_module.md","ref":"structure/data_module.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"structure/README.md","mtime":"2017-09-14T14:40:31.991Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-27T14:08:10.087Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.2 Python风格对象","level":"1.4.2","depth":2,"next":{"title":"3.3 序列的散列和切片","level":"1.4.3","depth":2,"path":"object/slice.md","ref":"object/slice.md","articles":[]},"previous":{"title":"3.1 对象引用与垃圾回收","level":"1.4.1","depth":2,"path":"object/rubbish_collection.md","ref":"object/rubbish_collection.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"object/py_object.md","mtime":"2017-09-23T14:14:02.128Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-27T14:08:10.087Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

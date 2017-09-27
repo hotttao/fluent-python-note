@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>1. 数据模型 · GitBook</title>
+        <title>4.2 迭代器和生成器 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="data_module.html" />
+    <link rel="next" href="contextmanager.html" />
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="control.html" />
     
 
     </head>
@@ -102,9 +102,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="./">
+        <li class="chapter " data-level="1.2" data-path="../structure/">
             
-                <a href="./">
+                <a href="../structure/">
             
                     
                     1. 数据模型
@@ -116,9 +116,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="data_module.html">
+        <li class="chapter " data-level="1.2.1" data-path="../structure/data_module.html">
             
-                <a href="data_module.html">
+                <a href="../structure/data_module.html">
             
                     
                     1.1 Python 数据模型
@@ -129,9 +129,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="sequence.html">
+        <li class="chapter " data-level="1.2.2" data-path="../structure/sequence.html">
             
-                <a href="sequence.html">
+                <a href="../structure/sequence.html">
             
                     
                     1.2 序列
@@ -142,9 +142,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="mapping.html">
+        <li class="chapter " data-level="1.2.3" data-path="../structure/mapping.html">
             
-                <a href="mapping.html">
+                <a href="../structure/mapping.html">
             
                     
                     1.3 字典和集合
@@ -155,9 +155,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="string.html">
+        <li class="chapter " data-level="1.2.4" data-path="../structure/string.html">
             
-                <a href="string.html">
+                <a href="../structure/string.html">
             
                     
                     1.4 文本和字节序列
@@ -328,9 +328,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="../control_flow/">
+        <li class="chapter " data-level="1.5" data-path="./">
             
-                <a href="../control_flow/">
+                <a href="./">
             
                     
                     4. 控制流程
@@ -342,9 +342,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../control_flow/control.html">
+        <li class="chapter " data-level="1.5.1" data-path="control.html">
             
-                <a href="../control_flow/control.html">
+                <a href="control.html">
             
                     
                     4.1 控制流程
@@ -355,9 +355,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../control_flow/iterator.html">
+        <li class="chapter active" data-level="1.5.2" data-path="iterator.html">
             
-                <a href="../control_flow/iterator.html">
+                <a href="iterator.html">
             
                     
                     4.2 迭代器和生成器
@@ -368,9 +368,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="../control_flow/contextmanager.html">
+        <li class="chapter " data-level="1.5.3" data-path="contextmanager.html">
             
-                <a href="../control_flow/contextmanager.html">
+                <a href="contextmanager.html">
             
                     
                     4.3 上下文管理器和 else 块
@@ -590,7 +590,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >1. 数据模型</a>
+        <a href=".." >4.2 迭代器和生成器</a>
     </h1>
 </div>
 
@@ -605,22 +605,57 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="1-&#x6570;&#x636E;&#x6A21;&#x578B;">1. &#x6570;&#x636E;&#x6A21;&#x578B;</h1>
-<blockquote>
-<p>&#x672C;&#x6587;&#x4E3A;&#x300A;&#x6D41;&#x7545;&#x7684;Python&#x300B;&#x7684;&#x8BFB;&#x4E66;&#x7B14;&#x8BB0;&#xFF0C;&#x5F3A;&#x70C8;&#x63A8;&#x8350;&#x9605;&#x8BFB;&#x539F;&#x4E66;<br>Fluent Python by Luciano Ramalho (O&#x2019;Reilly). Copyright
-2015 Luciano Ramalho, 978-1-491-94600-8.</p>
-</blockquote>
-<h2 id="&#x5185;&#x5BB9;&#x6982;&#x8981;">&#x5185;&#x5BB9;&#x6982;&#x8981;</h2>
+                                <h1 id="42-&#x8FED;&#x4EE3;&#x5668;&#x548C;&#x751F;&#x6210;&#x5668;">4.2 &#x8FED;&#x4EE3;&#x5668;&#x548C;&#x751F;&#x6210;&#x5668;</h1>
+<h2 id="python-&#x7684;&#x8FED;&#x4EE3;&#x6A21;&#x578B;">python &#x7684;&#x8FED;&#x4EE3;&#x6A21;&#x578B;</h2>
+<h3 id="iter-&#x51FD;&#x6570;">iter() &#x51FD;&#x6570;</h3>
+<p>&#x4F5C;&#x7528;:</p>
 <ol>
-<li>Python &#x7684;&#x6570;&#x636E;&#x6A21;&#x578B;&#x6982;&#x8FF0;(data model)</li>
-<li>&#x96C6;&#x5408;&#x7C7B;&#x578B;&#xFF1A;<ul>
-<li>&#x5E8F;&#x5217;(sequence)</li>
-<li>&#x6620;&#x5C04;(mapping)</li>
-<li>&#x96C6;&#x5408;(set)</li>
+<li>&#x67E5;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x5B9E;&#x73B0;&#x4E86; <strong>iter</strong> &#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x5B9E;&#x73B0;&#x4E86;&#x5C31;&#x8C03;&#x7528;&#x5B83;&#xFF0C;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x8FED;&#x4EE3;&#x5668;</li>
+<li>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5B9E;&#x73B0; <strong>iter</strong> &#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x662F;&#x5B9E;&#x73B0;&#x4E86; <strong>getitem</strong> &#x65B9;&#x6CD5;<br>Python &#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x8FED;&#x4EE3;&#x5668;&#xFF0C;&#x5C1D;&#x8BD5;&#x6309;&#x987A;&#x5E8F;&#xFF08;&#x4ECE;&#x7D22;&#x5F15; 0 &#x5F00;&#x59CB;&#xFF09;&#x83B7;&#x53D6;&#x5143;&#x7D20;</li>
+<li>&#x5982;&#x679C;&#x5C1D;&#x8BD5;&#x5931;&#x8D25;&#xFF0C; Python &#x629B;&#x51FA; TypeError &#x5F02;&#x5E38;</li>
+</ol>
+<p>&#x53EF;&#x8FED;&#x4EE3;&#x68C0;&#x9A8C;&#xFF1A;<code>iter(x)</code></p>
+<h3 id="&#x53EF;&#x8FED;&#x4EE3;&#x7684;&#x5BF9;&#x8C61;&#x4E0E;&#x8FED;&#x4EE3;&#x5668;">&#x53EF;&#x8FED;&#x4EE3;&#x7684;&#x5BF9;&#x8C61;&#x4E0E;&#x8FED;&#x4EE3;&#x5668;</h3>
+<p>&#x53EF;&#x8FED;&#x4EE3;&#x7684;&#x5BF9;&#x8C61;:</p>
+<p>&#x8FED;&#x4EE3;&#x5668;&#xFF1A;</p>
+<h3 id="&#x751F;&#x6210;&#x5668;">&#x751F;&#x6210;&#x5668;</h3>
+<ol>
+<li>&#x751F;&#x6210;&#x5668;&#x662F;&#x8FED;&#x4EE3;&#x5668; --  &#x751F;&#x6210;&#x5668;&#x5B9E;&#x73B0;&#x4E86;&#x8FED;&#x4EE3;&#x5668;&#x7684;&#x63A5;&#x53E3;</li>
+</ol>
+<p>&#x751F;&#x6210;&#x5668;&#x7684;&#x7F16;&#x5199;&#x98CE;&#x683C;&#xFF1A;</p>
+<ul>
+<li>&#x4F20;&#x7EDF;&#x7684;&#x62C9;&#x53D6;&#x5F0F; - &#x8FED;&#x4EE3;&#x5668;</li>
+<li>&#x63A8;&#x9001;&#x5F0F; - &#x534F;&#x7A0B;</li>
+<li>&#x4EFB;&#x52A1;&#x5F0F; - &#x9762;&#x5411;&#x4E8B;&#x4EF6;&#x7F16;&#x7A0B;</li>
+</ul>
+<h2 id="&#x751F;&#x6210;&#x5668;&#x4E0E;&#x8FED;&#x4EE3;&#x5668;&#x7684;&#x8BED;&#x4E49;&#x5BF9;&#x6BD4;">&#x751F;&#x6210;&#x5668;&#x4E0E;&#x8FED;&#x4EE3;&#x5668;&#x7684;&#x8BED;&#x4E49;&#x5BF9;&#x6BD4;</h2>
+<ol>
+<li><p>&#x7B2C;&#x4E00;&#x65B9;&#x9762;&#x662F;&#x63A5;&#x53E3;</p>
+<ul>
+<li>&#x8FED;&#x4EE3;&#x5668;&#x534F;&#x8BAE;&#x5B9A;&#x4E49;&#x4E86;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#xFF1A; <strong>next</strong> &#x548C; <strong>iter</strong></li>
+<li>&#x751F;&#x6210;
+&#x5668;&#x5BF9;&#x8C61;&#x5B9E;&#x73B0;&#x4E86;&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x56E0;&#x6B64;&#x4ECE;&#x8FD9;&#x65B9;&#x9762;&#x6765;&#x770B;&#xFF0C;&#x6240;&#x6709;&#x751F;&#x6210;&#x5668;&#x90FD;&#x662F;&#x8FED;&#x4EE3;&#x5668;  </li>
 </ul>
 </li>
-<li>&#x5B57;&#x7B26;&#x4E32;(str)&#x548C;&#x5B57;&#x8282;&#x5E8F;&#x5217;(bytes)</li>
+<li><p>&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;</p>
+<ul>
+<li>&#x751F;&#x6210;&#x5668;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; &#x542B;&#x6709; yield &#x5173;&#x952E;&#x5B57;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x6216;&#x8005;&#x751F;&#x6210;&#x5668;&#x8868;&#x8FBE;&#x5F0F;  </li>
+</ul>
+</li>
+<li><p>&#x6982;&#x5FF5;</p>
+<ul>
+<li>&#x8FED;&#x4EE3;&#x5668;&#x7528;&#x4E8E;&#x904D;&#x5386;&#x96C6;&#x5408;&#xFF0C;&#x4ECE;&#x4E2D;&#x4EA7;&#x51FA;&#x5143;</li>
+<li>&#x751F;&#x6210;&#x5668;&#x53EF;&#x80FD;&#x65E0;&#x9700;&#x904D;&#x5386;&#x96C6;&#x5408;&#x5C31;&#x80FD;&#x751F;&#x6210;&#x503C;</li>
+</ul>
+</li>
 </ol>
+<h2 id="&#x5EF6;&#x4F38;&#x9605;&#x8BFB;">&#x5EF6;&#x4F38;&#x9605;&#x8BFB;</h2>
+<h3 id="python">Python:</h3>
+<p>&#x6807;&#x51C6;&#x5E93;</p>
+<h3 id="blog">blog:</h3>
+<h3 id="&#x5B9E;&#x7528;&#x5DE5;&#x5177;">&#x5B9E;&#x7528;&#x5DE5;&#x5177;</h3>
+<h3 id="&#x4E66;&#x7C4D;">&#x4E66;&#x7C4D;:</h3>
+<h2 id="&#x9644;&#x6CE8;">&#x9644;&#x6CE8;</h2>
 
                                 
                                 </section>
@@ -648,12 +683,12 @@
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="control.html" class="navigation navigation-prev " aria-label="Previous page: 4.1 控制流程">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="data_module.html" class="navigation navigation-next " aria-label="Next page: 1.1 Python 数据模型">
+                <a href="contextmanager.html" class="navigation navigation-next " aria-label="Next page: 4.3 上下文管理器和 else 块">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -664,7 +699,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1. 数据模型","level":"1.2","depth":1,"next":{"title":"1.1 Python 数据模型","level":"1.2.1","depth":2,"path":"structure/data_module.md","ref":"structure/data_module.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"structure/README.md","mtime":"2017-09-14T14:40:31.991Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-27T14:08:10.087Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.2 迭代器和生成器","level":"1.5.2","depth":2,"next":{"title":"4.3 上下文管理器和 else 块","level":"1.5.3","depth":2,"path":"control_flow/contextmanager.md","ref":"control_flow/contextmanager.md","articles":[]},"previous":{"title":"4.1 控制流程","level":"1.5.1","depth":2,"path":"control_flow/control.md","ref":"control_flow/control.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"control_flow/iterator.md","mtime":"2017-09-23T14:53:42.449Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-27T14:08:10.087Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
