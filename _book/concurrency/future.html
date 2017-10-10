@@ -1,0 +1,1106 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>5.2 期物 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="asyncio.html" />
+    
+    
+    <link rel="prev" href="coroutine.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../structure/">
+            
+                <a href="../structure/">
+            
+                    
+                    1. 数据模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../structure/data_module.html">
+            
+                <a href="../structure/data_module.html">
+            
+                    
+                    1.1 Python 数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../structure/sequence.html">
+            
+                <a href="../structure/sequence.html">
+            
+                    
+                    1.2 序列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../structure/mapping.html">
+            
+                <a href="../structure/mapping.html">
+            
+                    
+                    1.3 字典和集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../structure/string.html">
+            
+                <a href="../structure/string.html">
+            
+                    
+                    1.4 文本和字节序列
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../function/">
+            
+                <a href="../function/">
+            
+                    
+                    2. 函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../function/func_object.html">
+            
+                <a href="../function/func_object.html">
+            
+                    
+                    2.1 一等函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../function/design.html">
+            
+                <a href="../function/design.html">
+            
+                    
+                    2.2 设计模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../function/decorator.html">
+            
+                <a href="../function/decorator.html">
+            
+                    
+                    2.3 函数装饰器和闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../object/">
+            
+                <a href="../object/">
+            
+                    
+                    3. 面向对象
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../object/rubbish_collection.html">
+            
+                <a href="../object/rubbish_collection.html">
+            
+                    
+                    3.1 对象引用与垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../object/py_object.html">
+            
+                <a href="../object/py_object.html">
+            
+                    
+                    3.2 Python风格对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../object/slice.html">
+            
+                <a href="../object/slice.html">
+            
+                    
+                    3.3 序列的散列和切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../object/abstract.html">
+            
+                <a href="../object/abstract.html">
+            
+                    
+                    3.4 抽象基类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../object/inherit.html">
+            
+                <a href="../object/inherit.html">
+            
+                    
+                    3.5 类继承
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../object/overload.html">
+            
+                <a href="../object/overload.html">
+            
+                    
+                    3.6 运算符重载
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../control_flow/">
+            
+                <a href="../control_flow/">
+            
+                    
+                    4. 控制流程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../control_flow/control.html">
+            
+                <a href="../control_flow/control.html">
+            
+                    
+                    4.1 控制流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../control_flow/iterator.html">
+            
+                <a href="../control_flow/iterator.html">
+            
+                    
+                    4.2 迭代器和生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../control_flow/contextmanager.html">
+            
+                <a href="../control_flow/contextmanager.html">
+            
+                    
+                    4.3 上下文管理器和 else 块
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    5. 并发
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="coroutine.html">
+            
+                <a href="coroutine.html">
+            
+                    
+                    5.1 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.2" data-path="future.html">
+            
+                <a href="future.html">
+            
+                    
+                    5.2 期物
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="asyncio.html">
+            
+                <a href="asyncio.html">
+            
+                    
+                    5.3 asyncio
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../abc/">
+            
+                <a href="../abc/">
+            
+                    
+                    6. 元编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../abc/dynamic.html">
+            
+                <a href="../abc/dynamic.html">
+            
+                    
+                    6.1 动态属性和特性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../abc/descriptor.html">
+            
+                <a href="../abc/descriptor.html">
+            
+                    
+                    6.2 属性描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../abc/prepare.html">
+            
+                <a href="../abc/prepare.html">
+            
+                    
+                    6.3 类元编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../appendix/">
+            
+                <a href="../appendix/">
+            
+                    
+                    7. 附录
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../appendix/python_org.html">
+            
+                <a href="../appendix/python_org.html">
+            
+                    
+                    7.1 python 资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../appendix/programming.html">
+            
+                <a href="../appendix/programming.html">
+            
+                    
+                    7.2 程序设计思想
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../appendix/this_book.html">
+            
+                <a href="../appendix/this_book.html">
+            
+                    
+                    7.3 本书资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >5.2 期物</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="52-&#x671F;&#x7269;">5.2 &#x671F;&#x7269;</h1>
+<h2 id="1-&#x671F;&#x7269;&#x7684;&#x6982;&#x5FF5;">1. &#x671F;&#x7269;&#x7684;&#x6982;&#x5FF5;</h2>
+<h3 id="11-&#x5BF9;&#x671F;&#x7269;&#x7684;&#x7406;&#x89E3;">1.1 &#x5BF9;&#x671F;&#x7269;&#x7684;&#x7406;&#x89E3;</h3>
+<p>&#x671F;&#x7269;&#xFF1A;</p>
+<ul>
+<li>&#x5305;&#x62EC;&#xFF1A;<ul>
+<li>concurrent.futures.Future &#x7C7B;</li>
+<li>asyncio.Future &#x7C7B;</li>
+<li>Twisted &#x7684; Deferred &#x7C7B;</li>
+<li>Tornado &#x7684; Future &#x7C7B;</li>
+</ul>
+</li>
+<li>&#x4F5C;&#x7528;&#xFF1A;<ul>
+<li>&#x6307;&#x4E00;&#x79CD;&#x5BF9;&#x8C61;, &#x8868;&#x793A;&#x5F02;&#x6B65;&#x6267;&#x884C;&#x7684;&#x64CD;&#x4F5C;</li>
+<li>&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x8868;&#x793A;&#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x6216;&#x8005;&#x5C1A;&#x672A;&#x5B8C;&#x6210;&#x7684;&#x5EF6;&#x8FDF;&#x8BA1;&#x7B97;</li>
+</ul>
+</li>
+<li>&#x7406;&#x89E3;&#xFF1A;<ul>
+<li>&#x671F;&#x7269;&#x5C01;&#x88C5;&#x5F85;&#x5B8C;&#x6210;&#x7684;&#x64CD;&#x4F5C;, &#x53EF;&#x4EE5;&#x653E;&#x5165;&#x961F;&#x5217;</li>
+<li>&#x5B8C;&#x6210;&#x7684;&#x72B6;&#x6001;&#x53EF;&#x4EE5;&#x67E5;&#x8BE2;, &#x5F97;&#x5230;&#x7ED3;&#x679C;(&#x6216;&#x629B;&#x51FA;&#x5F02;&#x5E38;)&#x540E;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x7ED3;&#x679C;(&#x6216;&#x5F02;&#x5E38;)</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-concurrentfutures">2. concurrent.futures</h2>
+<p>&#x7EC4;&#x6210;&#xFF1A;</p>
+<ul>
+<li>Executor &#x7C7B;&#xFF1A;<ul>
+<li>&#x9876;&#x5C42;&#x63A5;&#x53E3;&#x7C7B;, &#x63D0;&#x4F9B;&#x4E86;&#x591A;&#x7EBF;&#x7A0B;, &#x591A;&#x8FDB;&#x7A0B;&#x5E76;&#x53D1;&#x6267;&#x884C;&#x7684;&#x63A5;&#x53E3;</li>
+<li>&#x5C01;&#x88C5;&#x4E86;&#x5B9E;&#x4F8B;&#x5316;&#x548C;&#x64CD;&#x4F5C; Future &#x5BF9;&#x8C61;&#x7684;&#x63A5;&#x53E3;</li>
+</ul>
+</li>
+<li>Future &#x7C7B;&#xFF1A;&#x6A21;&#x5757;&#x7684;&#x57FA;&#x672C;&#x7EC4;&#x4EF6;, &#x7528;&#x4E8E;&#x5B9E;&#x73B0;&#x5E76;&#x53D1;&#x64CD;&#x4F5C;&#x7684;&#x57FA;&#x672C;&#x5BF9;&#x8C61;</li>
+<li>&#x5176;&#x4ED6;&#x51FD;&#x6570;&#xFF1A;&#x76F4;&#x63A5;&#x64CD;&#x4F5C; Future &#x5B9E;&#x4F8B;&#x7684;&#x51FD;&#x6570;</li>
+</ul>
+<p>&#x6587;&#x6863;&#xFF1A;</p>
+<ul>
+<li><a href="https://docs.python.org/3/library/concurrent.futures.html" target="_blank">https://docs.python.org/3/library/concurrent.futures.html</a></li>
+<li><a href="https://www.python.org/dev/peps/pep-3148/" target="_blank">https://www.python.org/dev/peps/pep-3148/</a></li>
+</ul>
+<h3 id="21-executor-&#x7C7B;">2.1 Executor &#x7C7B;</h3>
+<p> ThreadPoolExecutor &#x7C7B;</p>
+<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;&#x5728;&#x4E0D;&#x540C;&#x7EBF;&#x7A0B;&#x4E2D;&#x6267;&#x884C;&#x53EF;&#x8C03;&#x7528;&#x7684;&#x5BF9;&#x8C61;</li>
+<li>&#x5B9E;&#x73B0;&#xFF1A;&#x5728;&#x5185;&#x90E8;&#x7EF4;&#x62A4;&#x7740;&#x4E00;&#x4E2A; <strong>&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x6C60;</strong>, &#x4EE5;&#x53CA;&#x8981;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#x961F;&#x5217;</li>
+<li>&#x9002;&#x7528;&#xFF1A;I/O &#x5BC6;&#x96C6;&#x578B;&#x5E94;&#x7528;</li>
+<li>&#x521D;&#x59CB;&#x5316;&#xFF1A;<ul>
+<li>__init__(self,  max_workers=None):<ul>
+<li>max_workers:&#x542F;&#x7528;&#x7EBF;&#x7A0B;&#x6570;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>ProcessPoolExecutor &#x7C7B;</p>
+<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;&#x5728;&#x4E0D;&#x540C;&#x8FDB;&#x7A0B;&#x4E2D;&#x6267;&#x884C;&#x53EF;&#x8C03;&#x7528;&#x7684;&#x5BF9;&#x8C61;</li>
+<li>&#x5B9E;&#x73B0;&#xFF1A;&#x5728;&#x5185;&#x90E8;&#x7EF4;&#x62A4;&#x7740;&#x4E00;&#x4E2A; <strong>&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x6C60;</strong>, &#x4EE5;&#x53CA;&#x8981;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#x961F;&#x5217;</li>
+<li>&#x9002;&#x7528;&#xFF1A; CPU &#x5BC6;&#x96C6;&#x578B;&#x5904;&#x7406;, &#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x80FD;&#x7ED5;&#x5F00; GIL, &#x5229;&#x7528;&#x6240;&#x6709;&#x53EF;&#x7528;&#x7684; CPU &#x6838;&#x5FC3;</li>
+<li>&#x521D;&#x59CB;&#x5316;&#xFF1A;<ul>
+<li>__init__(self,  max_workers=None):<ul>
+<li>max_workers:&#x542F;&#x7528;&#x8FDB;&#x7A0B;&#x6570;, &#x53EF;&#x9009;, &#x9ED8;&#x8BA4;&#x662F;os.cpu_count() &#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7684; CPU &#x6570;&#x91CF;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>ThreadPoolExecutor &#x4F7F;&#x7528;&#x793A;&#x4F8B;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> concurrent <span class="hljs-keyword">import</span> futures
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">download_many</span><span class="hljs-params">(cc_list)</span>:</span>
+    workers = min(MAX_WORKERS,  len(cc_list))
+    <span class="hljs-keyword">with</span> futures.ThreadPoolExecutor(workers) <span class="hljs-keyword">as</span> executor: &#x278E;
+        res = executor.map(download_one,  sorted(cc_list)) &#x278F;
+    <span class="hljs-keyword">return</span> len(list(res)) &#x2790;
+</code></pre>
+<ol>
+<li>&#x278E; executor.__exit__ &#x65B9;&#x6CD5;<ul>
+<li>&#x4F1A;&#x8C03;&#x7528;executor.shutdown(wait=True) &#x65B9;&#x6CD5;, &#x5728;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x90FD;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x524D;&#x963B;&#x585E;&#x7EBF;&#x7A0B;</li>
+</ul>
+</li>
+<li>&#x278F; map &#x65B9;&#x6CD5;<ul>
+<li>&#x975E;&#x963B;&#x585E;&#x8C03;&#x7528;, &#x4F5C;&#x7528;&#x4E0E;&#x5185;&#x7F6E;&#x7684; map &#x51FD;&#x6570;&#x7C7B;&#x4F3C;</li>
+<li>&#x4E0D;&#x8FC7; download_one &#x51FD;&#x6570;&#x4F1A;&#x5728;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E2D;&#x5E76;&#x53D1;&#x8C03;&#x7528;</li>
+<li>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x751F;&#x6210;&#x5668;</li>
+</ul>
+</li>
+<li>&#x2790; &#x8FD4;&#x56DE;&#x83B7;&#x53D6;&#x7684;&#x7ED3;&#x679C;&#x6570;&#x91CF;<ul>
+<li>&#x9690;&#x5F0F;&#x8C03;&#x7528; next()&#x51FD;&#x6570;&#x4ECE; map &#x8FD4;&#x56DE;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x4E2D;&#x83B7;&#x53D6;&#x76F8;&#x5E94;&#x7684;&#x8FD4;&#x56DE;&#x503C;</li>
+<li>&#x5982;&#x679C;&#x6709;&#x7EBF;&#x7A0B;&#x629B;&#x51FA;&#x5F02;&#x5E38;, &#x5F02;&#x5E38;&#x4F1A;&#x5728;&#x8FD9;&#x91CC;&#x629B;&#x51FA;</li>
+<li>&#x8FED;&#x4EE3;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x7684;&#x987A;&#x5E8F;&#x4E0E;&#x8C03;&#x7528;&#x5F00;&#x59CB;&#x7684;&#x987A;&#x5E8F;&#x4E00;&#x81F4;</li>
+</ul>
+</li>
+</ol>
+<h3 id="22-future">2.2 Future</h3>
+<h4 id="&#x5B9E;&#x4F8B;&#x5316;">&#x5B9E;&#x4F8B;&#x5316;</h4>
+<p>&#x9644;&#x6CE8;&#xFF1A;</p>
+<ul>
+<li>&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#x81EA;&#x5DF1;&#x4E0D;&#x5E94;&#x8BE5;&#x521B;&#x5EFA;&#x671F;&#x7269;, &#x53EA;&#x80FD;&#x7531;&#x5E76;&#x53D1;&#x6846;&#x67B6;(concurrent.futures &#x6216; asyncio)&#x5B9E;&#x4F8B;&#x5316;</li>
+<li>&#x539F;&#x56E0;&#x662F;&#x671F;&#x7269;&#x8868;&#x793A;&#x7EC8;&#x5C06;&#x53D1;&#x751F;&#x7684;&#x4E8B;&#x60C5;, &#x800C;&#x786E;&#x5B9A;&#x67D0;&#x4EF6;&#x4E8B;&#x4F1A;&#x53D1;&#x751F;&#x7684;&#x552F;&#x4E00;&#x65B9;&#x5F0F;&#x662F;&#x6267;&#x884C;&#x7684;&#x65F6;&#x95F4;&#x5DF2;&#x7ECF;&#x6392;&#x5B9A;,
+&#x56E0;&#x6B64;&#x53EA;&#x6709;&#x6392;&#x5B9A;&#x628A;&#x67D0;&#x4EF6;&#x4E8B;&#x4EA4;&#x7ED9;concurrent.futures.Executor&#x5B50;&#x7C7B;&#x5904;&#x7406;&#x65F6;,
+&#x624D;&#x4F1A;&#x521B;&#x5EFA;concurrent.futures.Future&#x5B9E;&#x4F8B;</li>
+</ul>
+<p>Executor = futures.ThreadPoolExecutor(workers)<br>Executor = futures.ProcessPoolExecutor(workers)</p>
+<ul>
+<li>workers&#xFF1A;&#x5E76;&#x53D1;&#x7EBF;&#x7A0B;&#x6216;&#x8FDB;&#x7A0B;&#x6570;</li>
+</ul>
+<p><strong>&#x4ECE;Executor&#x83B7;&#x53D6; Future &#x5B9E;&#x4F8B;</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x63A5;&#x53E3;</th>
+<th style="text-align:left">&#x53C2;&#x6570;</th>
+<th style="text-align:left">&#x4F5C;&#x7528;</th>
+<th>&#x8FD4;&#x56DE;&#x503C;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Executor.submit()</td>
+<td style="text-align:left">&#x4E00;&#x4E2A;&#x53EF;&#x8C03;&#x7528;&#x7684;&#x5BF9;&#x8C61;</td>
+<td style="text-align:left">&#x4E3A;&#x4F20;&#x5165;&#x7684;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#x6392;&#x671F;</td>
+<td>&#x4E00;&#x4E2A;&#x671F;&#x7269;(Future&#x7C7B;&#x5B9E;&#x4F8B;)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x53EF;&#x7528;&#x65B9;&#x6CD5;">&#x53EF;&#x7528;&#x65B9;&#x6CD5;</h4>
+<!-- |接口|参数|作用| -->
+<!-- |:---|:---|:---| -->
+<!-- |.done()||不阻塞, 指明期物链接的可调用对象是否已经执行, 布尔值| -->
+<!-- |.result()||在期物运行结束后调用, 返回可调用对象的结果, 或者重新抛出执行可调用的对象时抛出的异常|| -->
+<!-- |.add_done_callback()|可调用对象|期物运行结束后会调用指定的可调用对象| -->
+<p>&#x9644;&#x6CE8;&#xFF1A;</p>
+<ul>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x4EE3;&#x7801;&#x4E0D;&#x5E94;&#x8BE5;&#x6539;&#x53D8;&#x671F;&#x7269;&#x7684;&#x72B6;&#x6001;, &#x5E76;&#x53D1;&#x6846;&#x67B6;&#x5728;&#x671F;&#x7269;&#x8868;&#x793A;&#x7684;&#x5EF6;&#x8FDF;&#x8BA1;&#x7B97;&#x7ED3;&#x675F;&#x540E;&#x4F1A;&#x6539;&#x53D8;&#x671F;&#x7269;&#x7684;
+&#x72B6;&#x6001;, &#x800C;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x63A7;&#x5236;&#x8BA1;&#x7B97;&#x4F55;&#x65F6;&#x7ED3;&#x675F;</li>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x4EE3;&#x7801;&#x901A;&#x5E38;&#x4E0D;&#x4F1A;&#x8BE2;&#x95EE;&#x671F;&#x7269;&#x662F;&#x5426;&#x8FD0;&#x884C;&#x7ED3;&#x675F;, &#x800C;&#x662F;&#x4F1A;&#x7B49;&#x5F85;&#x901A;&#x77E5;</li>
+</ul>
+<p>&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ol>
+<li>Future.done()<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;&#x4E0D;&#x963B;&#x585E;, &#x6307;&#x660E;&#x671F;&#x7269;&#x94FE;&#x63A5;&#x7684;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x6267;&#x884C;, &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;</li>
+</ul>
+</li>
+<li>Future.add_done_callback()&#xFF1A;<ul>
+<li>&#x53C2;&#x6570;&#xFF1A;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;</li>
+<li>&#x4F5C;&#x7528;&#xFF1A;&#x671F;&#x7269;&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#x540E;&#x4F1A;&#x8C03;&#x7528;&#x4F20;&#x5165;&#x7684;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;</li>
+</ul>
+</li>
+<li>Future.result():<ul>
+<li>&#x5728;&#x671F;&#x7269;&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#x540E;&#x8C03;&#x7528;<ul>
+<li>&#x8FD4;&#x56DE;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#x7684;&#x7ED3;&#x679C;</li>
+<li>&#x6216;&#x8005;&#x91CD;&#x65B0;&#x629B;&#x51FA;&#x6267;&#x884C;&#x53EF;&#x8C03;&#x7528;&#x7684;&#x5BF9;&#x8C61;&#x65F6;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;</li>
+</ul>
+</li>
+<li>&#x671F;&#x7269;&#x6CA1;&#x6709;&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#x65F6;&#x8C03;&#x7528;<ul>
+<li>&#x4F1A;&#x963B;&#x585E;&#x8C03;&#x7528;&#x65B9;&#x6240;&#x5728;&#x7684;&#x7EBF;&#x7A0B;, &#x76F4;&#x5230;&#x6709;&#x7ED3;&#x679C;&#x53EF;&#x8FD4;&#x56DE;</li>
+<li>result &#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x53EF;&#x9009;&#x7684; timeout &#x53C2;&#x6570;, &#x5982;&#x679C;&#x5728;&#x6307;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x5185;&#x671F;&#x7269;&#x6CA1;&#x6709;&#x8FD0;&#x884C;&#x5B8C;&#x6BD5;,
+&#x4F1A;&#x629B;&#x51FA; TimeoutError &#x5F02;&#x5E38;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="23-&#x5176;&#x4ED6;&#x51FD;&#x6570;">2.3 &#x5176;&#x4ED6;&#x51FD;&#x6570;</h3>
+<ol>
+<li>as_completed():<ul>
+<li>&#x53C2;&#x6570;&#xFF1A;&#x4E00;&#x4E2A;&#x671F;&#x7269;&#x5217;&#x8868;</li>
+<li>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x4E00;&#x4E2A;&#x8FED;&#x4EE3;&#x5668;, &#x5728;&#x671F;&#x7269;&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#x540E;&#x4EA7;&#x51FA;&#x671F;&#x7269;</li>
+</ul>
+</li>
+</ol>
+<h3 id="24-&#x4F7F;&#x7528;&#x793A;&#x4F8B;">2.4 &#x4F7F;&#x7528;&#x793A;&#x4F8B;</h3>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">download_many</span><span class="hljs-params">(cc_list)</span>:</span>
+    cc_list = cc_list[:<span class="hljs-number">5</span>] &#x278A;
+    <span class="hljs-keyword">with</span> futures.ThreadPoolExecutor(max_workers=<span class="hljs-number">3</span>) <span class="hljs-keyword">as</span> executor: &#x278B;
+        <span class="hljs-comment"># &#x521B;&#x5EFA;&#x5E76;&#x6392;&#x5B9A;&#x671F;&#x7269;</span>
+        to_do = []
+        <span class="hljs-keyword">for</span> cc <span class="hljs-keyword">in</span> sorted(cc_list): &#x278C;
+            future = executor.submit(download_one,  cc) &#x278D;
+            to_do.append(future) &#x278E;
+            msg = <span class="hljs-string">&apos;Scheduled for {}: {}&apos;</span>
+            print(msg.format(cc,  future)) &#x278F;
+        <span class="hljs-comment"># &#x83B7;&#x53D6;&#x671F;&#x7269;&#x7684;&#x7ED3;&#x679C;</span>
+        results = []
+        <span class="hljs-keyword">for</span> future <span class="hljs-keyword">in</span> futures.as_completed(to_do): &#x2790;
+            res = future.result() &#x2791;
+            msg = <span class="hljs-string">&apos;{} result: {!r}&apos;</span>
+            print(msg.format(future,  res)) &#x2792;
+            results.append(res)
+    <span class="hljs-keyword">return</span> len(results)
+</code></pre>
+<h3 id="25-executormap-&#x4E0E;-ascompleted-&#x5BF9;&#x6BD4;">2.5 Executor.map &#x4E0E; as_completed &#x5BF9;&#x6BD4;</h3>
+<p>Executor.map:</p>
+<ul>
+<li>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x8FED;&#x4EE3;&#x5668;, &#x8FED;&#x4EE3;&#x6B64;&#x751F;&#x6210;&#x5668;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x7684;&#x987A;&#x5E8F;&#x4E0E;&#x8C03;&#x7528;&#x5F00;&#x59CB;&#x7684;&#x987A;&#x5E8F;&#x4E00;&#x81F4;,</li>
+<li>eg&#xFF1A;&#x5982;&#x679C;&#x7B2C;&#x4E00;&#x4E2A;&#x8C03;&#x7528;&#x751F;&#x6210;&#x7ED3;&#x679C;&#x7528;&#x65F6; 10&#x79D2;, &#x800C;&#x5176;&#x4ED6;&#x8C03;&#x7528;&#x53EA;&#x7528; 1 &#x79D2;,
+&#x4EE3;&#x7801;&#x4F1A;&#x963B;&#x585E; 10 &#x79D2;, &#x83B7;&#x53D6; map &#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;&#x751F;&#x6210;&#x5668;&#x4EA7;&#x51FA;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x7ED3;&#x679C;</li>
+<li>executor.map &#x53EA;&#x80FD;&#x5904;&#x7406;&#x53C2;&#x6570;&#x4E0D;&#x540C;&#x7684;&#x540C;&#x4E00;&#x4E2A;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;</li>
+</ul>
+<p>Executor.submit &#x548C; futures.as_complete &#x7ED3;&#x5408;&#xFF1A;</p>
+<ul>
+<li>as_complete &#x8FD4;&#x56DE;&#x7684;&#x751F;&#x6210;&#x5668;&#x5728;&#x8FED;&#x4EE3;&#x65F6;&#xFF0C;&#x4E0D;&#x7BA1;&#x63D0;&#x4EA4;&#x7684;&#x987A;&#x5E8F;, &#x53EA;&#x8981;&#x6709;&#x7ED3;&#x679C;&#x5C31;&#x83B7;&#x53D6;</li>
+<li>submit &#x65B9;&#x6CD5;&#x80FD;&#x5904;&#x7406;&#x4E0D;&#x540C;&#x7684;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#x548C;&#x53C2;&#x6570;</li>
+<li>&#x4F20;&#x7ED9; futures.as_completed &#x51FD;&#x6570;&#x7684;&#x671F;&#x7269;&#x96C6;&#x5408;&#x4E5F;&#x53EF;&#x4EE5;&#x6765;&#x81EA;&#x591A;&#x4E2A; Executor &#x5B9E;&#x4F8B;</li>
+</ul>
+<h2 id="3-gil">3. GIL</h2>
+<h3 id="31-&#x963B;&#x585E;&#x578B;io&#x548C;gil">3.1 &#x963B;&#x585E;&#x578B;I/O&#x548C;GIL</h3>
+<p>GIL - &#x5168;&#x5C40;&#x89E3;&#x91CA;&#x5668;&#x9501;:</p>
+<ul>
+<li>CPython &#x89E3;&#x91CA;&#x5668;&#x672C;&#x8EAB;&#x5C31;&#x4E0D;&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;, &#x56E0;&#x6B64;&#x6709;&#x5168;&#x5C40;&#x89E3;&#x91CA;&#x5668;&#x9501;(GIL), &#x4E00;&#x6B21;&#x53EA;&#x5141;&#x8BB8;&#x4F7F;&#x7528;&#x4E00;
+&#x4E2A;&#x7EBF;&#x7A0B;&#x6267;&#x884C; Python &#x5B57;&#x8282;&#x7801;</li>
+<li>&#x7F16;&#x5199; Python &#x4EE3;&#x7801;&#x65F6;&#x65E0;&#x6CD5;&#x63A7;&#x5236; GIL&#xFF1B;&#x4E0D;&#x8FC7;, &#x6267;&#x884C;&#x8017;&#x65F6;&#x7684;&#x4EFB;&#x52A1;&#x65F6;, &#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5185;&#x7F6E;&#x7684;&#x51FD;&#x6570;
+&#x6216;&#x4E00;&#x4E2A;&#x4F7F;&#x7528; C &#x8BED;&#x8A00;&#x7F16;&#x5199;&#x7684;&#x6269;&#x5C55;&#x91CA;&#x653E; GIL</li>
+<li>&#x5176;&#x5B9E;, &#x6709;&#x4E2A;&#x4F7F;&#x7528; C &#x8BED;&#x8A00;&#x7F16;&#x5199;&#x7684; Python &#x5E93;&#x80FD;&#x7BA1;&#x7406;GIL, &#x81EA;&#x884C;&#x542F;&#x52A8;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7EBF;&#x7A0B;,
+&#x5229;&#x7528;&#x5168;&#x90E8;&#x53EF;&#x7528;&#x7684; CPU &#x6838;&#x5FC3;&#x3002;&#x8FD9;&#x6837;&#x505A;&#x4F1A;&#x6781;&#x5927;&#x5730;&#x589E;&#x52A0;&#x5E93;&#x4EE3;&#x7801;&#x7684;&#x590D;&#x6742;&#x5EA6;, &#x56E0;&#x6B64;&#x5927;&#x591A;&#x6570;&#x5E93;&#x7684;&#x4F5C;&#x8005;&#x90FD;&#x4E0D;&#x8FD9;&#x4E48;&#x505A;</li>
+<li><strong>&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x6240;&#x6709;&#x6267;&#x884C;&#x963B;&#x585E;&#x578B; I/O &#x64CD;&#x4F5C;&#x7684;&#x51FD;&#x6570;, &#x5728;&#x7B49;&#x5F85;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x65F6;&#x90FD;&#x4F1A;&#x91CA;&#x653E;GIL</strong></li>
+<li>&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5728; Python &#x8BED;&#x8A00;&#x8FD9;&#x4E2A;&#x5C42;&#x6B21;&#x4E0A;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x591A;&#x7EBF;&#x7A0B;, &#x800C; I/O &#x5BC6;&#x96C6;&#x578B; Python &#x7A0B;&#x5E8F;&#x80FD;&#x4ECE;
+&#x4E2D;&#x53D7;&#x76CA;&#xFF1A;&#x4E00;&#x4E2A; Python &#x7EBF;&#x7A0B;&#x7B49;&#x5F85;&#x7F51;&#x7EDC;&#x54CD;&#x5E94;&#x65F6;, &#x963B;&#x585E;&#x578B; I/O &#x51FD;&#x6570;&#x4F1A;&#x91CA;&#x653E; GIL, &#x518D;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;</li>
+</ul>
+<p>GIL &#x5B58;&#x5728;&#x539F;&#x56E0;&#xFF1A;</p>
+<ul>
+<li>&#x7B80;&#x5316;&#x4E86; CPython &#x89E3;&#x91CA;&#x5668;&#x548C; C &#x8BED;&#x8A00;&#x6269;&#x5C55;&#x7684;&#x5B9E;&#x73B0;, &#x5F97;&#x76CA;&#x4E8E; GIL,  Python &#x6709;&#x5F88;&#x591A; C &#x8BED;&#x8A00;&#x6269;&#x5C55;</li>
+</ul>
+<p>&#x7ED3;&#x8BBA;&#xFF1A;I/O &#x5BC6;&#x96C6;&#x578B;&#x5E94;&#x7528;, &#x9002;&#x5408;&#x4F7F;&#x7528;Python &#x591A;&#x7EBF;&#x7A0B;</p>
+<p>&#x9644;&#x6CE8;&#xFF1A;sleep &#x51FD;&#x6570;&#x603B;&#x4F1A;&#x91CA;&#x653E; GIL&#x3002;&#x56E0;&#x6B64;, &#x5373;&#x4F7F;&#x4F11;&#x7720; 0 &#x79D2;, Python &#x4E5F;&#x53EF;&#x80FD;&#x4F1A;&#x5207;&#x6362;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;</p>
+<h3 id="32-cpu-&#x5BC6;&#x96C6;&#x578B;&#x5E94;&#x7528;">3.2 CPU &#x5BC6;&#x96C6;&#x578B;&#x5E94;&#x7528;</h3>
+<p>CPU &#x5BC6;&#x96C6;&#x578B;&#x5E94;&#x7528;&#x53EF;&#x7528;&#x65B9;&#x6848;&#xFF1A;</p>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x591A;&#x8FDB;&#x7A0B;&#x7ED5;&#x5F00; GIL, &#x5229;&#x7528;&#x6240;&#x6709;&#x53EF;&#x7528;&#x7684; CPU &#x6838;&#x5FC3;,  eg&#xFF1A;ProcessPoolExecutor</li>
+<li>&#x4F7F;&#x7528;PyPy(<a href="http://pypy.org" target="_blank">http://pypy.org</a>)</li>
+<li>Apache Spark:&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x5F15;&#x64CE; <a href="https://spark.apache.org/examples.html" target="_blank">https://spark.apache.org/examples.html</a></li>
+</ul>
+<pre><code class="lang-python">JOBS = <span class="hljs-number">12</span>
+SIZE = <span class="hljs-number">2</span>**<span class="hljs-number">20</span>
+STATUS = <span class="hljs-string">&apos;{} workers,  elapsed time: {:.2f}s&apos;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sha</span><span class="hljs-params">(size)</span>:</span>
+    data = bytearray(randrange(<span class="hljs-number">256</span>) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(size))
+    algo = hashlib.new(<span class="hljs-string">&apos;sha256&apos;</span>)
+    algo.update(data)
+    <span class="hljs-keyword">return</span> algo.hexdigest()
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">(workers=None)</span>:</span>
+    <span class="hljs-keyword">if</span> workers:
+        workers = int(workers)
+    t0 = time.time()
+
+    <span class="hljs-keyword">with</span> futures.ProcessPoolExecutor(workers) <span class="hljs-keyword">as</span> executor:
+        actual_workers = executor._max_workers
+        to_do = (executor.submit(sha,  SIZE) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(JOBS))
+        <span class="hljs-keyword">for</span> future <span class="hljs-keyword">in</span> futures.as_completed(to_do):
+            res = future.result()
+            print(res)
+</code></pre>
+<h2 id="4-&#x5B8C;&#x6574;&#x793A;&#x4F8B;">4. &#x5B8C;&#x6574;&#x793A;&#x4F8B;</h2>
+<h3 id="41-&#x80CC;&#x666F;">4.1 &#x80CC;&#x666F;</h3>
+<p>&#x793A;&#x4F8B;&#x8BF4;&#x660E;&#xFF1A;2.4 &#x7684;&#x793A;&#x4F8B;&#x6269;&#x5C55;, &#x589E;&#x52A0;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x548C;&#x8FDB;&#x5EA6;&#x6761;</p>
+<p>TQDM&#xFF1A;</p>
+<ul>
+<li>&#x6587;&#x6863;&#xFF1A;<a href="https://github.com/noamraph/tqdm" target="_blank">https://github.com/noamraph/tqdm</a></li>
+<li>&#x4F5C;&#x7528;&#xFF1A;&#x5B9E;&#x73B0;&#x7684;&#x6587;&#x672C;&#x52A8;&#x753B;&#x8FDB;&#x5EA6;&#x6761;</li>
+<li>&#x63A5;&#x53E3;&#xFF1A;&#x4E3A;&#x4E86;&#x8BA1;&#x7B97;&#x9884;&#x8BA1;&#x5269;&#x4F59;&#x65F6;&#x95F4;,  tqdm &#x51FD;&#x6570;&#x8981;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x80FD;&#x4F7F;&#x7528; len &#x51FD;&#x6570;&#x786E;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x53EF;&#x8FED;&#x4EE3;&#x5BF9;&#x8C61;,
+&#x6216;&#x8005;&#x5728;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4E2D;&#x6307;&#x5B9A;&#x9884;&#x671F;&#x7684;&#x5143;&#x7D20;&#x6570;&#x91CF;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">download_many</span><span class="hljs-params">(cc_list,  base_url,  verbose,  max_req)</span>:</span>
+    counter = collections.Counter()  
+    cc_iter = sorted(cc_list)
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> verbose:
+        cc_iter = tqdm.tqdm(cc_iter) <span class="hljs-comment"># &#x80FD;&#x4F7F;&#x7528; len &#x51FD;&#x6570;&#x786E;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x53EF;&#x8FED;&#x4EE3;&#x5BF9;&#x8C61;</span>
+    <span class="hljs-keyword">for</span> cc <span class="hljs-keyword">in</span> cc_iter:    <span class="hljs-comment"># &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x8FED;&#x4EE3;&#x5668;, &#x4EA7;&#x51FA; cc_iter &#x4E2D;&#x7684;&#x5143;&#x7D20;, &#x8FD8;&#x4F1A;&#x663E;&#x793A;&#x8FDB;&#x5EA6;&#x6761;&#x52A8;&#x753B;&#x3002;</span>
+        .......
+</code></pre>
+<h3 id="42-&#x591A;&#x7EBF;&#x7A0B;&#x7248;&#x672C;">4.2 &#x591A;&#x7EBF;&#x7A0B;&#x7248;&#x672C;</h3>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> collections
+<span class="hljs-keyword">from</span> concurrent <span class="hljs-keyword">import</span> futures
+
+<span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">import</span> tqdm  <span class="hljs-comment"># &lt;1&gt;</span>
+
+<span class="hljs-keyword">from</span> flags2_common <span class="hljs-keyword">import</span> main,  HTTPStatus  <span class="hljs-comment"># &lt;2&gt;</span>
+<span class="hljs-keyword">from</span> flags2_sequential <span class="hljs-keyword">import</span> download_one  <span class="hljs-comment"># &lt;3&gt;</span>
+
+DEFAULT_CONCUR_REQ = <span class="hljs-number">30</span>  <span class="hljs-comment"># &lt;4&gt;</span>
+MAX_CONCUR_REQ = <span class="hljs-number">1000</span>  <span class="hljs-comment"># &lt;5&gt;</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">download_many</span><span class="hljs-params">(cc_list,  base_url,  verbose,  concur_req)</span>:</span>
+    counter = collections.Counter()
+    <span class="hljs-keyword">with</span> futures.ThreadPoolExecutor(max_workers=concur_req) <span class="hljs-keyword">as</span> executor:  <span class="hljs-comment"># &lt;6&gt;</span>
+        <span class="hljs-comment"># &#x6784;&#x5EFA;&#x5E76;&#x6392;&#x5B9A;&#x671F;&#x7269;</span>
+        to_do_map = {}  <span class="hljs-comment"># &lt;7&gt;</span>
+        <span class="hljs-keyword">for</span> cc <span class="hljs-keyword">in</span> sorted(cc_list):  <span class="hljs-comment"># &lt;8&gt;</span>
+            future = executor.submit(download_one,
+                            cc,  base_url,  verbose)  <span class="hljs-comment"># &lt;9&gt;</span>
+            to_do_map[future] = cc  <span class="hljs-comment"># &#x628A;&#x5404;&#x4E2A;&#x671F;&#x7269;&#x6620;&#x5C04;&#x5230;&#x5176;&#x4ED6;&#x6570;&#x636E;(&#x671F;&#x7269;&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#x540E;&#x53EF;&#x80FD;&#x6709;&#x7528;)</span>
+        <span class="hljs-comment"># &#x83B7;&#x53D6;&#x671F;&#x7269;&#x7684;&#x7ED3;&#x679C;</span>
+        done_iter = futures.as_completed(to_do_map)  <span class="hljs-comment"># &lt;11&gt;</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> verbose:
+            <span class="hljs-comment"># done_iter &#x6CA1;&#x6709; len &#x51FD;&#x6570;, &#x5FC5;&#x987B;&#x901A;&#x8FC7; total &#x53C2;&#x6570;&#x544A;&#x8BC9; tqdm &#x51FD;&#x6570;&#x9884;&#x671F;&#x7684;&#x5143;&#x7D20;&#x6570;&#x91CF;</span>
+            done_iter = tqdm.tqdm(done_iter,  total=len(cc_list))  <span class="hljs-comment"># &lt;12&gt;</span>
+        <span class="hljs-keyword">for</span> future <span class="hljs-keyword">in</span> done_iter:  <span class="hljs-comment"># &lt;13&gt; &#x8FED;&#x4EE3;&#x7684;&#x662F;&#x671F;&#x7269;, &#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x77E5;&#x9053;&#x5F53;&#x524D;&#x5904;&#x7406;&#x7684;&#x662F;&#x54EA;&#x4E2A;&#x56FD;&#x5BB6;</span>
+            <span class="hljs-keyword">try</span>:
+                res = future.result()  <span class="hljs-comment"># &lt;14&gt;</span>
+            <span class="hljs-keyword">except</span> requests.exceptions.HTTPError <span class="hljs-keyword">as</span> exc:  <span class="hljs-comment"># &lt;15&gt;</span>
+                error_msg = <span class="hljs-string">&apos;HTTP {res.status_code} - {res.reason}&apos;</span>
+                error_msg = error_msg.format(res=exc.response)
+            <span class="hljs-keyword">except</span> requests.exceptions.ConnectionError <span class="hljs-keyword">as</span> exc:
+                error_msg = <span class="hljs-string">&apos;Connection error&apos;</span>
+            <span class="hljs-keyword">else</span>:
+                error_msg = <span class="hljs-string">&apos;&apos;</span>
+                status = res.status
+
+            <span class="hljs-keyword">if</span> error_msg:
+                status = HTTPStatus.error
+            counter[status] += <span class="hljs-number">1</span>
+            <span class="hljs-keyword">if</span> verbose <span class="hljs-keyword">and</span> error_msg:
+                cc = to_do_map[future]  <span class="hljs-comment"># &lt;16&gt;</span>
+                print(<span class="hljs-string">&apos;*** Error for {}: {}&apos;</span>.format(cc,  error_msg))
+
+    <span class="hljs-keyword">return</span> counter
+</code></pre>
+<h2 id="5-&#x591A;&#x7EBF;&#x7A0B;-&#x591A;&#x8FDB;&#x7A0B;&#x5B9E;&#x73B0;">5. &#x591A;&#x7EBF;&#x7A0B;, &#x591A;&#x8FDB;&#x7A0B;&#x5B9E;&#x73B0;</h2>
+<p>concurrent.futures</p>
+<ul>
+<li>&#x7279;&#x70B9;&#xFF1A;&#x53EA;&#x4E0D;&#x8FC7;&#x662F;&#x4F7F;&#x7528;&#x7EBF;&#x7A0B;&#x7684;&#x6700;&#x65B0;&#x65B9;&#x5F0F;</li>
+<li>&#x9002;&#x7528;&#xFF1A;&#x7EBF;&#x7A0B;&#x6216;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;, &#x65E0;&#x9700;&#x8FDB;&#x884C;&#x7EBF;&#x7A0B;&#x95F4;&#x6216;&#x8FDB;&#x7A0B;&#x95F4;&#x901A;&#x4FE1;(&#x9AD8;&#x5EA6;&#x5E76;&#x884C;&#x95EE;&#x9898;)</li>
+<li>&#x7F3A;&#x70B9;&#xFF1A;&#x7F3A;&#x4E4F;&#x7075;&#x6D3B;&#x6027;</li>
+</ul>
+<p>threading &#x6A21;&#x5757;&#xFF1A;</p>
+<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;Python &#x591A;&#x7EBF;&#x7A0B;&#x539F;&#x751F;&#x5E93;</li>
+<li>&#x6587;&#x6863;&#xFF1A;<a href="https://docs.python.org/3/library/threading.html" target="_blank">https://docs.python.org/3/library/threading.html</a></li>
+<li>&#x63A5;&#x53E3;&#xFF1A;<ul>
+<li>&#x57FA;&#x672C;&#x7EC4;&#x4EF6;&#xFF1A;Thread&#x3001; Lock&#x3001; Semaphore &#x7B49;</li>
+<li>&#x901A;&#x4FE1;&#xFF1A;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; queue &#x6A21;&#x5757;&#x521B;&#x5EFA;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x961F;&#x5217;, &#x5728;&#x7EBF;&#x7A0B;&#x4E4B;&#x95F4;&#x4F20;&#x9012;&#x6570;&#x636E;</li>
+</ul>
+</li>
+</ul>
+<p>multiprocessing &#x6A21;&#x5757;</p>
+<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;Python &#x591A;&#x8FDB;&#x7A0B;&#x539F;&#x751F;&#x5E93;</li>
+<li>&#x6587;&#x6863;&#xFF1A;<a href="https://docs.python.org/3/library/multiprocessing.html" target="_blank">https://docs.python.org/3/library/multiprocessing.html</a></li>
+<li>&#x63A5;&#x53E3;&#xFF1A;<ul>
+<li>API&#xFF1A;threading &#x6A21;&#x5757;&#x76F8;&#x4EFF;, &#x4E0D;&#x8FC7;&#x4F5C;&#x4E1A;&#x4EA4;&#x7ED9;&#x591A;&#x4E2A;&#x8FDB;&#x7A0B;&#x5904;&#x7406;</li>
+<li>&#x901A;&#x4FE1;&#xFF1A;&#x652F;&#x6301;&#x57FA;&#x7840;&#x8BBE;&#x65BD;&#x7684;&#x9501;&#x3001;&#x961F;&#x5217;&#x3001;&#x7BA1;&#x9053;&#x3001;&#x5171;&#x4EAB;&#x5185;&#x5B58;, &#x7B49;&#x7B49;</li>
+</ul>
+</li>
+</ul>
+<p><strong>lelo &#x5E93;</strong></p>
+<ul>
+<li>&#x6587;&#x6863;&#xFF1A;<a href="https://pypi.python.org/pypi/lelo" target="_blank">https://pypi.python.org/pypi/lelo</a></li>
+<li>&#x4F5C;&#x7528;&#xFF1A;&#x4F7F;&#x7528; <strong>&#x591A;&#x8FDB;&#x7A0B;</strong> &#x5904;&#x7406;&#x5E76;&#x884C;&#x4EFB;&#x52A1;</li>
+<li>&#x63A5;&#x53E3;&#xFF1A;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; @parallel &#x88C5;&#x9970;&#x5668;, &#x53EF;&#x4EE5;&#x5E94;&#x7528;&#x5230;&#x4EFB;&#x4F55;&#x51FD;&#x6570;&#x4E0A;, &#x628A;&#x51FD;&#x6570;&#x53D8;&#x6210;&#x975E;&#x963B;&#x585E;&#xFF1A;
+&#x8C03;&#x7528;&#x88AB;&#x88C5;&#x9970;&#x7684;&#x51FD;&#x6570;&#x65F6;, &#x51FD;&#x6570;&#x5728;&#x4E00;&#x4E2A;&#x65B0;&#x8FDB;&#x7A0B;&#x4E2D;&#x6267;&#x884C;</li>
+</ul>
+<p><strong>python-parallelize</strong></p>
+<ul>
+<li>&#x6587;&#x6863;&#xFF1A;<a href="https://github.com/npryce/python-parallelize" target="_blank">https://github.com/npryce/python-parallelize</a></li>
+<li>&#x4F5C;&#x7528;&#xFF1A;&#x4F7F;&#x7528; <strong>&#x591A;&#x8FDB;&#x7A0B;</strong> &#x5904;&#x7406;&#x5E76;&#x884C;&#x4EFB;&#x52A1;</li>
+<li>&#x63A5;&#x53E3;&#xFF1A;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A; parallelize &#x751F;&#x6210;&#x5668;, &#x80FD;&#x628A; for &#x5FAA;&#x73AF;&#x5206;&#x914D;&#x7ED9;&#x591A;&#x4E2A; CPU &#x6267;&#x884C;</li>
+</ul>
+<h2 id="&#x5EF6;&#x4F38;&#x9605;&#x8BFB;">&#x5EF6;&#x4F38;&#x9605;&#x8BFB;</h2>
+<h3 id="python">Python:</h3>
+<p>&#x6807;&#x51C6;&#x5E93;</p>
+<ul>
+<li>queue&#xFF1A;<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x961F;&#x5217;</li>
+<li>&#x6587;&#x6863;&#xFF1A;<a href="https://docs.python.org/3/library/queue.html" target="_blank">https://docs.python.org/3/library/queue.html</a></li>
+</ul>
+</li>
+</ul>
+<p>GIL&#xFF1A;</p>
+<ul>
+<li>&#x6587;&#x6863;&#xFF1A;<a href="https://docs.python.org/3/faq/library.html#id18" target="_blank">https://docs.python.org/3/faq/library.html#id18</a></li>
+<li>&#x5176;&#x4ED6;&#xFF1A;<ul>
+<li>It isn&#x2019;t Easy to Remove the GIL:
+<a href="http://www.artima.com/weblogs/viewpost.jsp?thread=214235" target="_blank">http://www.artima.com/weblogs/viewpost.jsp?thread=214235</a></li>
+<li>Python Threadsand the Global Interpreter Lock:
+<a href="http://jessenoller.com/2009/02/01/python-threads-and-the-globalinterpreter-lock/" target="_blank">http://jessenoller.com/2009/02/01/python-threads-and-the-globalinterpreter-lock/</a></li>
+<li>Understanding the Python GIL: <a href="http://www.dabeaz.com/GIL/" target="_blank">http://www.dabeaz.com/GIL/</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="blog">blog:</h3>
+<h3 id="&#x5B9E;&#x7528;&#x5DE5;&#x5177;">&#x5B9E;&#x7528;&#x5DE5;&#x5177;</h3>
+<h3 id="&#x4E66;&#x7C4D;">&#x4E66;&#x7C4D;:</h3>
+<p>Parallel Programming with Python</p>
+<p>Python Cookbook(&#x7B2C; 3 &#x7248;)&#x4E2D;&#x6587;&#x7248;</p>
+<ul>
+<li>11.12 &#x7406;&#x89E3;&#x4E8B;&#x4EF6;&#x9A71;&#x52A8;&#x578B; I/O</li>
+<li>12.7 &#x521B;&#x5EFA;&#x7EBF;&#x7A0B;&#x6C60;</li>
+<li>12.8 &#x5B9E;&#x73B0;&#x7B80;&#x5355;&#x7684;&#x5E76;&#x884C;&#x7F16;&#x7A0B;</li>
+</ul>
+<p>Effective Python&#xFF1A;&#x7F16;&#x5199;&#x9AD8;&#x8D28;&#x91CF; Python &#x4EE3;&#x7801;&#x7684; 59 &#x4E2A;&#x6709;&#x6548;&#x65B9;&#x6CD5;</p>
+<ul>
+<li>&#x534F;&#x7A0B;&#xFF1B;</li>
+<li>&#x4F7F;&#x7528; concurrent.futures &#x5E93;&#x5904;&#x7406;&#x7EBF;&#x7A0B;&#x548C;&#x8FDB;&#x7A0B;&#xFF1B;</li>
+<li>&#x4E0D;&#x4F7F;&#x7528; ThreadPoolExecutor &#x7C7B;, &#x800C;&#x4F7F;&#x7528;&#x9501;&#x548C;&#x961F;&#x5217;&#x505A;&#x7EBF;&#x7A0B;&#x7F16;&#x7A0B;</li>
+</ul>
+<p>High Performance Python</p>
+<p>Python &#x6807;&#x51C6;&#x5E93;</p>
+<p>&#x4E03;&#x5468;&#x4E03;&#x5E76;&#x53D1;&#x6A21;&#x578B;</p>
+<h2 id="&#x6742;&#x8C08;">&#x6742;&#x8C08;</h2>
+<p>&#x9AD8;&#x5EA6;&#x5E76;&#x884C;&#x95EE;&#x9898;&#xFF1A;<a href="https://en.wikipedia.org/wiki/Embarrassingly_parallel" target="_blank">https://en.wikipedia.org/wiki/Embarrassingly_parallel</a></p>
+<p>Elixir &#x8BED;&#x8A00;</p>
+<p>Go &#x8BED;&#x8A00;</p>
+<ul>
+<li>Go &#x4E0D;&#x652F;&#x6301;&#x5B8F;, &#x53E5;&#x6CD5;&#x6BD4; Python &#x7B80;&#x5355;; &#x4E5F;&#x4E0D;&#x652F;&#x6301;&#x7EE7;&#x627F;&#x548C;&#x8FD0;&#x7B97;&#x7B26;&#x91CD;&#x8F7D;, &#x800C;&#x4E14;&#x63D0;
+&#x4F9B;&#x7684;&#x5143;&#x7F16;&#x7A0B;&#x652F;&#x6301;&#x6CA1;&#x6709; Python &#x591A;</li>
+<li>&#x8FD9;&#x4E9B;&#x9650;&#x5236;&#x88AB;&#x8BA4;&#x4E3A;&#x662F; Go &#x8BED;&#x8A00;&#x7684;&#x7279;&#x70B9;, &#x56E0;&#x4E3A;&#x884C;&#x4E3A;&#x548C;&#x6027;&#x80FD;&#x66F4;&#x53EF;&#x9884;&#x6599;&#x3002;&#x8FD9;&#x5BF9;&#x9AD8;&#x5E76;&#x53D1;&#x6765;&#x8BF4;&#x662F;&#x597D;&#x4E8B;</li>
+</ul>
+<p>JavaScript&#xFF1A;</p>
+<ul>
+<li>&#x6839;&#x672C;&#x4E0D;&#x652F;&#x6301;&#x7528;&#x6237;&#x5C42;&#x7EA7;&#x7684;&#x7EBF;&#x7A0B;, &#x53EA;&#x80FD;&#x901A;&#x8FC7;&#x56DE;&#x8C03;&#x5F0F;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x5B9E;&#x73B0;&#x5E76;&#x53D1;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="coroutine.html" class="navigation navigation-prev " aria-label="Previous page: 5.1 协程">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="asyncio.html" class="navigation navigation-next " aria-label="Next page: 5.3 asyncio">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"5.2 期物","level":"1.6.2","depth":2,"next":{"title":"5.3 asyncio","level":"1.6.3","depth":2,"path":"concurrency/asyncio.md","ref":"concurrency/asyncio.md","articles":[]},"previous":{"title":"5.1 协程","level":"1.6.1","depth":2,"path":"concurrency/coroutine.md","ref":"concurrency/coroutine.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"concurrency/future.md","mtime":"2017-09-24T13:58:52.333Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-10T15:06:40.336Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
