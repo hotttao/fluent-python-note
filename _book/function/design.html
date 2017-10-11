@@ -606,12 +606,312 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="22-&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;">2.2 &#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;</h1>
+<blockquote>
+<p> Norvig &#x5EFA;&#x8BAE;&#x5728;&#x6709;&#x4E00;&#x7B49;&#x51FD;&#x6570;&#x7684;&#x8BED;&#x8A00;&#x4E2D;&#x91CD;&#x65B0;&#x5BA1;&#x89C6;&quot;&#x7B56;&#x7565;&quot;, &quot;&#x547D;&#x4EE4;&quot;, &quot;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&quot;&#x548C;&quot;&#x8BBF;&#x95EE;&#x8005;&quot;&#x6A21;&#x5F0F;;
+&#x5373;&#x628A;&#x5B9E;&#x73B0;&#x5355;&#x65B9;&#x6CD5;&#x63A5;&#x53E3;&#x7684;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x66FF;&#x6362;&#x6210;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;, &#x56E0;&#x4E3A;&#x6BCF;&#x4E2A; Python &#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#x90FD;&#x5B9E;&#x73B0;&#x4E86;&#x5355;&#x65B9;&#x6CD5;&#x63A5;&#x53E3;&#xFF0C;
+&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5C31;&#x662F; __call__</p>
+</blockquote>
+<h2 id="1-&#x91CD;&#x6784;&#x7B56;&#x7565;&#x6A21;&#x5F0F;">1. &#x91CD;&#x6784;&quot;&#x7B56;&#x7565;&quot;&#x6A21;&#x5F0F;</h2>
+<p><img src="../image/design_strategy.png" alt="&#x7B56;&#x7565;&#x6A21;&#x5F0F;UML"></p>
+<p>&#x7B56;&#x7565;&#x6A21;&#x5F0F;:</p>
+<ul>
+<li>&#x5B9A;&#x4E49;&#xFF1A;&#x5B9A;&#x4E49;&#x4E00;&#x7CFB;&#x5217;&#x7B97;&#x6CD5;&#xFF0C;&#x628A;&#x5B83;&#x4EEC;&#x4E00;&#x4E00;&#x5C01;&#x88C5;&#x8D77;&#x6765;&#xFF0C;&#x5E76;&#x4E14;&#x4F7F;&#x5B83;&#x4EEC;&#x53EF;&#x4EE5;&#x76F8;&#x4E92;&#x66FF;&#x6362;&#x3002;
+&#x672C;&#x6A21;&#x5F0F;&#x4F7F;&#x5F97;&#x7B97;&#x6CD5;&#x53EF;&#x4EE5;&#x72EC;&#x7ACB;&#x4E8E;&#x4F7F;&#x7528;&#x5B83;&#x7684;&#x5BA2;&#x6237;&#x800C;&#x53D8;&#x5316;</li>
+<li>UML&#xFF1A;<ul>
+<li>&#x4E0A;&#x4E0B;&#x6587;&#xFF1A;&#x628A;&#x4E00;&#x4E9B;&#x8BA1;&#x7B97;&#x59D4;&#x6258;&#x7ED9;&#x5B9E;&#x73B0;&#x4E0D;&#x540C;&#x7B97;&#x6CD5;&#x7684;&#x53EF;&#x4E92;&#x6362;&#x7EC4;&#x4EF6;&#xFF0C;&#x5B83;&#x63D0;&#x4F9B;&#x670D;&#x52A1; -- Order</li>
+<li>&#x7B56;&#x7565;&#xFF1A;&#x5B9E;&#x73B0;&#x4E0D;&#x540C;&#x7B97;&#x6CD5;&#x7684;&#x7EC4;&#x4EF6;&#x5171;&#x540C;&#x7684;&#x63A5;&#x53E3; -- Promotion &#x62BD;&#x8C61;&#x57FA;&#x7C7B;</li>
+<li>&#x5177;&#x4F53;&#x7B56;&#x7565;&#xFF1A;&#x7B56;&#x7565;&#x7684;&#x5177;&#x4F53;&#x5B50;&#x7C7B;&#xFF0C;&#x5B9E;&#x73B0;&#x7279;&#x5B9A;&#x7684;&#x7B97;&#x6CD5;</li>
+</ul>
+</li>
+</ul>
+<h3 id="11-&#x7ECF;&#x5178;&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x793A;&#x4F8B;">1.1 &#x7ECF;&#x5178;&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x793A;&#x4F8B;</h3>
+<p>&#x793A;&#x4F8B;&#x5206;&#x6790;&#xFF1A;</p>
+<ul>
+<li>&#x6BCF;&#x4E2A;&#x5177;&#x4F53;&#x7B56;&#x7565;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x7C7B;&#xFF0C;&#x800C;&#x4E14;&#x90FD;&#x53EA;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x5373; discount</li>
+<li>&#x7B56;&#x7565;&#x5B9E;&#x4F8B;&#x6CA1;&#x6709;&#x72B6;&#x6001;&#xFF08;&#x6CA1;&#x6709;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#xFF09;&#xFF0C;&#x5B83;&#x4EEC;&#x770B;&#x8D77;&#x6765;&#x50CF;&#x662F;&#x666E;&#x901A;&#x7684;&#x51FD;&#x6570;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x793A;&#x4F8B; 6-1&#x3000;&#x5B9E;&#x73B0; Order &#x7C7B;&#xFF0C;&#x652F;&#x6301;&#x63D2;&#x5165;&#x5F0F;&#x6298;&#x6263;&#x7B56;&#x7565;</span>
+<span class="hljs-keyword">from</span> abc <span class="hljs-keyword">import</span> ABC, abstractmethod
+<span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> namedtuple
+
+Customer = namedtuple(<span class="hljs-string">&apos;Customer&apos;</span>, <span class="hljs-string">&apos;name fidelity&apos;</span>)
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LineItem</span>:</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, product, quantity, price)</span>:</span>
+        self.product = product
+        self.quantity = quantity
+        self.price = price
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">total</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.price * self.quantity
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Order</span>:</span>  <span class="hljs-comment"># the Context</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, customer, cart, promotion=None)</span>:</span>
+        self.customer = customer
+        self.cart = list(cart)
+        self.promotion = promotion
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">total</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> hasattr(self, <span class="hljs-string">&apos;__total&apos;</span>):
+            self.__total = sum(item.total() <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> self.cart)
+        <span class="hljs-keyword">return</span> self.__total
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">due</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">if</span> self.promotion <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+            discount = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">else</span>:
+            discount = self.promotion.discount(self) <span class="hljs-comment">## promotion &#x63A5;&#x53D7; order</span>
+        <span class="hljs-keyword">return</span> self.total() - discount
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        fmt = <span class="hljs-string">&apos;&lt;Order total: {:.2f} due: {:.2f}&gt;&apos;</span>
+        <span class="hljs-keyword">return</span> fmt.format(self.total(), self.due())
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Promotion</span><span class="hljs-params">(ABC)</span>:</span>  <span class="hljs-comment"># the Strategy: an Abstract Base Class</span>
+
+<span class="hljs-meta">    @abstractmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">discount</span><span class="hljs-params">(self, order)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Return discount as a positive dollar amount&quot;&quot;&quot;</span>
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FidelityPromo</span><span class="hljs-params">(Promotion)</span>:</span>  <span class="hljs-comment"># first Concrete Strategy</span>
+    <span class="hljs-string">&quot;&quot;&quot;5% discount for customers with 1000 or more fidelity points&quot;&quot;&quot;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">discount</span><span class="hljs-params">(self, order)</span>:</span>
+        <span class="hljs-keyword">return</span> order.total() * <span class="hljs-number">.05</span> <span class="hljs-keyword">if</span> order.customer.fidelity &gt;= <span class="hljs-number">1000</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span>
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BulkItemPromo</span><span class="hljs-params">(Promotion)</span>:</span>  <span class="hljs-comment"># second Concrete Strategy</span>
+    <span class="hljs-string">&quot;&quot;&quot;10% discount for each LineItem with 20 or more units&quot;&quot;&quot;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">discount</span><span class="hljs-params">(self, order)</span>:</span>
+        discount = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> order.cart:
+            <span class="hljs-keyword">if</span> item.quantity &gt;= <span class="hljs-number">20</span>:
+                discount += item.total() * <span class="hljs-number">.1</span>
+        <span class="hljs-keyword">return</span> discount
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LargeOrderPromo</span><span class="hljs-params">(Promotion)</span>:</span>  <span class="hljs-comment"># third Concrete Strategy</span>
+    <span class="hljs-string">&quot;&quot;&quot;7% discount for orders with 10 or more distinct items&quot;&quot;&quot;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">discount</span><span class="hljs-params">(self, order)</span>:</span>
+        distinct_items = {item.product <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> order.cart}
+        <span class="hljs-keyword">if</span> len(distinct_items) &gt;= <span class="hljs-number">10</span>:
+            <span class="hljs-keyword">return</span> order.total() * <span class="hljs-number">.07</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+</code></pre>
+<h3 id="12-&#x91CD;&#x6784;&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x793A;&#x4F8B;">1.2 &#x91CD;&#x6784;&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x793A;&#x4F8B;</h3>
+<p>&#x793A;&#x4F8B;&#x5206;&#x6790;&#xFF1A;</p>
+<ul>
+<li>&#x628A;&#x5177;&#x4F53;&#x7B56;&#x7565;&#x6362;&#x6210;&#x4E86;&#x7B80;&#x5355;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x800C;&#x4E14;&#x53BB;&#x6389;&#x4E86; Promo&#x62BD;&#x8C61;&#x7C7B;</li>
+<li>&#x6CA1;&#x5FC5;&#x8981;&#x5728;&#x65B0;&#x5EFA;&#x8BA2;&#x5355;&#x65F6;&#x5B9E;&#x4F8B;&#x5316;&#x65B0;&#x7684;&#x4FC3;&#x9500;&#x5BF9;&#x8C61;&#xFF0C;&#x51FD;&#x6570;&#x62FF;&#x6765;&#x5373;&#x7528;</li>
+</ul>
+<p>&#x4EAB;&#x5143;:</p>
+<ul>
+<li>&#x5B9A;&#x4E49;&#xFF1A;&#x4EAB;&#x5143;&#x662F;&#x53EF;&#x5171;&#x4EAB;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x5728;&#x591A;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x4F7F;&#x7528;</li>
+<li>&#x4F5C;&#x7528;&#xFF1A;&#x5171;&#x4EAB;&#x662F;&#x63A8;&#x8350;&#x7684;&#x505A;&#x6CD5;&#xFF0C;&#x8FD9;&#x6837;&#x4E0D;&#x5FC5;&#x5728;&#x6BCF;&#x4E2A;&#x65B0;&#x7684;&#x4E0A;&#x4E0B;&#x6587;
+&#xFF08;&#x8FD9;&#x91CC;&#x662F; Order &#x5B9E;&#x4F8B;&#xFF09;&#x4E2D;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x7B56;&#x7565;&#x65F6;&#x4E0D;&#x65AD;&#x65B0;&#x5EFA;&#x5177;&#x4F53;&#x7B56;&#x7565;&#x5BF9;&#x8C61;&#xFF0C;&#x4ECE;&#x800C;&#x51CF;&#x5C11;&#x6D88;&#x8017;</li>
+<li>&#x4F18;&#x5316;&#xFF1A;&#x5177;&#x4F53;&#x7B56;&#x7565;&#x4E00;&#x822C;&#x6CA1;&#x6709;&#x5185;&#x90E8;&#x72B6;&#x6001;&#xFF0C;&#x53EA;&#x662F;&#x5904;&#x7406;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x3002;&#x6B64;&#x65F6;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x4F7F;&#x7528;&#x666E;
+&#x901A;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x522B;&#x53BB;&#x7F16;&#x5199;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x7C7B;&#xFF0C;&#x518D;&#x53BB;&#x5B9E;&#x73B0;&#x53E6;&#x4E00;&#x4E2A;&#x7C7B;&#x58F0;&#x660E;&#x7684;&#x5355;&#x51FD;&#x6570;&#x63A5;&#x53E3;&#x3002;&#x51FD;&#x6570;&#x6BD4;&#x7528;&#x6237;
+&#x5B9A;&#x4E49;&#x7684;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x8F7B;&#x91CF;&#xFF0C;&#x800C;&#x4E14;&#x65E0;&#x9700;&#x4F7F;&#x7528;&quot;&#x4EAB;&#x5143;&quot;&#x6A21;&#x5F0F;&#xFF0C;&#x56E0;&#x4E3A;&#x5404;&#x4E2A;&#x7B56;&#x7565;&#x51FD;&#x6570;&#x5728; Python &#x7F16;&#x8BD1;&#x6A21;&#x5757;
+&#x65F6;&#x53EA;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x6B21;&#x3002;&#x666E;&#x901A;&#x7684;&#x51FD;&#x6570;&#x4E5F;&#x662F;&quot;&#x53EF;&#x5171;&#x4EAB;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x5728;&#x591A;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x4F7F;&#x7528;&quot;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x793A;&#x4F8B; 6-3 Order &#x7C7B;&#x548C;&#x4F7F;&#x7528;&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x7684;&#x6298;&#x6263;&#x7B56;&#x7565;</span>
+<span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> namedtuple
+
+Customer = namedtuple(<span class="hljs-string">&apos;Customer&apos;</span>, <span class="hljs-string">&apos;name fidelity&apos;</span>)
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LineItem</span>:</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, product, quantity, price)</span>:</span>
+        self.product = product
+        self.quantity = quantity
+        self.price = price
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">total</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.price * self.quantity
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Order</span>:</span>  <span class="hljs-comment"># the Context</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, customer, cart, promotion=None)</span>:</span>
+        self.customer = customer
+        self.cart = list(cart)
+        self.promotion = promotion
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">total</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> hasattr(self, <span class="hljs-string">&apos;__total&apos;</span>):
+            self.__total = sum(item.total() <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> self.cart)
+        <span class="hljs-keyword">return</span> self.__total
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">due</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">if</span> self.promotion <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+            discount = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">else</span>:
+            discount = self.promotion(self)  <span class="hljs-comment"># &lt;1&gt;</span>
+        <span class="hljs-keyword">return</span> self.total() - discount
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        fmt = <span class="hljs-string">&apos;&lt;Order total: {:.2f} due: {:.2f}&gt;&apos;</span>
+        <span class="hljs-keyword">return</span> fmt.format(self.total(), self.due())
+
+<span class="hljs-comment"># &lt;2&gt;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fidelity_promo</span><span class="hljs-params">(order)</span>:</span>  <span class="hljs-comment"># &lt;3&gt;</span>
+    <span class="hljs-string">&quot;&quot;&quot;5% discount for customers with 1000 or more fidelity points&quot;&quot;&quot;</span>
+    <span class="hljs-keyword">return</span> order.total() * <span class="hljs-number">.05</span> <span class="hljs-keyword">if</span> order.customer.fidelity &gt;= <span class="hljs-number">1000</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bulk_item_promo</span><span class="hljs-params">(order)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;10% discount for each LineItem with 20 or more units&quot;&quot;&quot;</span>
+    discount = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> order.cart:
+        <span class="hljs-keyword">if</span> item.quantity &gt;= <span class="hljs-number">20</span>:
+            discount += item.total() * <span class="hljs-number">.1</span>
+    <span class="hljs-keyword">return</span> discount
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">large_order_promo</span><span class="hljs-params">(order)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;7% discount for orders with 10 or more distinct items&quot;&quot;&quot;</span>
+    distinct_items = {item.product <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> order.cart}
+    <span class="hljs-keyword">if</span> len(distinct_items) &gt;= <span class="hljs-number">10</span>:
+        <span class="hljs-keyword">return</span> order.total() * <span class="hljs-number">.07</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+</code></pre>
+<h3 id="13-&#x9009;&#x62E9;&#x6700;&#x4F73;&#x7B56;&#x7565;">1.3 &#x9009;&#x62E9;&#x6700;&#x4F73;&#x7B56;&#x7565;</h3>
+<p><strong>&#x6A21;&#x5757;&#x5BF9;&#x8C61;</strong>&#xFF1A;</p>
+<ul>
+<li>&#x5728; Python &#x4E2D;&#xFF0C;&#x6A21;&#x5757;&#x4E5F;&#x662F;&#x4E00;&#x7B49;&#x5BF9;&#x8C61;</li>
+<li>&#x6A21;&#x5757;&#x5BF9;&#x8C61;&#x7684;&#x4F7F;&#x7528;: <a href="http://wiki.jikexueyuan.com/project/the-python-study-notes-second-edition/module.html" target="_blank">http://wiki.jikexueyuan.com/project/the-python-study-notes-second-edition/module.html</a></li>
+</ul>
+<p><strong>&#x6A21;&#x5757;&#x81EA;&#x7701;</strong>&#xFF1A;</p>
+<ul>
+<li>globals()<ul>
+<li>&#x8FD4;&#x56DE;&#xFF1A;&#x4E00;&#x4E2A;&#x5B57;&#x5178;&#xFF0C;&#x8868;&#x793A;&#x5F53;&#x524D;&#x7684;&#x5168;&#x5C40;&#x7B26;&#x53F7;&#x8868;</li>
+<li>&#x8BF4;&#x660E;&#xFF1A;&#x8FD9;&#x4E2A;&#x7B26;&#x53F7;&#x8868;&#x59CB;&#x7EC8;&#x9488;&#x5BF9;&#x5F53;&#x524D;&#x6A21;&#x5757;&#xFF08;&#x5BF9;&#x51FD;&#x6570;&#x6216;&#x65B9;&#x6CD5;&#x6765;&#x8BF4;&#xFF0C;&#x662F;&#x6307;&#x5B9A;&#x4E49;&#x5B83;&#x4EEC;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x8C03;&#x7528;&#x5B83;&#x4EEC;&#x7684;&#x6A21;&#x5757;&#xFF09;</li>
+</ul>
+</li>
+<li>inspect.getmembers()<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;&#x7528;&#x4E8E;&#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;</li>
+<li>&#x53C2;&#x6570;&#xFF1A;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x53EF;&#x9009;&#x7684;&#x5224;&#x65AD;&#x6761;&#x4EF6;&#xFF08;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#x51FD;&#x6570;&#xFF09;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x793A;&#x4F8B; 6-7&#x3000;&#x5185;&#x7701;&#x6A21;&#x5757;&#x7684;&#x5168;&#x5C40;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#xFF0C;&#x6784;&#x5EFA; promos &#x5217;&#x8868;</span>
+promos = [globals()[name] <span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> globals()  <span class="hljs-comment"># &lt;1&gt;</span>
+            <span class="hljs-keyword">if</span> name.endswith(<span class="hljs-string">&apos;_promo&apos;</span>)  <span class="hljs-comment"># &lt;2&gt;</span>
+            <span class="hljs-keyword">and</span> name != <span class="hljs-string">&apos;best_promo&apos;</span>]   <span class="hljs-comment"># &lt;3&gt;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">best_promo</span><span class="hljs-params">(order)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;Select best discount available
+    &quot;&quot;&quot;</span>
+    <span class="hljs-keyword">return</span> max(promo(order) <span class="hljs-keyword">for</span> promo <span class="hljs-keyword">in</span> promos)  <span class="hljs-comment"># &lt;4&gt;</span>
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x793A;&#x4F8B; 6-8&#x3000;&#x5185;&#x7701;&#x5355;&#x72EC;&#x7684; promotions &#x6A21;&#x5757;&#xFF0C;&#x6784;&#x5EFA; promos &#x5217;&#x8868;</span>
+<span class="hljs-comment"># &#x552F;&#x4E00;&#x91CD;&#x8981;&#x7684;&#x662F;&#xFF0C; promotions &#x6A21;&#x5757;&#x53EA;&#x80FD;&#x5305;&#x542B;&#x8BA1;&#x7B97;&#x8BA2;&#x5355;&#x6298;&#x6263;&#x7684;&#x51FD;&#x6570;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x8FD9;&#x662F;&#x5BF9;&#x4EE3;&#x7801;&#x7684;&#x9690;&#x6027;&#x5047;&#x8BBE;</span>
+<span class="hljs-comment"># &#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x66F4;&#x4E3A;&#x4E25;&#x683C;&#x7684;&#x6D4B;&#x8BD5;&#xFF0C;&#x5BA1;&#x67E5;&#x4F20;&#x7ED9;&#x5B9E;&#x4F8B;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x8FDB;&#x4E00;&#x6B65;&#x8FC7;&#x6EE4;&#x51FD;&#x6570;</span>
+<span class="hljs-keyword">import</span> promotions
+
+promos = [func <span class="hljs-keyword">for</span> name, func <span class="hljs-keyword">in</span>
+          inspect.getmembers(promotions, inspect.isfunction)]
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">best_promo</span><span class="hljs-params">(order)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;Select best discount available
+    &quot;&quot;&quot;</span>
+    <span class="hljs-keyword">return</span> max(promo(order) <span class="hljs-keyword">for</span> promo <span class="hljs-keyword">in</span> promos)
+</code></pre>
+<h2 id="2-&#x91CD;&#x6784;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;">2. &#x91CD;&#x6784;&quot;&#x547D;&#x4EE4;&quot;&#x6A21;&#x5F0F;</h2>
+<p>&#x547D;&#x4EE4;&#x6A21;&#x5F0F;:</p>
+<ul>
+<li>&#x76EE;&#x7684;&#xFF1A;&#x89E3;&#x8026;&#x8C03;&#x7528;&#x64CD;&#x4F5C;&#x7684;&#x5BF9;&#x8C61;&#xFF08;&#x8C03;&#x7528;&#x8005;&#xFF09;&#x548C;&#x63D0;&#x4F9B;&#x5B9E;&#x73B0;&#x7684;&#x5BF9;&#x8C61;&#xFF08;&#x63A5;&#x6536;&#x8005;&#xFF09;</li>
+<li>&#x5BF9;&#x6BD4;&#xFF1A;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x662F;&#x56DE;&#x8C03;&#x673A;&#x5236;&#x7684;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x66FF;&#x4EE3;&#x54C1;</li>
+</ul>
+<h3 id="21-&#x91CD;&#x6784;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x793A;&#x4F8B;">2.1 &#x91CD;&#x6784;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x793A;&#x4F8B;</h3>
+<p><img src="../image/design_command.png" alt="&#x547D;&#x4EE4;&#x6A21;&#x5F0F;UML"></p>
+<p><strong>&#x793A;&#x4F8B;&#x5206;&#x6790;</strong>&#xFF1A;</p>
+<ul>
+<li>&#x8C03;&#x7528;&#x8005;&#xFF1A;&#x662F;&#x56FE;&#x5F62;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x83DC;&#x5355;&#x9879;</li>
+<li>&#x63A5;&#x6536;&#x8005;&#xFF1A;&#x662F;&#x88AB;&#x7F16;&#x8F91;&#x7684;&#x6587;&#x6863;&#x6216;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x81EA;&#x8EAB;</li>
+<li>&#x5B9E;&#x73B0;&#xFF1A;<ul>
+<li>&#x5728;&#x4E8C;&#x8005;&#x4E4B;&#x95F4;&#x653E;&#x4E00;&#x4E2A; Command &#x5BF9;&#x8C61;&#xFF0C;&#x8BA9;&#x5B83;&#x5B9E;&#x73B0;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;(execute)&#x7684;&#x63A5;&#x53E3;&#xFF0C;
+&#x8C03;&#x7528;&#x63A5;&#x6536;&#x8005;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x6240;&#x9700;&#x7684;&#x64CD;&#x4F5C;&#xFF1B;</li>
+<li>&#x8C03;&#x7528;&#x8005;&#x6709;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x547D;&#x4EE4;&#xFF0C;&#x901A;&#x8FC7;&#x8C03;&#x7528; execute &#x65B9;&#x6CD5;&#x6267;&#x884C;</li>
+</ul>
+</li>
+<li>&#x4F18;&#x5316;&#xFF1A;<ul>
+<li>&#x53EF;&#x4EE5;&#x4E0D;&#x4E3A;&#x8C03;&#x7528;&#x8005;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A; Command &#x5B9E;&#x4F8B;&#xFF0C;&#x800C;&#x662F;&#x7ED9;&#x5B83;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x3002;</li>
+<li>&#x6B64;&#x65F6;&#xFF0C;&#x8C03;&#x7528;&#x8005;&#x4E0D;&#x7528;&#x8C03;&#x7528;command.execute()&#xFF0C;&#x76F4;&#x63A5;&#x8C03;&#x7528; command() &#x5373;&#x53EF;</li>
+<li>MacroCommand &#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x6210;&#x5B9A;&#x4E49;&#x4E86; __call__ &#x65B9;&#x6CD5;&#x7684;&#x7C7B;&#x3002;&#x8FD9;&#x6837;&#xFF0C; MacroCommand &#x7684;&#x5B9E;&#x4F8B;
+&#x5C31;&#x662F;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#xFF0C;&#x5404;&#x81EA;&#x7EF4;&#x62A4;&#x7740;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5217;&#x8868;&#xFF0C;&#x4F9B;&#x4EE5;&#x540E;&#x8C03;&#x7528;</li>
+</ul>
+</li>
+</ul>
+<p><strong>&#x590D;&#x6742;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x66FF;&#x4EE3;&#x65B9;&#x6848;</strong>&#xFF1A;</p>
+<ol>
+<li>&#x53EF;&#x8C03;&#x7528;&#x5B9E;&#x4F8B;&#xFF0C;&#x53EF;&#x4EE5;&#x4FDD;&#x5B58;&#x4EFB;&#x4F55;&#x6240;&#x9700;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x800C;&#x4E14;&#x9664;&#x4E86; __call__ &#x4E4B;&#x5916;&#x8FD8;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;</li>
+<li>&#x4F7F;&#x7528;&#x95ED;&#x5305;&#x5728;&#x8C03;&#x7528;&#x4E4B;&#x95F4;&#x4FDD;&#x5B58;&#x51FD;&#x6570;&#x7684;&#x5185;&#x90E8;&#x72B6;&#x6001;</li>
+</ol>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x793A;&#x4F8B; 6-9 MacroCommand &#x7684;&#x5404;&#x4E2A;&#x5B9E;&#x4F8B;&#x90FD;&#x5728;&#x5185;&#x90E8;&#x5B58;&#x50A8;&#x7740;&#x547D;&#x4EE4;&#x5217;&#x8868;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MacroCommand</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;&#x4E00;&#x4E2A;&#x6267;&#x884C;&#x4E00;&#x7EC4;&#x547D;&#x4EE4;&#x7684;&#x547D;&#x4EE4;&quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, commands)</span>:</span>
+        self.commands = list(commands) <span class="hljs-comment"># &#x278A;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__call__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">for</span> command <span class="hljs-keyword">in</span> self.commands: <span class="hljs-comment"># &#x278B;</span>
+        command()
+</code></pre>
 <h2 id="&#x5EF6;&#x4F38;&#x9605;&#x8BFB;">&#x5EF6;&#x4F38;&#x9605;&#x8BFB;</h2>
 <h3 id="python">Python:</h3>
-<p>&#x6807;&#x51C6;&#x5E93;</p>
+<ol>
+<li>Python &#x62E5;&#x6709;&#x4E00;&#x7B49;&#x51FD;&#x6570;&#x548C;&#x4E00;&#x7B49;&#x7C7B;&#x578B;</li>
+<li>Python &#x8FD8;&#x6709;&#x6CDB;&#x51FD;&#x6570;&#xFF08; 7.8.2 &#x8282;&#xFF09;&#x3002;&#x6CDB;&#x51FD;&#x6570;&#x4E0E; CLOS &#x4E2D;&#x7684;&#x591A;&#x65B9;&#x6CD5;&#xFF08; multimethod&#xFF09;&#x7C7B;&#x4F3C;</li>
+</ol>
 <h3 id="blog">blog:</h3>
+<p>Design Patterns in Dynamic Languages &#xFF1A;</p>
+<ul>
+<li>Peter Norvig &#x5C55;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x4E00;&#x7B49;&#x51FD;&#x6570;&#xFF08;&#x548C;&#x5176;&#x4ED6;&#x52A8;&#x6001;&#x7279;&#x6027;&#xFF09;&#x7B80;&#x5316;&#x51E0;&#x4E2A;&#x7ECF;&#x5178;&#x7684;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#xFF0C;
+&#x6216;&#x8005;&#x6839;&#x672C;&#x4E0D;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;</li>
+<li><a href="http://www.norvig.com/design-patterns/index.htm&#xFF09;" target="_blank">http://www.norvig.com/design-patterns/index.htm&#xFF09;</a></li>
+<li><a href="http://norvig.com/design-patterns/" target="_blank">http://norvig.com/design-patterns/</a></li>
+</ul>
+<p>Alex Martelli &#x5173;&#x4E8E; Python &#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x7684;&#x6F14;&#x8BB2;</p>
+<ul>
+<li><a href="http://pyvideo.org/europython-2011/python-design-patterns.html" target="_blank">http://pyvideo.org/europython-2011/python-design-patterns.html</a></li>
+<li><a href="http://www.aleax.it/gdd_pydp.pdf" target="_blank">http://www.aleax.it/gdd_pydp.pdf</a></li>
+</ul>
 <h3 id="&#x5B9E;&#x7528;&#x5DE5;&#x5177;">&#x5B9E;&#x7528;&#x5DE5;&#x5177;</h3>
 <h3 id="&#x4E66;&#x7C4D;">&#x4E66;&#x7C4D;:</h3>
+<p>&#x300A;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#xFF1A;&#x53EF;&#x590D;&#x7528;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x8F6F;&#x4EF6;&#x7684;&#x57FA;&#x7840;&#x300B;</p>
+<ul>
+<li>&quot;&#x5BF9;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5BF9;&#x5B9E;&#x73B0;&#x7F16;&#x7A0B;&quot;</li>
+<li>&quot;&#x4F18;&#x5148;&#x4F7F;&#x7528;&#x5BF9;&#x8C61;&#x7EC4;&#x5408;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7C7B;&#x7EE7;&#x627F;&quot;</li>
+</ul>
+<p>&#x300A; Python Cookbook&#xFF08;&#x7B2C; 3 &#x7248;&#xFF09;&#x4E2D;&#x6587;&#x7248;&#x300B;</p>
+<ul>
+<li>&quot;8.21 &#x5B9E;&#x73B0;&#x8BBF;&#x95EE;&#x8005;&#x6A21;&#x5F0F;&quot;&#x4F7F;&#x7528;&#x4F18;&#x96C5;&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x4E86;&quot;&#x8BBF;&#x95EE;&#x8005;&quot;&#x6A21;&#x5F0F;&#xFF0C;&#x5176;&#x4E2D;&#x7684; NodeVisitor &#x7C7B;&#x628A;&#x65B9;&#x6CD5;&#x5F53;&#x4F5C;&#x4E00;&#x7B49;&#x5BF9;&#x8C61;&#x5904;&#x7406;</li>
+</ul>
+<p>&#x300A;Learning Python Design Patterns&#x300B;</p>
+<p>&#x300A; Python &#x9AD8;&#x7EA7;&#x7F16;&#x7A0B;&#x300B;</p>
+<ul>
+<li>&#x7B2C; 14 &#x7AE0;&quot;&#x6709;&#x7528;&#x7684;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&quot;&#x4ECE; Python &#x7A0B;&#x5E8F;&#x5458;&#x7684;&#x89C6;&#x89D2;&#x4ECB;&#x7ECD;&#x4E86; 7 &#x79CD;&#x7ECF;&#x5178;&#x6A21;&#x5F0F;</li>
+</ul>
+<p>&#x300A;Python 3 Patterns,Recipes and Idioms&#x300B;</p>
+<ul>
+<li><a href="http://www.mindviewinc.com/Books/Python3Patterns/Index.php" target="_blank">http://www.mindviewinc.com/Books/Python3Patterns/Index.php</a></li>
+</ul>
+<p>&#x300A; Head First &#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x300B;</p>
+<ul>
+<li>&#x6709;&#x5173; java &#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x7684;&#x4E66;</li>
+</ul>
+<p>&#x300A; Ruby &#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x300B;
+  -</p>
 <h2 id="&#x9644;&#x6CE8;">&#x9644;&#x6CE8;</h2>
 
                                 
@@ -656,7 +956,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.2 设计模式","level":"1.3.2","depth":2,"next":{"title":"2.3 函数装饰器和闭包","level":"1.3.3","depth":2,"path":"function/decorator.md","ref":"function/decorator.md","articles":[]},"previous":{"title":"2.1 一等函数","level":"1.3.1","depth":2,"path":"function/func_object.md","ref":"function/func_object.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"function/design.md","mtime":"2017-09-23T14:13:37.158Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-10T15:06:40.336Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.2 设计模式","level":"1.3.2","depth":2,"next":{"title":"2.3 函数装饰器和闭包","level":"1.3.3","depth":2,"path":"function/decorator.md","ref":"function/decorator.md","articles":[]},"previous":{"title":"2.1 一等函数","level":"1.3.1","depth":2,"path":"function/func_object.md","ref":"function/func_object.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"function/design.md","mtime":"2017-10-11T02:51:48.843Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-11T01:25:25.793Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
