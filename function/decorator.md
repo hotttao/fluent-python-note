@@ -7,7 +7,6 @@
 ### 1.1 装饰器简介
 语法:
   - 装饰器是可调用的对象，其参数是另一个函数(被装饰的函数)
-  - 严格来说，装饰器只是语法糖
 
 作用:
   - 可能会处理被装饰的函数，然后把它返回
@@ -154,11 +153,12 @@ UnboundLocalError:  local variable 'count' referenced before assignment
 装饰器典型行为:
   - 把被装饰的函数替换成新函数，二者接受相同的参数，
   - 通常返回被装饰的函数本该返回的值，同时还会做些额外操作
-  - 动态地给一个对象添加一些额外的职责
+  - 即动态地给一个对象添加一些额外的职责
 
 装饰器实现:
-  - 装饰器最好通过实现 \_\_call\_\_ 方法的类实现
-  - 构建工业级装饰器的技术， 参见Graham Dumpleton 的博客和 wrapt 模块
+  1. 函数装饰器
+  2. 通过实现 \_\_call\_\_ 方法的类实现 -- 最佳方式
+  3. 构建工业级装饰器的技术， 参见Graham Dumpleton 的博客和 wrapt 模块
 
 装饰器扩展模块
 1. wrapt:
@@ -174,7 +174,6 @@ UnboundLocalError:  local variable 'count' referenced before assignment
 装饰器用法：
 1. Graham Dumpleton
   - 写了一系列博客文章，深入剖析了如何实现行为良好的装饰器 http://github.com/GrahamDumpleton/wrapt/blob/develop/blog/README.md
-  - 第一篇: How You Implemented Your Python Decorator isWrong http://github.com/GrahamDumpleton/wrapt/blob/develop/blog/01-how-you-implemented-your-python-decorator-is-wrong.md
 
 2. Python Decorator Library 维基页面
   - http://wiki.python.org/moin/PythonDecoratorLibrary
@@ -215,10 +214,10 @@ functools.wraps 装饰器
 ### 5.2 标准库中的装饰器
 **functools.lru_cache(maxsize, typed)**:
   - 作用: 备忘(memoization)功能，把耗时的函数的结果保存起来，避免传入相同的参数时重复计算
-  - lru: Least Recently Used 的缩写，表明缓存不会无限制增长，一段时间不用的缓存条目会被扔掉
+  - lru: Least Recently Used 的缩写，表明缓存不会无限增长，一段时间不用的缓存条目会被扔掉
   - 参数:
     - maxsize: 指定存储多少个调用的结果,为了得到最佳性能， maxsize 应该设为 2 的幂
-    - typed: =True，把不同参数类型得到的结果分开保存，即把通常认为相等的浮点数和整数参数区分开
+    - typed:=True，把不同参数类型得到的结果分开保存，即把通常认为相等的浮点数和整数参数区分开
   - 应用:
     - 优化递归算法
     - 在从 Web 中获取信息的应用中也能发挥巨大作用
@@ -413,7 +412,7 @@ class clock:
 
 ### 6.2 泛函数扩展模块
 Reg
-  - 文档: http://reg.readthedocs.io/en/latest/）
+  - 文档: http://reg.readthedocs.io/en/latest/
   - 作用: 使用现代的技术实现多分派泛函数，并支持在生产环境中使用
 
 ## 延伸阅读
@@ -433,7 +432,7 @@ wrapt:
   - 文档说明：对单分派泛函数的基本原理和细节做了说明
 
 Reg
-  - 文档: http://reg.readthedocs.io/en/latest/）
+  - 文档: http://reg.readthedocs.io/en/latest/
   - 作用: 使用现代的技术实现多分派泛函数，并支持在生产环境中使用
 
 nonlocal 声明
@@ -452,8 +451,8 @@ nonlocal 声明
 
 ### blog:
 Graham Dumpleton
-  - 写了一系列博客文章，深入剖析了如何实现行为良好的装饰器 http://github.com/GrahamDumpleton/wrapt/blob/develop/blog/README.md
-  - 第一篇: How You Implemented Your Python Decorator isWrong http://github.com/GrahamDumpleton/wrapt/blob/develop/blog/01-how-you-implemented-your-python-decorator-is-wrong.md
+  - 写了一系列博客文章，深入剖析了如何实现行为良好的装饰器
+  - http://github.com/GrahamDumpleton/wrapt/blob/develop/blog/README.md
 
 Python Decorator Library 维基页面
   - http://wiki.python.org/moin/PythonDecoratorLibrary
