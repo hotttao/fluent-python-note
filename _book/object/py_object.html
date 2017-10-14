@@ -606,87 +606,347 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="32-python&#x98CE;&#x683C;&#x5BF9;&#x8C61;">3.2 Python&#x98CE;&#x683C;&#x5BF9;&#x8C61;</h1>
-<h2 id="&#x6458;&#x8981;">&#x6458;&#x8981;</h2>
-<p>&#x9E2D;&#x5B50;&#x7C7B;&#x578B;&#xFF1A;&#x6309;&#x7167;&#x9884;&#x5B9A;&#x884C;&#x4E3A;&#x5B9E;&#x73B0;&#x5BF9;&#x8C61;&#x6240;&#x9700;&#x7684;&#x65B9;&#x6CD5;</p>
-<h2 id="&#x5BF9;&#x8C61;&#x8868;&#x793A;&#x5F62;&#x5F0F;">&#x5BF9;&#x8C61;&#x8868;&#x793A;&#x5F62;&#x5F0F;</h2>
-<ol>
-<li>_<em>str_</em>:str()</li>
-<li>_<em>repr_</em>:repr()</li>
-<li>_<em>bytes_</em>:bytes() -- &#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x7684;&#x5B57;&#x8282;&#x5E8F;&#x5217;&#x8868;&#x793A;&#x5F62;&#x5F0F;</li>
-<li>_<em>format_</em>:format() str.format()</li>
-<li>_<em>int_</em> :int()</li>
-<li>_<em>float_</em>:float()</li>
-<li>_<em>complex_</em> :complex()</li>
-</ol>
-<h2 id="&#x7279;&#x6B8A;&#x65B9;&#x6CD5;&#xFF1A;">&#x7279;&#x6B8A;&#x65B9;&#x6CD5;&#xFF1A;</h2>
-<ol>
-<li>_<em>iter_</em>:&#x628A;&#x7C7B;&#x53D8;&#x6210;&#x53EF;&#x8FED;&#x4EE3;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x6837;&#x624D;&#x80FD;&#x62C6;&#x5305;</li>
-</ol>
-<h2 id="classmethod">classmethod</h2>
-<p>&#x4F5C;&#x7528;&#xFF1A;</p>
+<p>&#x5185;&#x5BB9;&#x6982;&#x8981;:</p>
 <ul>
-<li>&#x5B9A;&#x4E49;&#x64CD;&#x4F5C;&#x7C7B;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x64CD;&#x4F5C;&#x5B9E;&#x4F8B;&#x7684;&#x65B9;&#x6CD5;</li>
-<li>classmethod &#x6700;&#x5E38;&#x89C1;&#x7684;&#x7528;&#x9014;&#x662F;&#x5B9A;&#x4E49;&#x5907;&#x9009;&#x6784;&#x9020;&#x65B9;&#x6CD5;</li>
+<li>&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x7279;&#x6B8A;&#x65B9;&#x6CD5;&#x548C;&#x7EA6;&#x5B9A;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x5B9A;&#x4E49;&#x884C;&#x4E3A;&#x826F;&#x597D;&#x4E14;&#x7B26;&#x5408; Python &#x98CE;&#x683C;&#x7684;&#x7C7B;</li>
+<li>&#x7B26;&#x5408; Python &#x98CE;&#x683C;&#x7684;&#x5BF9;&#x8C61;&#x5E94;&#x8BE5;&#x6B63;&#x597D;&#x7B26;&#x5408;&#x6240;&#x9700;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5806;&#x780C;&#x8BED;&#x8A00;&#x7279;&#x6027;</li>
+<li>&#x9E2D;&#x5B50;&#x7C7B;&#x578B;: &#x6309;&#x7167;&#x9884;&#x5B9A;&#x884C;&#x4E3A;&#x5B9E;&#x73B0;&#x5BF9;&#x8C61;&#x6240;&#x9700;&#x7684;&#x65B9;&#x6CD5;  </li>
 </ul>
-<p>staticmethod&#xFF1A;</p>
+<h2 id="1-&#x5BF9;&#x8C61;&#x8868;&#x793A;&#x5F62;&#x5F0F;">1. &#x5BF9;&#x8C61;&#x8868;&#x793A;&#x5F62;&#x5F0F;</h2>
+<table>
+<thead>
+<tr>
+<th>&#x7279;&#x6B8A;&#x65B9;&#x6CD5;</th>
+<th>&#x8C03;&#x7528;&#x51FD;&#x6570;</th>
+<th>&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>__str__</td>
+<td>str()</td>
+<td>&#x4EE5;&#x7528;&#x6237;&#x7406;&#x89E3;&#x7684;&#x65B9;&#x5F0F;&#x8FD4;&#x56DE;&#x5BF9;&#x8C61;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x8868;&#x793A;&#x5F62;&#x5F0F;</td>
+</tr>
+<tr>
+<td>__repr__</td>
+<td>repr()</td>
+<td>&#x4EE5;&#x5F00;&#x53D1;&#x8005;&#x7406;&#x89E3;&#x7684;&#x65B9;&#x5F0F;&#x8FD4;&#x56DE;&#x5BF9;&#x8C61;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x8868;&#x793A;&#x5F62;&#x5F0F;</td>
+</tr>
+<tr>
+<td>__bytes__</td>
+<td>bytes()</td>
+<td>&#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x7684;&#x5B57;&#x8282;&#x5E8F;&#x5217;&#x8868;&#x793A;&#x5F62;&#x5F0F;</td>
+</tr>
+<tr>
+<td>__format__</td>
+<td>format() str.format()</td>
+<td>&#x4F7F;&#x7528;&#x7279;&#x6B8A;&#x7684;&#x683C;&#x5F0F;&#x4EE3;&#x7801;&#x663E;&#x793A;&#x5BF9;&#x8C61;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x8868;&#x793A;&#x5F62;&#x5F0F;</td>
+</tr>
+<tr>
+<td>__int__</td>
+<td>int()</td>
+<td>&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#x7528;&#x4E8E;&#x5F3A;&#x5236;&#x8F6C;&#x6362;&#x7C7B;&#x578B;</td>
+</tr>
+<tr>
+<td>__float__</td>
+<td>float()</td>
+<td>&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#x7528;&#x4E8E;&#x5F3A;&#x5236;&#x8F6C;&#x6362;&#x7C7B;&#x578B;</td>
+</tr>
+<tr>
+<td>__complex__</td>
+<td>complex()</td>
+<td>&#x5BF9;&#x8C61;&#x7684;&#x590D;&#x6570;&#x5F62;&#x5F0F;</td>
+</tr>
+</tbody>
+</table>
+<p>Python 3:</p>
 <ul>
-<li>&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x666E;&#x901A;&#x7684;&#x51FD;&#x6570;</li>
-<li>&#x5728;&#x7C7B;&#x7684;&#x5B9A;&#x4E49;&#x4F53;&#x4E2D;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728;&#x6A21;&#x5757;&#x5C42;&#x5B9A;&#x4E49;</li>
+<li>__repr__&#x3001; __str__ &#x548C; __format__ &#x90FD;&#x5FC5;&#x987B;&#x8FD4;&#x56DE; Unicode &#x5B57;&#x7B26;&#x4E32;&#xFF08;str &#x7C7B;&#x578B;&#xFF09;</li>
+<li>__bytes__ &#x65B9;&#x6CD5;&#x5E94;&#x8BE5;&#x8FD4;&#x56DE;&#x5B57;&#x8282;&#x5E8F;&#x5217;&#xFF08;bytes &#x7C7B;&#x578B;&#xFF09;</li>
 </ul>
-<h2 id="&#x53EF;&#x6563;&#x5217;">&#x53EF;&#x6563;&#x5217;</h2>
-<p>&#x9700;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<p>__index__:</p>
+<ul>
+<li>&#x4F5C;&#x7528;: &#x5F3A;&#x5236;&#x628A;&#x5BF9;&#x8C61;&#x8F6C;&#x6362;&#x6210;&#x6574;&#x6570;&#x7D22;&#x5F15;</li>
+<li>&#x5E94;&#x7528;:<ul>
+<li>&#x7279;&#x5B9A;&#x7684;&#x5E8F;&#x5217;&#x5207;&#x7247;&#x573A;&#x666F;&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;&#x4EE5;&#x53CA;&#x6EE1;&#x8DB3; NumPy &#x7684;&#x4E00;&#x4E2A;&#x9700;&#x6C42;</li>
+<li>&#x5728;&#x5B9E;&#x9645;&#x7F16;&#x7A0B;&#x4E2D;&#xFF0C;&#x4E0D;&#x7528;&#x5B9E;&#x73B0; __index__ &#x65B9;&#x6CD5;&#xFF0C;&#x9664;&#x975E;&#x51B3;&#x5B9A;&#x65B0;&#x5EFA;&#x4E00;&#x79CD;&#x6570;&#x503C;&#x7C7B;&#x578B;&#xFF0C;
+&#x5E76;&#x60F3;&#x628A;&#x5B83;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x7ED9; __getitem__ &#x65B9;&#x6CD5;</li>
+</ul>
+</li>
+<li>&#x53C2;&#x8003;:<ul>
+<li>What&#x2019;s New in Python 2.5 <a href="https://docs.python.org/2.5/whatsnew/pep-357.html" target="_blank">https://docs.python.org/2.5/whatsnew/pep-357.html</a></li>
+<li>PEP 357&#x2014;Allowing Any Object to be Used for Slicing  <a href="https://www.python.org/dev/peps/pep-0357/" target="_blank">https://www.python.org/dev/peps/pep-0357/</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="2-&#x7C7B;&#x7684;&#x4E24;&#x4E2A;&#x88C5;&#x9970;&#x5668;">2. &#x7C7B;&#x7684;&#x4E24;&#x4E2A;&#x88C5;&#x9970;&#x5668;</h2>
+<p><strong>classmethod</strong>:</p>
+<ul>
+<li>&#x4F5C;&#x7528;: &#x5B9A;&#x4E49;&#x64CD;&#x4F5C;&#x7C7B;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x64CD;&#x4F5C;&#x5B9E;&#x4F8B;&#x7684;&#x65B9;&#x6CD5;</li>
+<li>&#x53C2;&#x6570;: &#x7C7B;&#x65B9;&#x6CD5;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x7C7B;&#x672C;&#x8EAB;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5B9E;&#x4F8B;</li>
+<li>&#x7528;&#x9014;: &#x6700;&#x5E38;&#x89C1;&#x7684;&#x7528;&#x9014;&#x662F;&#x5B9A;&#x4E49;&#x5907;&#x9009;&#x6784;&#x9020;&#x65B9;&#x6CD5;</li>
+</ul>
+<p><strong>staticmethod</strong>:</p>
+<ul>
+<li>&#x4F5C;&#x7528;: &#x9759;&#x6001;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x666E;&#x901A;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x5728;&#x7C7B;&#x7684;&#x5B9A;&#x4E49;&#x4F53;&#x4E2D;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728;&#x6A21;&#x5757;&#x5C42;&#x5B9A;&#x4E49;</li>
+<li>&#x7528;&#x6CD5;: The Definitive Guide on How to Use Static, Class or Abstract Methods inPython
+<a href="https://julien.danjou.info/blog/2013/guide-python-static-class-abstract-methods&#xFF09;" target="_blank">https://julien.danjou.info/blog/2013/guide-python-static-class-abstract-methods&#xFF09;</a></li>
+</ul>
+<h2 id="3-&#x5B57;&#x7B26;&#x4E32;&#x683C;&#x5F0F;&#x5316;">3. &#x5B57;&#x7B26;&#x4E32;&#x683C;&#x5F0F;&#x5316;</h2>
+<p><strong>&#x683C;&#x5F0F;&#x5B57;&#x7B26;&#x4E32;&#x53E5;&#x6CD5;</strong>:</p>
+<ul>
+<li>&#x4F5C;&#x7528;: &#x5B57;&#x7B26;&#x4E32;&#x683C;&#x5F0F;&#x5316;&#x4F7F;&#x7528;&#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x53C8;&#x79F0;<strong>&#x4EE3;&#x6362;&#x5B57;&#x6BB5;</strong>&#x8868;&#x793A;&#x6CD5;</li>
+<li>&#x6587;&#x6863;: Format String Syntax <a href="https://docs.python.org/3/library/string.html#formatspec" target="_blank">https://docs.python.org/3/library/string.html#formatspec</a></li>
+<li>&#x8BED;&#x6CD5;: {&#x5B57;&#x6BB5;&#x540D;&#x79F0;: &#x683C;&#x5F0F;&#x8BF4;&#x660E;&#x7B26;}<ul>
+<li>&#x5B57;&#x6BB5;&#x540D;&#x79F0;: &#x4E0E;&#x683C;&#x5F0F;&#x8BF4;&#x660E;&#x7B26;&#x65E0;&#x5173;&#xFF0C;&#x7528;&#x4E8E;&#x51B3;&#x5B9A;&#x628A; .format() &#x7684;&#x54EA;&#x4E2A;&#x53C2;&#x6570;&#x4F20;&#x7ED9;&#x4EE3;&#x6362;&#x5B57;&#x6BB5;</li>
+<li>&#x683C;&#x5F0F;&#x8BF4;&#x660E;&#x7B26;: &#x4F7F;&#x7528;&#x7684;&#x8868;&#x793A;&#x6CD5;&#x53EB;&#x683C;&#x5F0F;&#x89C4;&#x8303;&#x5FAE;&#x8BED;&#x8A00;(Format Specification Mini-Language)</li>
+</ul>
+</li>
+<li>&#x9644;&#x6CE8;:<ul>
+<li>format() &#x51FD;&#x6570;&#xFF0C;&#x53EA;&#x4F7F;&#x7528;&#x683C;&#x5F0F;&#x89C4;&#x8303;&#x5FAE;&#x8BED;&#x8A00;</li>
+<li>str.format() &#x4F7F;&#x7528;&#x683C;&#x5F0F;&#x5B57;&#x7B26;&#x4E32;&#x53E5;&#x6CD5;</li>
+</ul>
+</li>
+</ul>
+<p><strong>&#x683C;&#x5F0F;&#x89C4;&#x8303;&#x5FAE;&#x8BED;&#x8A00;</strong></p>
+<ul>
+<li>&#x6587;&#x6863;: <a href="https://docs.python.org/3/library/string.html#formatspec" target="_blank">https://docs.python.org/3/library/string.html#formatspec</a></li>
+<li>&#x7279;&#x6027;:<ul>
+<li>&#x4E3A;&#x4E00;&#x4E9B;&#x5185;&#x7F6E;&#x7C7B;&#x578B;&#x63D0;&#x4F9B;&#x4E86;&#x4E13;&#x7528;&#x7684;&#x8868;&#x793A;&#x4EE3;&#x7801;<ul>
+<li>b &#x548C; x &#x5206;&#x522B;&#x8868;&#x793A;&#x4E8C;&#x8FDB;&#x5236;&#x548C;&#x5341;&#x516D;&#x8FDB;&#x5236;&#x7684; int &#x7C7B;&#x578B;&#xFF0C;</li>
+<li>f &#x8868;&#x793A;&#x5C0F;&#x6570;&#x5F62;&#x5F0F;&#x7684; float &#x7C7B;&#x578B;&#xFF0C;&#x800C; % &#x8868;&#x793A;&#x767E;&#x5206;&#x6570;&#x5F62;&#x5F0F;</li>
+</ul>
+</li>
+<li>&#x662F;&#x53EF;&#x6269;&#x5C55;&#x7684;&#xFF0C;&#x65B9;&#x6CD5;&#x662F;&#x5B9E;&#x73B0; __format__ &#x65B9;&#x6CD5;&#xFF0C;&#x5BF9;&#x63D0;&#x4F9B;&#x7ED9;&#x5185;&#x7F6E;&#x51FD;&#x6570; format(obj, format_spec)
+&#x7684; format_spec&#xFF0C;&#x6216;&#x8005;&#x63D0;&#x4F9B;&#x7ED9; str.format &#x65B9;&#x6CD5;&#x7684; &apos;{: &#xAB;format_spec&#xBB;}&apos; &#x4F4D;&#x4E8E;&#x4EE3;&#x6362;&#x5B57;&#x6BB5;&#x4E2D;&#x7684;
+&#xAB;format_spec&#xBB; &#x505A;&#x7B80;&#x5355;&#x7684;&#x89E3;&#x6790;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># datetime &#x6A21;&#x5757;&#x4E2D;&#x7684;&#x7C7B;&#x7684; __format__ &#x65B9;&#x6CD5;&#x4F7F;&#x7528;&#x7684;&#x683C;&#x5F0F;&#x4EE3;&#x7801;&#x4E0E; strftime() &#x51FD;&#x6570;&#x4E00;&#x6837;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime
+<span class="hljs-meta">&gt;&gt;&gt; </span>now = datetime.now()
+<span class="hljs-meta">&gt;&gt;&gt; </span>format(now, <span class="hljs-string">&apos;%H: %M: %S&apos;</span>)  <span class="hljs-comment"># %H &#x7B49;&#x662F; datetime __format__ &#x6269;&#x5C55;&#x7684;&#x89C4;&#x5219;</span>
+<span class="hljs-string">&apos;18: 49: 05&apos;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&quot;It&apos;s now {: %I: %M %p}&quot;</span>.format(now)
+<span class="hljs-string">&quot;It&apos;s now 06: 49 PM&quot;</span>
+</code></pre>
+<h2 id="4-&#x53EF;&#x6563;&#x5217;&#x5BF9;&#x8C61;">4. &#x53EF;&#x6563;&#x5217;&#x5BF9;&#x8C61;</h2>
+<p><strong>&#x9700;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;</strong>:</p>
 <ol>
-<li>_<em>hash_</em>:<ul>
+<li>__hash__:<ul>
+<li>&#x5B9E;&#x73B0;:<ul>
 <li>&#x5E94;&#x8BE5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6574;&#x6570;</li>
-<li>&#x8FD8;&#x8981;&#x8003;&#x8651;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x7684;&#x6563;&#x5217;&#x503C;&#xFF08; _<em>eq_</em> &#x65B9;&#x6CD5;&#x4E5F;&#x8981;&#x4F7F;&#x7528;&#xFF09;</li>
+<li>&#x8FD8;&#x8981;&#x8003;&#x8651;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x7684;&#x6563;&#x5217;&#x503C;&#xFF0C;&#x56E0;&#x4E3A;&#x76F8;&#x7B49;&#x7684;&#x5BF9;&#x8C61;&#x5E94;&#x8BE5;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x6563;&#x5217;&#x503C;</li>
 <li>&#x6700;&#x597D;&#x4F7F;&#x7528;&#x4F4D;&#x8FD0;&#x7B97;&#x7B26;&#x5F02;&#x6216;&#xFF08; ^&#xFF09;&#x6DF7;&#x5408;&#x5404;&#x5206;&#x91CF;&#x7684;&#x6563;&#x5217;&#x503C;</li>
 </ul>
 </li>
-<li>_<em>eq_</em>:</li>
-<li>&#x5BF9;&#x8C61;&#x4E0D;&#x53EF;&#x53D8;</li>
+<li>&#x6587;&#x6863;:  <a href="https://docs.python.org/3/reference/datamodel.html" target="_blank">https://docs.python.org/3/reference/datamodel.html</a></li>
+</ul>
+</li>
+<li>__eq__: &#x68C0;&#x6D4B;&#x76F8;&#x7B49;&#x6027;&#xFF0C;&#x82E5; a == b &#x4E3A;&#x771F;&#xFF0C;&#x5219; hash(a) == hash(b) &#x4E5F;&#x4E3A;&#x771F;</li>
+<li>&#x5BF9;&#x8C61;&#x4E0D;&#x53EF;&#x53D8;:<ul>
+<li>&#x5B9E;&#x73B0;: &#x8981;&#x60F3;&#x521B;&#x5EFA;&#x53EF;&#x6563;&#x5217;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x4E0D;&#x4E00;&#x5B9A;&#x8981;&#x5B9E;&#x73B0;&#x7279;&#x6027;&#xFF0C;&#x4E5F;&#x4E0D;&#x4E00;&#x5B9A;&#x8981;&#x4FDD;&#x62A4;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x3002;&#x53EA;
+&#x9700;&#x6B63;&#x786E;&#x5730;&#x5B9E;&#x73B0; __hash__ &#x548C; __eq__ &#x65B9;&#x6CD5;&#x5373;&#x53EF;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x5B9E;&#x4F8B;&#x7684;&#x6563;&#x5217;&#x503C;&#x7EDD;&#x4E0D;&#x5E94;&#x8BE5;&#x53D8;
+&#x5316;&#x4EE5;&#x4FDD;&#x8BC1;&#x6563;&#x5217;&#x503C;&#x4E0D;&#x53EF;&#x53D8;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x53EA;&#x8BFB;&#x7279;&#x6027;&#x4FDD;&#x8BC1;&#x5BF9;&#x8C61;&#x4E0D;&#x53EF;&#x53D8;</li>
+<li>&#x65B9;&#x6CD5;:<ul>
+<li>&#x5C06;&#x5C5E;&#x6027;&#x503C;&#x4FDD;&#x5B58;&#x5728;&#x79C1;&#x6709;&#x5C5E;&#x6027;&#x4E2D;,&#x518D;&#x4EE5;&#x53EA;&#x8BFB;&#x7279;&#x6027;&#x516C;&#x5F00;</li>
+<li>&#x4F7F;&#x7528; @property &#x88C5;&#x9970;&#x5668;&#x628A;&#x8BFB;&#x53D6;&#x79C1;&#x6709;&#x5C5E;&#x6027;&#x7684;&#x8BFB;&#x503C;&#x65B9;&#x6CD5;&#x6807;&#x8BB0;&#x4E3A;&#x7279;&#x6027;,&#x8BFB;&#x503C;&#x65B9;&#x6CD5;&#x4E0E;&#x516C;&#x5F00;&#x5C5E;&#x6027;&#x540C;&#x540D;</li>
+</ul>
+</li>
+</ul>
+</li>
 </ol>
-<h2 id="&#x79C1;&#x6709;&#x5C5E;&#x6027;">&#x79C1;&#x6709;&#x5C5E;&#x6027;</h2>
-<p>&#x5B9A;&#x4E49;&#xFF1A;</p>
+<p><strong>&#x79C1;&#x6709;&#x5C5E;&#x6027;</strong></p>
 <ul>
-<li>&#x4E24;&#x4E2A;&#x524D;&#x5BFC;&#x4E0B;&#x5212;&#x7EBF;&#xFF0C;&#x5C3E;&#x90E8;&#x6CA1;&#x6709;&#x6216;&#x6700;&#x591A;&#x6709;&#x4E00;&#x4E2A;&#x4E0B;&#x5212;&#x7EBF;&#x547D;&#x540D;&#x7684;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;</li>
-<li>Python &#x4F1A;&#x628A;&#x5C5E;&#x6027;&#x540D;&#x5B58;&#x5165;&#x5B9E;&#x4F8B;&#x7684; _<em>dict_</em> &#x5C5E;&#x6027;&#x4E2D;&#xFF0C;&#x800C;&#x4E14;&#x4F1A;&#x5728;&#x524D;&#x9762;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A;&#x4E0B;&#x5212;&#x7EBF;&#x548C;&#x7C7B;&#x540D;</li>
-<li>Python &#x89E3;&#x91CA;&#x5668;&#x4E0D;&#x4F1A;&#x5BF9;&#x4F7F;&#x7528;&#x5355;&#x4E2A;&#x4E0B;&#x5212;&#x7EBF;&#x7684;&#x5C5E;&#x6027;&#x540D;&#x505A;&#x7279;&#x6B8A;&#x5904;&#x7406;</li>
+<li>&#x5B9A;&#x4E49;: &#x4E24;&#x4E2A;&#x524D;&#x5BFC;&#x4E0B;&#x5212;&#x7EBF;&#xFF0C;&#x5C3E;&#x90E8;&#x6CA1;&#x6709;&#x6216;&#x6700;&#x591A;&#x6709;&#x4E00;&#x4E2A;&#x4E0B;&#x5212;&#x7EBF;&#x547D;&#x540D;&#x7684;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;</li>
+<li>&#x7279;&#x6027;:<ul>
+<li>Python &#x4F1A;&#x628A;&#x5C5E;&#x6027;&#x540D;&#x5B58;&#x5165;&#x5B9E;&#x4F8B;&#x7684; __dict__ &#x5C5E;&#x6027;&#x4E2D;&#xFF0C;&#x800C;&#x4E14;&#x4F1A;&#x5728;&#x524D;&#x9762;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A;&#x4E0B;&#x5212;&#x7EBF;&#x548C;&#x7C7B;&#x540D;</li>
+<li>&#x53C8;&#x79F0;&#x4E3A;&#x540D;&#x79F0;&#x6539;&#x5199;&#xFF0C;eg:  __mood &#x4F1A;&#x53D8;&#x6210; _Dog__mood</li>
 </ul>
-<p>&#x76EE;&#x7684;&#xFF1A;&#x907F;&#x514D;&#x610F;&#x5916;&#x8BBF;&#x95EE;&#xFF0C;&#x4E0D;&#x80FD;&#x9632;&#x6B62;&#x6545;&#x610F;&#x505A;&#x9519;&#x4E8B;</p>
-<h2 id="slots">_<em>slots_</em></h2>
-<p>&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#xFF1A;</p>
+</li>
+<li>&#x76EE;&#x7684;: &#x907F;&#x514D;&#x5B50;&#x7C7B;&#x610F;&#x5916;&#x8986;&#x76D6;&#x201C;&#x79C1;&#x6709;&#x201D;&#x5C5E;&#x6027;&#xFF0C;&#x4E0D;&#x80FD;&#x9632;&#x6B62;&#x6545;&#x610F;&#x505A;&#x9519;&#x4E8B;</li>
+<li>&#x9644;&#x6CE8;: Python &#x89E3;&#x91CA;&#x5668;&#x4E0D;&#x4F1A;&#x5BF9;&#x4F7F;&#x7528;&#x5355;&#x4E2A;&#x4E0B;&#x5212;&#x7EBF;&#x7684;&#x5C5E;&#x6027;&#x540D;&#x505A;&#x7279;&#x6B8A;&#x5904;&#x7406;</li>
+</ul>
+<h2 id="5-slots">5. __slots__</h2>
+<p>&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;:</p>
 <ul>
-<li>&#x9ED8;&#x8BA4; Python &#x5728;&#x5B9E;&#x4F8B;&#x4E2D;&#x540D;&#x4E3A; _<em>dict_</em> &#x7684;&#x5B57;&#x5178;&#x91CC;&#x5B58;&#x50A8;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;</li>
-<li>_<em>slots_</em>:&#x8BA9;&#x89E3;&#x91CA;&#x5668;&#x5728;&#x5143;&#x7EC4;&#x4E2D;&#x5B58;&#x50A8;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#xFF0C;&#x800C;&#x4E0D;&#x7528;&#x5B57;&#x5178;</li>
-<li>&#x7EE7;&#x627F;&#x81EA;&#x8D85;&#x7C7B;&#x7684; _<em>slots_</em> &#x5C5E;&#x6027;&#x6CA1;&#x6709;&#x6548;&#x679C;,Python &#x53EA;&#x4F1A;&#x4F7F;&#x7528;&#x5404;&#x4E2A;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49;&#x7684; slots &#x5C5E;&#x6027;</li>
+<li>&#x9ED8;&#x8BA4; Python &#x5728;&#x5B9E;&#x4F8B;&#x4E2D;&#x540D;&#x4E3A; __dict__ &#x7684;&#x5B57;&#x5178;&#x91CC;&#x5B58;&#x50A8;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;</li>
+<li>__slots__: &#x8BA9;&#x89E3;&#x91CA;&#x5668;&#x5728;&#x5143;&#x7EC4;&#x4E2D;&#x5B58;&#x50A8;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#xFF0C;&#x800C;&#x4E0D;&#x7528;&#x5B57;&#x5178;</li>
+<li>&#x7EE7;&#x627F;&#x81EA;&#x8D85;&#x7C7B;&#x7684; __slots__ &#x5C5E;&#x6027;&#x6CA1;&#x6709;&#x6548;&#x679C;,Python &#x53EA;&#x4F1A;&#x4F7F;&#x7528;&#x5404;&#x4E2A;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49;&#x7684; slots &#x5C5E;&#x6027;</li>
 </ul>
-<p>__slots&#x7279;&#x6027;:</p>
+<p>__slots__:</p>
 <ul>
-<li>&#x5728;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49; _<em>slots_<em> &#x5C5E;&#x6027;&#x7684;&#x76EE;&#x7684;&#x662F;&#x544A;&#x8BC9;&#x89E3;&#x91CA;&#x5668;&#xFF1A;&#x201C;&#x8FD9;&#x4E2A;&#x7C7B;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x90FD;&#x5728;&#x8FD9;&#x513F;&#x4E86;&#xFF01;&#x201D;Python &#x4F1A;&#x5728;&#x5404;&#x4E2A;&#x5B9E;&#x4F8B;&#x4E2D;&#x4F7F;&#x7528;&#x7C7B;&#x4F3C;&#x5143;&#x7EC4;&#x7684;&#x7ED3;&#x6784;&#x5B58;&#x50A8;&#x5B9E;&#x4F8B;&#x53D8;&#x91CF;&#xFF0C;&#x4ECE;&#x800C;&#x907F;&#x514D;&#x4F7F;&#x7528;&#x6D88;&#x8017;&#x5185;&#x5B58;&#x7684; __dict</em></em> &#x5C5E;&#x6027;</li>
-<li>&#x5982;&#x679C;&#x8981;&#x5904;&#x7406;&#x6570;&#x767E;&#x4E07;&#x4E2A;&#x6570;&#x503C;&#x5BF9;&#x8C61;&#xFF0C;&#x5E94;&#x8BE5;&#x4F7F;&#x7528; NumPy &#x6570;&#x7EC4;</li>
-<li>&#x5728;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49; _<em>slots_<em> &#x5C5E;&#x6027;&#x4E4B;&#x540E;&#xFF0C;&#x5B9E;&#x4F8B;&#x4E0D;&#x80FD;&#x518D;&#x6709; __slots</em></em> &#x4E2D;&#x6240;&#x5217;&#x540D;&#x79F0;&#x4E4B;&#x5916;&#x7684;&#x5176;&#x4ED6;&#x5C5E;&#x6027;</li>
-<li>&#x5982;&#x679C;&#x628A; _<em>dict_<em> &#x8FD9;&#x4E2A;&#x540D;&#x79F0;&#x6DFB;&#x52A0;&#x5230; _<em>slots_</em>&#x4E2D;&#xFF0C;&#x5B9E;&#x4F8B;&#x4F1A;&#x5728;&#x5143;&#x7EC4;&#x4E2D;&#x4FDD;&#x5B58;&#x5404;&#x4E2A;&#x5B9E;&#x4F8B;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x6B64;&#x5916;&#x8FD8;&#x652F;&#x6301;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x5C5E;&#x6027;&#xFF0C;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#x5B58;&#x50A8;&#x5728;&#x5E38;&#x89C4;&#x7684; __dict\</em></em> &#x4E2D;</li>
+<li>&#x8BED;&#x6CD5;: &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7C7B;&#x5C5E;&#x6027; __slots__  eg:  <code>__slots__ = (&apos;__x&apos;, &apos;__y&apos;)</code></li>
+<li>&#x7C7B;&#x578B;: &#x503C;&#x4E3A;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x6784;&#x6210;&#x7684;&#x53EF;&#x8FED;&#x4EE3;&#x5BF9;&#x8C61;&#xFF0C;&#x5176;&#x4E2D;&#x5404;&#x4E2A;&#x5143;&#x7D20;&#x8868;&#x793A;&#x5404;&#x4E2A;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;</li>
+<li>&#x4F5C;&#x7528;: &#x544A;&#x8BC9;&#x89E3;&#x91CA;&#x5668;&#xFF0C;&#x8FD9;&#x4E2A;&#x7C7B;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x90FD;&#x5728;&#x8FD9;&#x513F;&#x4E86;&#xFF0C;Python &#x4F1A;&#x5728;&#x5404;&#x4E2A;&#x5B9E;&#x4F8B;&#x4E2D;&#x4F7F;&#x7528;&#x7C7B;&#x4F3C;&#x5143;&#x7EC4;&#x7684;
+&#x7ED3;&#x6784;&#x5B58;&#x50A8;&#x5B9E;&#x4F8B;&#x53D8;&#x91CF;&#xFF0C;&#x4ECE;&#x800C;&#x907F;&#x514D;&#x4F7F;&#x7528;&#x6D88;&#x8017;&#x5185;&#x5B58;&#x7684; __dict__ &#x5C5E;&#x6027;</li>
+<li>&#x7279;&#x6027;:<ul>
+<li>&#x5B9A;&#x4E49; __slots__ &#x5C5E;&#x6027;&#x4E4B;&#x540E;&#xFF0C;&#x5B9E;&#x4F8B;&#x4E0D;&#x80FD;&#x518D;&#x6709; __slots__ &#x4E2D;&#x6240;&#x5217;&#x540D;&#x79F0;&#x4E4B;&#x5916;&#x7684;&#x5176;&#x4ED6;&#x5C5E;&#x6027;</li>
+<li>&#x5982;&#x679C;&#x628A; __dict__ &#x6DFB;&#x52A0;&#x5230; __slots__&#x4E2D;&#xFF0C;&#x5B9E;&#x4F8B;&#x4F1A;&#x5728;&#x5143;&#x7EC4;&#x4E2D;&#x4FDD;&#x5B58;&#x5404;&#x4E2A;&#x5B9E;&#x4F8B;&#x7684;&#x5C5E;&#x6027;&#xFF0C;
+&#x6B64;&#x5916;&#x8FD8;&#x652F;&#x6301;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x5C5E;&#x6027;&#xFF0C;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#x5B58;&#x50A8;&#x5728;&#x5E38;&#x89C4;&#x7684; __dict__ &#x4E2D;</li>
+<li>&#x628A; &apos;__dict__&apos; &#x6DFB;&#x52A0;&#x5230; __slots__ &#x4E2D;&#x53EF;&#x80FD;&#x5B8C;&#x5168;&#x8FDD;&#x80CC;&#x4E86;&#x521D;&#x8877;&#xFF0C;&#x8FD9;&#x53D6;&#x51B3;&#x4E8E;&#x5404;&#x4E2A;&#x5B9E;&#x4F8B;&#x7684;
+&#x9759;&#x6001;&#x5C5E;&#x6027;&#x548C;&#x52A8;&#x6001;&#x5C5E;&#x6027;&#x7684;&#x6570;&#x91CF;&#x53CA;&#x5176;&#x7528;&#x6CD5;</li>
 </ul>
-<p>__slots&#x95EE;&#x9898;:</p>
+</li>
+<li>&#x5E94;&#x7528;:<ul>
+<li>&#x5904;&#x7406;&#x5217;&#x8868;&#x6570;&#x636E;&#x65F6; __slots__ &#x5C5E;&#x6027;&#x6700;&#x6709;&#x7528;&#xFF0C;&#x4F8B;&#x5982;&#x6A21;&#x5F0F;&#x56FA;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x5E93;&#x8BB0;&#x5F55;&#xFF0C;&#x4EE5;&#x53CA;&#x7279;&#x5927;&#x578B;&#x6570;&#x636E;&#x96C6;</li>
+<li>&#x5982;&#x679C;&#x8981;&#x5904;&#x7406;&#x6570;&#x767E;&#x4E07;&#x4E2A;&#x6570;&#x503C;&#x5BF9;&#x8C61;&#xFF0C;&#x5E94;&#x8BE5;&#x4F7F;&#x7528; NumPy &#x6570;&#x7EC4;<ul>
+<li>NumPy &#x6570;&#x7EC4;&#x80FD;&#x9AD8;&#x6548;&#x4F7F;&#x7528;&#x5185;&#x5B58;&#xFF0C;&#x800C;&#x4E14;&#x63D0;&#x4F9B;&#x4E86;&#x9AD8;&#x5EA6;&#x4F18;&#x5316;&#x7684;&#x6570;&#x503C;&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF0C;&#x5176;&#x4E2D;&#x5F88;&#x591A;&#x90FD;&#x4E00;&#x6B21;&#x64CD;&#x4F5C;&#x6574;&#x4E2A;&#x6570;&#x7EC4;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>__slots__&#x95EE;&#x9898;:</p>
+<ol>
+<li>&#x6BCF;&#x4E2A;&#x5B50;&#x7C7B;&#x90FD;&#x8981;&#x5B9A;&#x4E49; __slots__ &#x5C5E;&#x6027;&#xFF0C;&#x56E0;&#x4E3A;&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x5FFD;&#x7565;&#x7EE7;&#x627F;&#x7684; __slots__ &#x5C5E;&#x6027;</li>
+<li>&#x5B9E;&#x4F8B;&#x53EA;&#x80FD;&#x62E5;&#x6709; __slots__ &#x4E2D;&#x5217;&#x51FA;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x9664;&#x975E;&#x628A; &apos;__dict__&apos; &#x52A0;&#x5165; __slots__ &#x4E2D;</li>
+<li>&#x5982;&#x679C;&#x4E0D;&#x628A; &apos;__weakref__&apos; &#x52A0;&#x5165; __slots__&#xFF0C;&#x5B9E;&#x4F8B;&#x5C31;&#x4E0D;&#x80FD;&#x4F5C;&#x4E3A;&#x5F31;&#x5F15;&#x7528;&#x7684;&#x76EE;&#x6807;</li>
+<li>&#x4E0D;&#x8981;&#x4F7F;&#x7528; __slots__ &#x5C5E;&#x6027;&#x7981;&#x6B62;&#x7C7B;&#x7684;&#x7528;&#x6237;&#x65B0;&#x589E;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;,__slots__ &#x662F;&#x7528;&#x4E8E;&#x4F18;&#x5316;&#x7684;&#xFF0C;&#x4E0D;&#x662F;&#x4E3A;&#x4E86;&#x7EA6;&#x675F;&#x7A0B;&#x5E8F;&#x5458;</li>
+<li>&#x4EC5;&#x5F53;&#x6743;&#x8861;&#x5F53;&#x4E0B;&#x7684;&#x9700;&#x6C42;&#x5E76;&#x4ED4;&#x7EC6;&#x641C;&#x96C6;&#x8D44;&#x6599;&#x540E;&#x8BC1;&#x660E;&#x786E;&#x5B9E;&#x6709;&#x5FC5;&#x8981;&#x65F6;&#xFF0C;&#x624D;&#x5E94;&#x8BE5;&#x4F7F;&#x7528; __slots__ &#x5C5E;&#x6027;</li>
+</ol>
+<p>__weakref__:</p>
 <ul>
-<li>&#x6BCF;&#x4E2A;&#x5B50;&#x7C7B;&#x90FD;&#x8981;&#x5B9A;&#x4E49; _<em>slots_<em> &#x5C5E;&#x6027;&#xFF0C;&#x56E0;&#x4E3A;&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x5FFD;&#x7565;&#x7EE7;&#x627F;&#x7684; __slots</em></em> &#x5C5E;&#x6027;</li>
-<li>&#x5B9E;&#x4F8B;&#x53EA;&#x80FD;&#x62E5;&#x6709; _<em>slots_<em> &#x4E2D;&#x5217;&#x51FA;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x9664;&#x975E;&#x628A; &apos;_<em>dict_</em>&apos; &#x52A0;&#x5165; __slots\</em></em> &#x4E2D;</li>
-<li>&#x5982;&#x679C;&#x4E0D;&#x628A; &apos;_<em>weakref_<em>&apos; &#x52A0;&#x5165; __slots</em></em>&#xFF0C;&#x5B9E;&#x4F8B;&#x5C31;&#x4E0D;&#x80FD;&#x4F5C;&#x4E3A;&#x5F31;&#x5F15;&#x7528;&#x7684;&#x76EE;&#x6807;</li>
+<li>&#x4E3A;&#x4E86;&#x8BA9;&#x5BF9;&#x8C61;&#x652F;&#x6301;&#x5F31;&#x5F15;&#x7528;&#xFF0C;&#x5FC5;&#x987B;&#x6709;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;</li>
+<li>&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;&#x7C7B;&#x4E2D;&#x9ED8;&#x8BA4;&#x5C31;&#x6709; __weakref__ &#x5C5E;&#x6027;</li>
+<li>&#x5982;&#x679C;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49;&#x4E86; __slots__ &#x5C5E;&#x6027;&#xFF0C;&#x800C;&#x4E14;&#x60F3;&#x628A;&#x5B9E;&#x4F8B;&#x4F5C;&#x4E3A;&#x5F31;&#x5F15;&#x7528;&#x7684;&#x76EE;&#x6807;&#xFF0C;
+&#x90A3;&#x4E48;&#x8981;&#x628A; &apos;__weakref__&apos;&#x6DFB;&#x52A0;&#x5230; __slots__ &#x4E2D;</li>
 </ul>
-<p>_<em>weakref_</em>:</p>
+<h2 id="6-&#x7B26;&#x5408;-python-&#x98CE;&#x683C;&#x7684;&#x5BF9;&#x8C61;">6. &#x7B26;&#x5408; Python &#x98CE;&#x683C;&#x7684;&#x5BF9;&#x8C61;</h2>
+<h3 id="61-slots">6.1 __slots__</h3>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> array <span class="hljs-keyword">import</span> array
+<span class="hljs-keyword">import</span> math
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Vector2d</span>:</span>
+    __slots__ = (<span class="hljs-string">&apos;__x&apos;</span>, <span class="hljs-string">&apos;__y&apos;</span>)
+    typecode = <span class="hljs-string">&apos;d&apos;</span>
+</code></pre>
+<h3 id="62-&#x53EF;&#x6563;&#x5217;&#x4E0E;&#x516C;&#x5F00;&#x53EA;&#x8BFB;&#x5C5E;&#x6027;">6.2 &#x53EF;&#x6563;&#x5217;&#x4E0E;&#x516C;&#x5F00;&#x53EA;&#x8BFB;&#x5C5E;&#x6027;</h3>
+<pre><code class="lang-python">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, x, y)</span>:</span>
+        self.__x = float(x) <span class="hljs-comment"># &#x628A; x &#x548C; y &#x8F6C;&#x6362;&#x6210;&#x6D6E;&#x70B9;&#x6570;&#xFF0C;&#x5C3D;&#x65E9;&#x6355;&#x83B7;&#x9519;&#x8BEF;</span>
+        self.__y = float(y)
+
+    <span class="hljs-comment"># &#x5B9E;&#x73B0;&#x5BF9;&#x8C61;&#x4E0D;&#x53EF;&#x53D8;</span>
+<span class="hljs-meta">    @property           # &#x4F7F;&#x7528; @property &#x88C5;&#x9970;&#x5668;&#x628A;&#x8BFB;&#x53D6;&#x79C1;&#x6709;&#x5C5E;&#x6027;&#x7684;&#x8BFB;&#x503C;&#x65B9;&#x6CD5;&#x6807;&#x8BB0;&#x4E3A;&#x7279;&#x6027;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">x</span><span class="hljs-params">(self)</span>:</span>         <span class="hljs-comment">#  &#x8BFB;&#x503C;&#x65B9;&#x6CD5;&#x4E0E;&#x516C;&#x5F00;&#x5C5E;&#x6027;&#x540C;&#x540D;&#xFF0C;&#x90FD;&#x662F; x</span>
+        <span class="hljs-keyword">return</span> self.__x <span class="hljs-comment">#  &#x4F7F;&#x7528;&#x4E24;&#x4E2A;&#x524D;&#x5BFC;&#x4E0B;&#x5212;&#x7EBF;&#xFF0C;&#x628A;&#x5C5E;&#x6027;&#x6807;&#x8BB0;&#x4E3A;&#x79C1;&#x6709;&#x7684;</span>
+
+<span class="hljs-meta">    @property  </span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">y</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.__y
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__eq__</span><span class="hljs-params">(self, other)</span>:</span>  <span class="hljs-comment"># &#x82E5; a == b &#x4E3A;&#x771F;&#xFF0C;&#x5219; hash(a) == hash(b) &#x4E5F;&#x4E3A;&#x771F;</span>
+        <span class="hljs-keyword">return</span> tuple(self) == tuple(other)  
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__hash__</span><span class="hljs-params">(self)</span>:</span>   <span class="hljs-comment"># &#x901A;&#x8FC7; self.x &#x548C; self.y &#x8BFB;&#x53D6;&#x516C;&#x5F00;&#x7279;&#x6027;</span>
+        <span class="hljs-keyword">return</span> hash(self.x) ^ hash(self.y) <span class="hljs-comment"># &#x4F4D;&#x8FD0;&#x7B97;&#x7B26;&#x5F02;&#x6216; (^) &#x6DF7;&#x5408;&#x5404;&#x5206;&#x91CF;&#x7684;&#x6563;&#x5217;&#x503C;</span>
+</code></pre>
+<h3 id="63-&#x5BF9;&#x8C61;&#x8868;&#x793A;&#x5F62;&#x5F0F;">6.3 &#x5BF9;&#x8C61;&#x8868;&#x793A;&#x5F62;&#x5F0F;</h3>
+<pre><code class="lang-python">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__iter__</span><span class="hljs-params">(self)</span>:</span>   <span class="hljs-comment"># &#x628A; Vector2d &#x5B9E;&#x4F8B;&#x53D8;&#x6210;&#x53EF;&#x8FED;&#x4EE3;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x6837;&#x624D;&#x80FD;&#x62C6;&#x5305;</span>
+        <span class="hljs-keyword">return</span> (i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> (self.x, self.y))
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        class_name = type(self).__name__ <span class="hljs-comment"># &#x4E3A;&#x652F;&#x6301;&#x7C7B;&#x7EE7;&#x627F;</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;{}({!r}, {!r})&apos;</span>.format(class_name, *self)  <span class="hljs-comment"># &#x62C6;&#x5305;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> str(tuple(self)) <span class="hljs-comment">#  &#x4ECE;&#x53EF;&#x8FED;&#x4EE3;&#x7684; Vector2d &#x5B9E;&#x4F8B;&#x4E2D;&#x53EF;&#x4EE5;&#x8F7B;&#x677E;&#x5730;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x5143;&#x7EC4;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__bytes__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> (bytes([ord(self.typecode)]) +
+                bytes(array(self.typecode, self))) <span class="hljs-comment"># &#x8FED;&#x4EE3; Vector2d &#x5B9E;&#x4F8B;&#xFF0C;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__abs__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> math.hypot(self.x, self.y)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__bool__</span><span class="hljs-params">(self)</span>:</span>  
+        <span class="hljs-keyword">return</span> bool(abs(self)) <span class="hljs-comment"># &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528; abs()</span>
+</code></pre>
+<h3 id="64-&#x81EA;&#x5B9A;&#x4E49;&#x683C;&#x5F0F;&#x4EE3;&#x7801;">6.4 &#x81EA;&#x5B9A;&#x4E49;&#x683C;&#x5F0F;&#x4EE3;&#x7801;</h3>
+<pre><code class="lang-python">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">angle</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> math.atan2(self.y, self.x)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__format__</span><span class="hljs-params">(self, fmt_spec=<span class="hljs-string">&apos;&apos;</span>)</span>:</span>
+        <span class="hljs-keyword">if</span> fmt_spec.endswith(<span class="hljs-string">&apos;p&apos;</span>):
+            fmt_spec = fmt_spec[: <span class="hljs-number">-1</span>]
+            coords = (abs(self), self.angle())
+            outer_fmt = <span class="hljs-string">&apos;&lt;{}, {}&gt;&apos;</span>
+        <span class="hljs-keyword">else</span>:
+            coords = self
+            outer_fmt = <span class="hljs-string">&apos;({}, {})&apos;</span>
+        components = (format(c, fmt_spec) <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> coords)
+        <span class="hljs-keyword">return</span> outer_fmt.format(*components)
+</code></pre>
+<p><strong>__format__</strong></p>
 <ul>
-<li>&#x8BA9;&#x5BF9;&#x8C61;&#x652F;&#x6301;&#x5F31;&#x5F15;&#x7528;</li>
-<li>&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;&#x7C7B;&#x4E2D;&#x9ED8;&#x8BA4;&#x5C31;&#x6709; _<em>weakref_</em> &#x5C5E;&#x6027;</li>
-<li>&#x5982;&#x679C;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49;&#x4E86; _<em>slots_<em> &#x5C5E;&#x6027;&#xFF0C;&#x800C;&#x4E14;&#x60F3;&#x628A;&#x5B9E;&#x4F8B;&#x4F5C;&#x4E3A;&#x5F31;&#x5F15;&#x7528;&#x7684;&#x76EE;&#x6807;&#xFF0C;&#x90A3;&#x4E48;&#x8981;&#x628A; &apos;_<em>weakref_</em>&apos;&#x6DFB;&#x52A0;&#x5230; __slots</em></em> &#x4E2D;</li>
+<li>&#x5982;&#x679C;&#x7C7B;&#x6CA1;&#x6709;&#x5B9A;&#x4E49; __format__ &#x65B9;&#x6CD5;<ul>
+<li>&#x4F1A;&#x4ECE; object &#x7EE7;&#x627F;&#x7684;&#x65B9;&#x6CD5;&#x4F1A;&#x8FD4;&#x56DE; str(my_object)</li>
+<li>&#x5982;&#x679C;&#x4F20;&#x5165;&#x683C;&#x5F0F;&#x8BF4;&#x660E;&#x7B26;&#xFF0C; object.__format__ &#x65B9;&#x6CD5;&#x4F1A;&#x629B;&#x51FA; TypeError</li>
 </ul>
-<h2 id="&#x7C7B;&#x5C5E;&#x6027;&#x8986;&#x76D6;">&#x7C7B;&#x5C5E;&#x6027;&#x8986;&#x76D6;</h2>
+</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>v1 = Vector2d(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>format(v1) <span class="hljs-comment"># &#x7B49;&#x540C;&#x4E8E;&#x8C03;&#x7528; Vector2d &#x7C7B;&#x7684; \_\_str\_\_</span>
+<span class="hljs-string">&apos;(3.0, 4.0)&apos;</span>
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>format(v1, <span class="hljs-string">&apos;.3f&apos;</span>)
+Traceback (most recent call last):
+...
+TypeError:  non-empty format string passed to object.__format__
+</code></pre>
+<h3 id="65-&#x5907;&#x9009;&#x6784;&#x9020;&#x65B9;&#x6CD5;">6.5 &#x5907;&#x9009;&#x6784;&#x9020;&#x65B9;&#x6CD5;</h3>
+<pre><code class="lang-python"><span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">frombytes</span><span class="hljs-params">(cls, octets)</span>:</span>
+        typecode = chr(octets[<span class="hljs-number">0</span>])
+        memv = memoryview(octets[<span class="hljs-number">1</span>: ]).cast(typecode)
+        <span class="hljs-keyword">return</span> cls(*memv)
+</code></pre>
+<h2 id="7-&#x8986;&#x76D6;&#x7C7B;&#x5C5E;&#x6027;">7. &#x8986;&#x76D6;&#x7C7B;&#x5C5E;&#x6027;</h2>
+<ol>
+<li>&#x7C7B;&#x5C5E;&#x6027;&#x53EF;&#x7528;&#x4E8E;&#x4E3A;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x63D0;&#x4F9B;&#x9ED8;&#x8BA4;&#x503C;</li>
+<li>&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x4F1A;&#x8986;&#x76D6;&#x540C;&#x540D;&#x7C7B;&#x5C5E;&#x6027;</li>
+<li>&#x7C7B;&#x5C5E;&#x6027;&#x662F;&#x516C;&#x5F00;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x4F1A;&#x88AB;&#x5B50;&#x7C7B;&#x7EE7;&#x627F;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x521B;&#x5EFA;&#x5B50;&#x7C7B;&#xFF0C;&#x7528;&#x4E8E;&#x5B9A;&#x5236;&#x7C7B;&#x5C5E;&#x6027;</li>
+</ol>
 <h2 id="&#x5EF6;&#x4F38;&#x9605;&#x8BFB;">&#x5EF6;&#x4F38;&#x9605;&#x8BFB;</h2>
 <h3 id="python">Python:</h3>
-<p>&#x6807;&#x51C6;&#x5E93;</p>
+<p>NumPy:</p>
+<ul>
+<li><a href="http://www.numpy.org" target="_blank">http://www.numpy.org</a></li>
+</ul>
+<p>Pandas:</p>
+<ul>
+<li><a href="http://pandas.pydata.org" target="_blank">http://pandas.pydata.org</a></li>
+</ul>
 <h3 id="blog">blog:</h3>
 <h3 id="&#x5B9E;&#x7528;&#x5DE5;&#x5177;">&#x5B9E;&#x7528;&#x5DE5;&#x5177;</h3>
 <h3 id="&#x4E66;&#x7C4D;">&#x4E66;&#x7C4D;:</h3>
+<p>Python &#x8BED;&#x8A00;&#x53C2;&#x8003;&#x624B;&#x518C;&#x4E2D;</p>
+<ul>
+<li>&#x201C; Data Model&#x201D; &#x4E00;&#x7AE0; <a href="https://docs.python.org/3/reference/datamodel.html" target="_blank">https://docs.python.org/3/reference/datamodel.html</a></li>
+<li>3.3.1. Basic customization&#x201D; <a href="https://docs.python.org/3/reference/datamodel.html#basic-customization" target="_blank">https://docs.python.org/3/reference/datamodel.html#basic-customization</a></li>
+</ul>
+<p>&#x300A; Python &#x6280;&#x672F;&#x624B;&#x518C;&#xFF08;&#x7B2C; 2 &#x7248;&#xFF09;&#x300B;</p>
+<p>&#x300A; Python Cookbook&#xFF08;&#x7B2C; 3 &#x7248;&#xFF09;&#x4E2D;&#x6587;&#x7248;&#x300B;</p>
+<p>&#x300A; Python &#x53C2;&#x8003;&#x624B;&#x518C;&#xFF08;&#x7B2C; 4 &#x7248;&#xFF09;&#x300B;</p>
 <h2 id="&#x9644;&#x6CE8;">&#x9644;&#x6CE8;</h2>
+<p>&#x7279;&#x6027;:</p>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x5148;&#x4EE5;&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x5F0F;&#x5B9A;&#x4E49;&#x7C7B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4F7F;&#x7528;&#x516C;&#x5F00;&#x5C5E;&#x6027;</li>
+<li>&#x5982;&#x679C;&#x4EE5;&#x540E;&#x9700;&#x8981;&#x5BF9;&#x8BFB;&#x503C;&#x65B9;&#x6CD5;&#x548C;&#x8BBE;&#x503C;&#x65B9;&#x6CD5;&#x589E;&#x52A0;&#x63A7;&#x5236;&#xFF0C;&#x90A3;&#x5C31;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x7279;&#x6027;</li>
+<li>&#x8FD9;&#x6837;&#x505A;&#x5BF9;&#x4E00;&#x5F00;&#x59CB;&#x901A;&#x8FC7;&#x516C;&#x5F00;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x79F0;&#x4E0E;&#x5BF9;&#x8C61;&#x4EA4;&#x4E92;&#x7684;&#x4EE3;&#x7801;&#x6CA1;&#x6709;&#x5F71;&#x54CD;</li>
+<li>Java:<ul>
+<li>&#x6CA1;&#x6709;&#x7279;&#x6027;</li>
+<li>API &#x4E0D;&#x80FD;&#x4ECE;&#x7B80;&#x5355;&#x7684;&#x516C;&#x5F00;&#x5C5E;&#x6027;&#x53D8;&#x6210;&#x8BFB;&#x503C;&#x65B9;&#x6CD5;&#x548C;&#x8BBE;&#x503C;&#x65B9;&#x6CD5;&#xFF0C;&#x540C;&#x65F6;&#x53C8;&#x4E0D;&#x5F71;&#x54CD;&#x4F7F;&#x7528;&#x90A3;&#x4E9B;&#x5C5E;&#x6027;&#x7684;&#x4EE3;&#x7801;</li>
+</ul>
+</li>
+</ul>
+<p>&#x79C1;&#x6709;&#x5C5E;&#x6027;&#x7684;&#x5B89;&#x5168;&#x6027;&#x548C;&#x4FDD;&#x969C;&#x6027;</p>
+<ul>
+<li>Java &#x7684; private &#x548C; protected &#x4FEE;&#x9970;&#x7B26;&#x5F80;&#x5F80;&#x53EA;&#x662F;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x610F;&#x5916;
+&#xFF08;&#x5373;&#x4E00;&#x79CD;&#x5B89;&#x5168;&#x63AA;&#x65BD;&#xFF09;&#x3002;&#x53EA;&#x6709;&#x4F7F;&#x7528;&#x5B89;&#x5168;&#x7BA1;&#x7406;&#x5668;&#x90E8;&#x7F72;&#x5E94;&#x7528;&#x65F6;&#x624D;&#x80FD;&#x4FDD;&#x969C;&#x7EDD;&#x5BF9;&#x5B89;&#x5168;&#xFF0C;&#x9632;&#x6B62;&#x6076;&#x610F;&#x8BBF;
+&#x95EE;&#xFF1B;&#x4F46;&#x662F;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x5F88;&#x5C11;&#x6709;&#x4EBA;&#x8FD9;&#x4E48;&#x505A;&#xFF0C;&#x5373;&#x4FBF;&#x5728;&#x4F01;&#x4E1A;&#x4E2D;&#x4E5F;&#x5C11;&#x89C1;</li>
+</ul>
 
                                 
                                 </section>
@@ -730,7 +990,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.2 Python风格对象","level":"1.4.2","depth":2,"next":{"title":"3.3 序列的散列和切片","level":"1.4.3","depth":2,"path":"object/slice.md","ref":"object/slice.md","articles":[]},"previous":{"title":"3.1 对象引用与垃圾回收","level":"1.4.1","depth":2,"path":"object/rubbish_collection.md","ref":"object/rubbish_collection.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"object/py_object.md","mtime":"2017-09-23T14:14:02.128Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-13T00:08:42.155Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.2 Python风格对象","level":"1.4.2","depth":2,"next":{"title":"3.3 序列的散列和切片","level":"1.4.3","depth":2,"path":"object/slice.md","ref":"object/slice.md","articles":[]},"previous":{"title":"3.1 对象引用与垃圾回收","level":"1.4.1","depth":2,"path":"object/rubbish_collection.md","ref":"object/rubbish_collection.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"object/py_object.md","mtime":"2017-10-14T11:48:39.322Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-14T11:32:04.138Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
