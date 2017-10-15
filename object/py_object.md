@@ -3,7 +3,6 @@
 内容概要:
   - 如何使用特殊方法和约定的结构，定义行为良好且符合 Python 风格的类
   - 符合 Python 风格的对象应该正好符合所需，而不是堆砌语言特性
-  - 鸭子类型: 按照预定行为实现对象所需的方法  
 
 ## 1. 对象表示形式
 |特殊方法|调用函数|作用|
@@ -57,8 +56,9 @@ Python 3:
   - 文档: https://docs.python.org/3/library/string.html#formatspec
   - 特性:
     - 为一些内置类型提供了专用的表示代码
-      - b 和 x 分别表示二进制和十六进制的 int 类型，
-      - f 表示小数形式的 float 类型，而 % 表示百分数形式
+      - 浮点数使用的格式代码 'eEfFgGn%'， f 表示 float 类型，% 表示百分数形式
+      - 整数使用的格式代码有 'bcdoxXn'，b 和 x 分别表示二进制和十六进制的 int 类型
+      - 字符串使用的是 's'
     - 是可扩展的，方法是实现 \_\_format\_\_ 方法，对提供给内置函数 format(obj, format_spec)
 的 format_spec，或者提供给 str.format 方法的 '{: «format_spec»}' 位于代换字段中的
 «format_spec» 做简单的解析
@@ -277,3 +277,31 @@ Python 语言参考手册中
   -  Java 的 private 和 protected 修饰符往往只是为了防止意外
 （即一种安全措施）。只有使用安全管理器部署应用时才能保障绝对安全，防止恶意访
 问；但是，实际上很少有人这么做，即便在企业中也少见
+
+
+```python
+import importlib
+import sys
+import resource
+
+NUM_VECTORS = 10**7
+
+if len(sys.argv) == 2:
+    module_name = sys.argv[1].replace('.py', '')
+    module = importlib.import_module(module_name)
+else:
+    print('Usage: {} <vector-module-to-test>'.format())
+    sys.exit(1)
+
+fmt = 'Selected Vector2d type: {.__name__}.{.__name__}'
+print(fmt.format(module, module.Vector2d))
+
+mem_init = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+print('Creating {:,} Vector2d instances'.format(NUM_VECTORS))
+
+vectors = [module.Vector2d(3.0, 4.0) for i in range(NUM_VECTORS)]
+
+mem_final = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+print('Initial RAM usage: {:14,}'.format(mem_init))
+print('  Final RAM usage: {:14,}'.format(mem_final))
+```

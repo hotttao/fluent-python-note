@@ -24,7 +24,11 @@
   - Python 2 中， reduce 是内置函数，Python 3 中放到 functools 模块
 
 常用函数:
-  - reduce: 把某个操作连续应用到序列的元素上，累计之前的结果，把一系列值归约成一个值
+  - reduce(function, iterable,initializer)
+    - 作用：把某个操作连续应用到序列的元素上，累计之前的结果，把一系列值归约成一个值
+    - initializer：
+      - 如果 iterable 为空， initializer 是返回的结果；否则，在归约中使用它作为第一个参数
+      - 因此应该使用恒等值，对 +、 | 和 ^ 来说，initializer 应该是 0；而对 * 和 & 来说，应该是 1
   - all(iterable): 如果 iterable 的每个元素都是真值，返回 True； all([]) 返回 True
   - any(iterable): 只要 iterable 中有元素是真值，就返回 True； any([]) 返回 False
 

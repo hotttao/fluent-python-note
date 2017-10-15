@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>2. 函数 · GitBook</title>
+        <title>4.3 上下文管理器和 else 块 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="func_object.html" />
+    <link rel="next" href="../concurrency/" />
     
     
-    <link rel="prev" href="../structure/string.html" />
+    <link rel="prev" href="iterator.html" />
     
 
     </head>
@@ -173,9 +173,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3" data-path="./">
+        <li class="chapter " data-level="1.3" data-path="../function/">
             
-                <a href="./">
+                <a href="../function/">
             
                     
                     2. 函数
@@ -187,9 +187,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="func_object.html">
+        <li class="chapter " data-level="1.3.1" data-path="../function/func_object.html">
             
-                <a href="func_object.html">
+                <a href="../function/func_object.html">
             
                     
                     2.1 一等函数
@@ -200,9 +200,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="design.html">
+        <li class="chapter " data-level="1.3.2" data-path="../function/design.html">
             
-                <a href="design.html">
+                <a href="../function/design.html">
             
                     
                     2.2 设计模式
@@ -213,9 +213,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="decorator.html">
+        <li class="chapter " data-level="1.3.3" data-path="../function/decorator.html">
             
-                <a href="decorator.html">
+                <a href="../function/decorator.html">
             
                     
                     2.3 函数装饰器和闭包
@@ -328,9 +328,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="../control_flow/">
+        <li class="chapter " data-level="1.5" data-path="./">
             
-                <a href="../control_flow/">
+                <a href="./">
             
                     
                     4. 控制流程
@@ -342,9 +342,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../control_flow/control.html">
+        <li class="chapter " data-level="1.5.1" data-path="control.html">
             
-                <a href="../control_flow/control.html">
+                <a href="control.html">
             
                     
                     4.1 控制流程
@@ -355,9 +355,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../control_flow/iterator.html">
+        <li class="chapter " data-level="1.5.2" data-path="iterator.html">
             
-                <a href="../control_flow/iterator.html">
+                <a href="iterator.html">
             
                     
                     4.2 迭代器和生成器
@@ -368,9 +368,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="../control_flow/contextmanager.html">
+        <li class="chapter active" data-level="1.5.3" data-path="contextmanager.html">
             
-                <a href="../control_flow/contextmanager.html">
+                <a href="contextmanager.html">
             
                     
                     4.3 上下文管理器和 else 块
@@ -590,7 +590,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >2. 函数</a>
+        <a href=".." >4.3 上下文管理器和 else 块</a>
     </h1>
 </div>
 
@@ -605,25 +605,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="2-&#x51FD;&#x6570;">2. &#x51FD;&#x6570;</h1>
-<blockquote>
-<p>&#x672C;&#x6587;&#x4E3A;&#x300A;&#x6D41;&#x7545;&#x7684;Python&#x300B;&#x7684;&#x8BFB;&#x4E66;&#x7B14;&#x8BB0;&#xFF0C;&#x5F3A;&#x70C8;&#x63A8;&#x8350;&#x9605;&#x8BFB;&#x539F;&#x4E66;<br>Fluent Python by Luciano Ramalho (O&#x2019;Reilly). Copyright
-2015 Luciano Ramalho, 978-1-491-94600-8.</p>
-</blockquote>
-<h2 id="&#x5185;&#x5BB9;&#x6982;&#x8981;">&#x5185;&#x5BB9;&#x6982;&#x8981;</h2>
-<ol>
-<li>&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x4E00;&#x7B49;&#x5BF9;&#x8C61;</li>
-<li>&#x95ED;&#x5305;</li>
-<li>&#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;</li>
-<li>Python &#x57FA;&#x672C;&#x6982;&#x5FF5;<ul>
-<li>&#x53EF;&#x8C03;&#x7528;&#xFF08;callable&#xFF09;</li>
-<li>&#x51FD;&#x6570;&#x5C5E;&#x6027;(function attribute)</li>
-<li>&#x5185;&#x7701;(introspection)</li>
-<li>&#x53C2;&#x6570;&#x6CE8;&#x89E3;(parameter annotation)</li>
-<li>nonlocal &#x58F0;&#x660E;</li>
-</ul>
-</li>
-</ol>
+                                <h1 id="43-&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x548C;-else-&#x5757;">4.3 &#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x548C; else &#x5757;</h1>
+<h2 id="&#x5EF6;&#x4F38;&#x9605;&#x8BFB;">&#x5EF6;&#x4F38;&#x9605;&#x8BFB;</h2>
+<h3 id="python">Python:</h3>
+<p>&#x6807;&#x51C6;&#x5E93;</p>
+<h3 id="blog">blog:</h3>
+<h3 id="&#x5B9E;&#x7528;&#x5DE5;&#x5177;">&#x5B9E;&#x7528;&#x5DE5;&#x5177;</h3>
+<h3 id="&#x4E66;&#x7C4D;">&#x4E66;&#x7C4D;:</h3>
+<h2 id="&#x9644;&#x6CE8;">&#x9644;&#x6CE8;</h2>
 
                                 
                                 </section>
@@ -651,12 +640,12 @@
 
             
                 
-                <a href="../structure/string.html" class="navigation navigation-prev " aria-label="Previous page: 1.4 文本和字节序列">
+                <a href="iterator.html" class="navigation navigation-prev " aria-label="Previous page: 4.2 迭代器和生成器">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="func_object.html" class="navigation navigation-next " aria-label="Next page: 2.1 一等函数">
+                <a href="../concurrency/" class="navigation navigation-next " aria-label="Next page: 5. 并发">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -667,7 +656,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2. 函数","level":"1.3","depth":1,"next":{"title":"2.1 一等函数","level":"1.3.1","depth":2,"path":"function/func_object.md","ref":"function/func_object.md","articles":[]},"previous":{"title":"1.4 文本和字节序列","level":"1.2.4","depth":2,"path":"structure/string.md","ref":"structure/string.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"function/README.md","mtime":"2017-09-14T14:42:34.378Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-15T11:41:56.011Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.3 上下文管理器和 else 块","level":"1.5.3","depth":2,"next":{"title":"5. 并发","level":"1.6","depth":1,"path":"concurrency/README.md","ref":"concurrency/README.md","articles":[{"title":"5.1 协程","level":"1.6.1","depth":2,"path":"concurrency/coroutine.md","ref":"concurrency/coroutine.md","articles":[]},{"title":"5.2 期物","level":"1.6.2","depth":2,"path":"concurrency/future.md","ref":"concurrency/future.md","articles":[]},{"title":"5.3 asyncio","level":"1.6.3","depth":2,"path":"concurrency/asyncio.md","ref":"concurrency/asyncio.md","articles":[]}]},"previous":{"title":"4.2 迭代器和生成器","level":"1.5.2","depth":2,"path":"control_flow/iterator.md","ref":"control_flow/iterator.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"control_flow/contextmanager.md","mtime":"2017-09-23T14:13:13.895Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-15T11:41:56.011Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
