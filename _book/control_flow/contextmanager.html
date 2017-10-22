@@ -593,12 +593,306 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="42-&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x548C;-else-&#x5757;">4.2 &#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x548C; else &#x5757;</h1>
+<p>&#x672C;&#x7AE0;&#x5185;&#x5BB9;</p>
+<ul>
+<li>for&#x3001; while &#x548C; try &#x8BED;&#x53E5;&#x7684; else &#x5B50;&#x53E5;</li>
+<li>EAFP &#x4E0E; LBYL</li>
+<li>&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x534F;&#x8BAE;</li>
+<li>with &#x8BED;&#x53E5;&#x548C;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;</li>
+<li>contextlib &#x6A21;&#x5757;</li>
+</ul>
+<h2 id="1-else-&#x5B50;&#x53E5;">1. else &#x5B50;&#x53E5;</h2>
+<p>&#x4F5C;&#x7528;&#xFF1A;</p>
+<ol>
+<li>&#x80FD;&#x8BA9;&#x4EE3;&#x7801;&#x66F4;&#x6613;&#x4E8E;&#x9605;&#x8BFB;</li>
+<li>&#x4E0D;&#x7528;&#x8BBE;&#x7F6E;&#x63A7;&#x5236;&#x6807;&#x5FD7;&#x6216;&#x8005;&#x6DFB;&#x52A0;&#x989D;&#x5916;&#x7684; if &#x8BED;&#x53E5;</li>
+</ol>
+<p>&#x63A7;&#x5236;&#x903B;&#x8F91;&#xFF1A;</p>
+<ul>
+<li>for &#xFF1A;&#x4EC5;&#x5F53; for &#x5FAA;&#x73AF;&#x8FD0;&#x884C;&#x5B8C;&#x6BD5;&#x65F6;&#xFF08;&#x6CA1;&#x6709;&#x88AB; break &#x8BED;&#x53E5;&#x4E2D;&#x6B62;&#xFF09;&#x624D;&#x8FD0;&#x884C; else &#x5757;</li>
+<li>while&#xFF1A;&#x4EC5;&#x5F53; while &#x5FAA;&#x73AF;&#x56E0;&#x4E3A;&#x6761;&#x4EF6;&#x4E3A;&#x5047;&#x503C;&#x800C;&#x9000;&#x51FA;&#x65F6;&#xFF08;&#x6CA1;&#x6709;&#x88AB; break &#x8BED;&#x53E5;&#x4E2D;&#x6B62;&#xFF09;&#x624D;&#x8FD0;&#x884C; else &#x5757;</li>
+<li>try&#xFF1A;<ul>
+<li>&#x4EC5;&#x5F53; try &#x5757;&#x4E2D;&#x6CA1;&#x6709;&#x5F02;&#x5E38;&#x629B;&#x51FA;&#x65F6;&#x624D;&#x8FD0;&#x884C; else &#x5757;</li>
+<li>else &#x5B50;&#x53E5;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x4E0D;&#x4F1A;&#x7531;&#x524D;&#x9762;&#x7684; except &#x5B50;&#x53E5;&#x5904;&#x7406;</li>
+</ul>
+</li>
+<li>&#x5982;&#x679C;&#x5F02;&#x5E38;&#x3001;return&#x3001;break &#x6216; continue &#x5BFC;&#x81F4;&#x63A7;&#x5236;&#x6743;&#x8DF3;&#x5230;&#x4E86;&#x590D;&#x5408;&#x8BED;&#x53E5;&#x7684;&#x4E3B;&#x5757;&#x4E4B;&#x5916;&#xFF0C;else &#x5B50;&#x53E5;&#x5C31;&#x4F1A;&#x88AB;&#x8DF3;&#x8FC7;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">try</span>:
+    dangerous_call()
+    <span class="hljs-comment"># after_call()   &#x4E0D;&#x5E94;&#x8BE5;&#x653E;&#x5728;&#x8FD9;</span>
+<span class="hljs-keyword">except</span> OSError:
+    log(<span class="hljs-string">&apos;OSError...&apos;</span>)
+<span class="hljs-keyword">else</span>:
+    after_call()
+</code></pre>
+<p>&#x793A;&#x4F8B;&#x5206;&#x6790;&#xFF1A;</p>
+<ul>
+<li>try &#x5757;&#x4E2D;&#x5E94;&#x8BE5;&#x53EA;&#x6355;&#x83B7;&#x9884;&#x671F;&#x7684;&#x5F02;&#x5E38;</li>
+<li>&#x8FD9;&#x91CC;&#x6355;&#x83B7;&#x7684;&#x662F; dangerous_call() &#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x7684;&#x9519;&#x8BEF;&#xFF0C;&#x800C;&#x4E0D;&#x662F; after_call()</li>
+<li>&#x53EA;&#x6709; try &#x5757;&#x4E0D;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;&#x624D;&#x4F1A;&#x6267;&#x884C; after_call()</li>
+</ul>
+<h2 id="2-eafp-&#x4E0E;-lbyl">2. EAFP &#x4E0E; LBYL</h2>
+<p>Python &#x5B98;&#x65B9;&#x8BCD;&#x6C47;&#x8868;&#xFF1A;<a href="https://docs.python.org/3/glossary.html#term-eafp" target="_blank">https://docs.python.org/3/glossary.html#term-eafp</a></p>
+<p><strong>EAFP</strong>:</p>
+<ul>
+<li>&#x53D6;&#x5F97;&#x539F;&#x8C05;&#x6BD4;&#x83B7;&#x5F97;&#x8BB8;&#x53EF;&#x5BB9;&#x6613;&#xFF08;easier to ask for forgiveness than permission&#xFF09;&#x3002;&#x8FD9;&#x662F;&#x4E00;
+&#x79CD;&#x5E38;&#x89C1;&#x7684; Python &#x7F16;&#x7A0B;&#x98CE;&#x683C;&#xFF0C;&#x5148;&#x5047;&#x5B9A;&#x5B58;&#x5728;&#x6709;&#x6548;&#x7684;&#x952E;&#x6216;&#x5C5E;&#x6027;&#xFF0C;&#x5982;&#x679C;&#x5047;&#x5B9A;&#x4E0D;&#x6210;&#x7ACB;&#xFF0C;&#x90A3;
+&#x4E48;&#x6355;&#x83B7;&#x5F02;&#x5E38;&#x3002;&#x8FD9;&#x79CD;&#x98CE;&#x683C;&#x7B80;&#x5355;&#x660E;&#x5FEB;&#xFF0C;&#x7279;&#x70B9;&#x662F;&#x4EE3;&#x7801;&#x4E2D;&#x6709;&#x5F88;&#x591A; try &#x548C; except &#x8BED;&#x53E5;&#x3002;&#x4E0E;
+&#x5176;&#x4ED6;&#x5F88;&#x591A;&#x8BED;&#x8A00;&#x4E00;&#x6837;&#xFF08;&#x5982; C &#x8BED;&#x8A00;&#xFF09;&#xFF0C;&#x8FD9;&#x79CD;&#x98CE;&#x683C;&#x7684;&#x5BF9;&#x7ACB;&#x9762;&#x662F; LBYL &#x98CE;&#x683C;&#x3002;</li>
+</ul>
+<p><strong>LBYL</strong>:</p>
+<ul>
+<li>&#x4E09;&#x601D;&#x800C;&#x540E;&#x884C;&#xFF08;look before you leap&#xFF09;&#x3002;&#x8FD9;&#x79CD;&#x7F16;&#x7A0B;&#x98CE;&#x683C;&#x5728;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x6216;&#x67E5;&#x627E;&#x5C5E;&#x6027;&#x6216;&#x952E;&#x4E4B;
+&#x524D;&#x663E;&#x5F0F;&#x6D4B;&#x8BD5;&#x524D;&#x63D0;&#x6761;&#x4EF6;&#x3002;&#x4E0E; EAFP &#x98CE;&#x683C;&#x76F8;&#x53CD;&#xFF0C;&#x8FD9;&#x79CD;&#x98CE;&#x683C;&#x7684;&#x7279;&#x70B9;&#x662F;&#x4EE3;&#x7801;&#x4E2D;&#x6709;&#x5F88;&#x591A; if
+&#x8BED;&#x53E5;&#x3002;&#x5728;&#x591A;&#x7EBF;&#x7A0B;&#x73AF;&#x5883;&#x4E2D;&#xFF0C; LBYL &#x98CE;&#x683C;&#x53EF;&#x80FD;&#x4F1A;&#x5728;&#x201C;&#x68C0;&#x67E5;&#x201D;&#x548C;&#x201C;&#x884C;&#x4E8B;&#x201D;&#x7684;&#x7A7A;&#x5F53;&#x5F15;&#x5165;&#x6761;
+&#x4EF6;&#x7ADE;&#x4E89;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5BF9; if key in mapping: return mapping[key] &#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x6765;&#x8BF4;&#xFF0C;&#x5982;
+&#x679C;&#x5728;&#x6D4B;&#x8BD5;&#x4E4B;&#x540E;&#xFF0C;&#x4F46;&#x5728;&#x67E5;&#x627E;&#x4E4B;&#x524D;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x4ECE;&#x6620;&#x5C04;&#x4E2D;&#x5220;&#x9664;&#x4E86;&#x90A3;&#x4E2A;&#x952E;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x6BB5;&#x4EE3;
+&#x7801;&#x5C31;&#x4F1A;&#x5931;&#x8D25;&#x3002;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x9501;&#x6216;&#x8005; EAFP &#x98CE;&#x683C;&#x89E3;&#x51B3;</li>
+</ul>
+<h2 id="2-&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x548C;with">2. &#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x548C;with</h2>
+<p> &#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x5BF9;&#x8C61;&#x5B58;&#x5728;&#x7684;&#x76EE;&#x7684;&#x662F;&#x7BA1;&#x7406; with &#x8BED;&#x53E5;&#xFF0C;&#x5C31;&#x50CF;&#x8FED;&#x4EE3;&#x5668;&#x7684;&#x5B58;&#x5728;&#x662F;&#x4E3A;&#x4E86;&#x7BA1;&#x7406; for &#x8BED;&#x53E5;&#x4E00;&#x6837;</p>
+<h3 id="21-with-&#x8BED;&#x53E5;">2.1 with &#x8BED;&#x53E5;</h3>
+<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;<ol>
+<li>&#x7B80;&#x5316; try/finally &#x6A21;&#x5F0F;<ul>
+<li>&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x7528;&#x4E8E;&#x4FDD;&#x8BC1;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#x8FD0;&#x884C;&#x5B8C;&#x6BD5;&#x540E;&#x6267;&#x884C;&#x67D0;&#x9879;&#x64CD;&#x4F5C;&#xFF0C;</li>
+<li>&#x5373;&#x4FBF;&#x90A3;&#x6BB5;&#x4EE3;&#x7801;&#x7531;&#x4E8E;&#x5F02;&#x5E38;&#x3001;return &#x8BED;&#x53E5;&#x6216; sys.exit() &#x8C03;&#x7528;&#x800C;&#x4E2D;&#x6B62;&#xFF0C;&#x4E5F;&#x4F1A;&#x6267;&#x884C;&#x6307;&#x5B9A;&#x7684;&#x64CD;&#x4F5C;</li>
+<li>finally &#x5B50;&#x53E5;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x901A;&#x5E38;&#x7528;&#x4E8E;&#x91CA;&#x653E;&#x91CD;&#x8981;&#x7684;&#x8D44;&#x6E90;&#xFF0C;&#x6216;&#x8005;&#x8FD8;&#x539F;&#x4E34;&#x65F6;&#x53D8;&#x66F4;&#x7684;&#x72B6;&#x6001;</li>
+</ul>
+</li>
+<li>&#x4E0D;&#x4EC5;&#x80FD;&#x7BA1;&#x7406;&#x8D44;&#x6E90;&#xFF0C;&#x8FD8;&#x80FD;&#x7528;&#x4E8E;&#x53BB;&#x6389;&#x5E38;&#x89C4;&#x7684;&#x8BBE;&#x7F6E;&#x548C;&#x6E05;&#x7406;&#x4EE3;&#x7801;&#xFF0C;&#x6216;&#x8005;&#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x8FC7;&#x7A0B;&#x524D;&#x540E;&#x6267;&#x884C;&#x7684;&#x64CD;&#x4F5C;</li>
+</ol>
+</li>
+<li>&#x7279;&#x6027;&#xFF1A;&#x4E0E;&#x51FD;&#x6570;&#x548C;&#x6A21;&#x5757;&#x4E0D;&#x540C;&#xFF0C; with &#x5757;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x65B0;&#x7684;&#x4F5C;&#x7528;&#x57DF;</li>
+<li>&#x539F;&#x7406;&#xFF1A;<ul>
+<li>with &#x8BED;&#x53E5;&#x4F1A;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x4EA4;&#x7ED9;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x5BF9;&#x8C61;&#x63A7;&#x5236;</li>
+<li>&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x5BF9;&#x8C61;&#x5B9E;&#x73B0;&#x4E86;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x534F;&#x8BAE;&#xFF0C;&#x5728; with &#x8BED;&#x53E5;&#x6267;&#x884C;&#x7684;&#x524D;&#x540E;&#x6267;&#x884C;&#x7279;&#x5B9A;&#x64CD;&#x4F5C;</li>
+</ul>
+</li>
+</ul>
+<p><strong>&#x6267;&#x884C;&#x8FC7;&#x7A0B;</strong></p>
+<ol>
+<li>&#x6267;&#x884C; with &#x540E;&#x9762;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x5F97;&#x5230;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x5BF9;&#x8C61;</li>
+<li>&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x5BF9;&#x8C61;&#x7684;__enter__&#x65B9;&#x6CD5;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x88AB;&#x7ED1;&#x5B9A;&#x5230;&#x76EE;&#x6807;&#x53D8;&#x91CF;&#x4E0A;(as &#x5B50;&#x53E5;)</li>
+<li>&#x4E0D;&#x7BA1;&#x63A7;&#x5236;&#x6D41;&#x7A0B;&#x4EE5;&#x54EA;&#x79CD;&#x65B9;&#x5F0F;&#x9000;&#x51FA; with &#x5757;&#xFF0C;&#x90FD;&#x4F1A;&#x5728;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x5BF9;&#x8C61;&#x4E0A;&#x8C03;&#x7528; __exit__ &#x65B9;&#x6CD5;</li>
+<li>with &#x8BED;&#x53E5;&#x7684; as &#x5B50;&#x53E5;&#x662F;&#x53EF;&#x9009;&#x7684;</li>
+</ol>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">with</span> open(<span class="hljs-string">&apos;mirror.py&apos;</span>) <span class="hljs-keyword">as</span> fp:
+<span class="hljs-meta">... </span>src = fp.read(<span class="hljs-number">60</span>)
+</code></pre>
+<p>&#x793A;&#x4F8B;&#x89E3;&#x6790;</p>
+<ul>
+<li>open() &#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7684; TextIOWrapper &#x7C7B;&#x5B9E;&#x4F8B;&#x662F;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x5BF9;&#x8C61;</li>
+<li>&#x8BE5;&#x5B9E;&#x4F8B;&#x7684; __enter__ &#x65B9;&#x6CD5;&#x8FD4;&#x56DE; self &#x8D4B;&#x503C;&#x7ED9; as &#x5B50;&#x53E5;&#x4E2D;&#x7684;&#x53D8;&#x91CF; fp</li>
+<li>&#x5728; with &#x5757;&#x7684;&#x672B;&#x5C3E;&#xFF0C;&#x8C03;&#x7528; TextIOWrapper.__exit__ &#x65B9;&#x6CD5;&#x628A;&#x6587;&#x4EF6;&#x5173;&#x95ED;</li>
+<li>__enter__ &#x65B9;&#x6CD5;&#x9664;&#x4E86;&#x8FD4;&#x56DE;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x4E4B;&#x5916;&#xFF0C;&#x8FD8;&#x53EF;&#x80FD;&#x8FD4;&#x56DE;&#x5176;&#x4ED6;&#x5BF9;&#x8C61;</li>
+</ul>
+<h3 id="22-&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x534F;&#x8BAE;">2.2 &#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x534F;&#x8BAE;</h3>
+<p><strong>&#x534F;&#x8BAE;&#x63A5;&#x53E3;</strong></p>
+<ol>
+<li>__enter__(self)<ul>
+<li>&#x8FD0;&#x884C;&#xFF1A;with &#x8BED;&#x53E5;&#x5F00;&#x59CB;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x5728;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x5BF9;&#x8C61;&#x4E0A;&#x8C03;&#x7528;</li>
+<li>&#x53C2;&#x6570;&#xFF1A;</li>
+</ul>
+</li>
+<li>__exit__ (self, exc_type, exc_value, traceback)  <ul>
+<li>&#x8FD0;&#x884C;&#xFF1A;with &#x8BED;&#x53E5;&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#x540E;&#xFF0C;&#x5728;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x5BF9;&#x8C61;&#x4E0A;&#x8C03;&#x7528;&#xFF0C;&#x626E;&#x6F14;&#x7740; finally &#x5B50;&#x53E5;&#x7684;&#x89D2;&#x8272;</li>
+<li>&#x5F02;&#x5E38;&#xFF1A;&#x8FD4;&#x56DE; None&#xFF0C;&#x6216;&#x8005; True &#x4E4B;&#x5916;&#x7684;&#x503C;&#xFF0C; with &#x5757;&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x5F02;&#x5E38;&#x90FD;&#x4F1A;&#x5411;&#x4E0A;&#x5192;&#x6CE1;</li>
+<li>&#x53C2;&#x6570;&#xFF1A;  <ul>
+<li>exc_type:&#x5F02;&#x5E38;&#x7C7B;&#xFF08;&#x4F8B;&#x5982; ZeroDivisionError&#xFF09;</li>
+<li>exc_value &#x5F02;&#x5E38;&#x5B9E;&#x4F8B;&#x3002;&#x6709;&#x65F6;&#x4F1A;&#x6709;&#x53C2;&#x6570;&#x4F20;&#x7ED9;&#x5F02;&#x5E38;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#xFF0C;&#x4F8B;&#x5982;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#xFF0C;&#x8FD9;&#x4E9B;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; exc_value.args &#x83B7;&#x53D6;</li>
+<li>traceback&#xFF1A;traceback &#x5BF9;&#x8C61;</li>
+</ul>
+</li>
+<li>&#x9644;&#x6CE8;&#xFF1A;<ul>
+<li>&#x5982;&#x679C;&#x4E00;&#x5207;&#x6B63;&#x5E38;&#xFF0C; Python &#x8C03;&#x7528; __exit__ &#x65B9;&#x6CD5;&#x65F6;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x662F; None, None, None</li>
+<li>&#x5728;finally &#x5757;&#x4E2D;&#x8C03;&#x7528; sys.exc<em>info()&#xFF0C;&#x5F97;&#x5230;&#x7684;&#x5C31;&#x662F; \</em>_exit__ &#x63A5;&#x6536;&#x7684;&#x8FD9;&#x4E09;&#x4E2A;&#x53C2;&#x6570;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="23-&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x7684;&#x5E94;&#x7528;">2.3 &#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x7684;&#x5E94;&#x7528;</h3>
+<ol>
+<li>&#x5728; sqlite3 &#x6A21;&#x5757;&#x4E2D;&#x7528;&#x4E8E;&#x7BA1;&#x7406;&#x4E8B;&#x52A1;<ul>
+<li>&#x53C2;&#x89C1;&#x201C;12.6.7.3. Using the connection as a context manager&#x201D;
+<a href="https://docs.python.org/3/library/sqlite3.html#using-the-connection-as-a-context-manager" target="_blank">https://docs.python.org/3/library/sqlite3.html#using-the-connection-as-a-context-manager</a></li>
+</ul>
+</li>
+<li>&#x5728; threading &#x6A21;&#x5757;&#x4E2D;&#x7528;&#x4E8E;&#x7EF4;&#x62A4;&#x9501;&#x3001;&#x6761;&#x4EF6;&#x548C;&#x4FE1;&#x53F7;<ul>
+<li>&#x53C2;&#x89C1;&#x201C;17.1.10. Using locks, conditions,and semaphores in the with statement&#x201D;</li>
+<li><a href="https://docs.python.org/3/library/threading.html#using-locks-conditions-and-semaphores-in-the-with-statement" target="_blank">https://docs.python.org/3/library/threading.html#using-locks-conditions-and-semaphores-in-the-with-statement</a></li>
+</ul>
+</li>
+<li>&#x4E3A; Decimal &#x5BF9;&#x8C61;&#x7684;&#x7B97;&#x672F;&#x8FD0;&#x7B97;&#x8BBE;&#x7F6E;&#x73AF;&#x5883;<ul>
+<li>&#x53C2;&#x89C1; decimal.localcontext &#x51FD;&#x6570;&#x7684;&#x6587;&#x6863;</li>
+<li><a href="https://docs.python.org/3/library/decimal.html#decimal.localcontext" target="_blank">https://docs.python.org/3/library/decimal.html#decimal.localcontext</a></li>
+</ul>
+</li>
+<li>&#x4E3A;&#x4E86;&#x6D4B;&#x8BD5;&#x4E34;&#x65F6;&#x7ED9;&#x5BF9;&#x8C61;&#x6253;&#x8865;&#x4E01;<ul>
+<li>&#x53C2;&#x89C1; unittest.mock.patch &#x51FD;&#x6570;&#x7684;&#x6587;&#x6863;</li>
+<li><a href="https://docs.python.org/3/library/unittest.mock.html#patch" target="_blank">https://docs.python.org/3/library/unittest.mock.html#patch</a></li>
+</ul>
+</li>
+</ol>
+<h2 id="3-contextlib&#x6A21;&#x5757;">3. contextlib&#x6A21;&#x5757;</h2>
+<h3 id="21-&#x5B9E;&#x7528;&#x5DE5;&#x5177;">2.1 &#x5B9E;&#x7528;&#x5DE5;&#x5177;</h3>
+<p>&#x6587;&#x6863;&#xFF1A;<a href="https://docs.python.org/3/library/contextlib.html" target="_blank">https://docs.python.org/3/library/contextlib.html</a>
+|&#x5BF9;&#x8C61;|&#x8BF4;&#x660E;|
+|: ---|: ---|
+|redirect<em>stdout|&#x53EA;&#x9700;&#x4F20;&#x5165;&#x7C7B;&#x4F3C;&#x6587;&#x4EF6;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x7528;&#x4E8E;&#x66FF;&#x4EE3; sys.stdout|
+|closing|&#x5982;&#x679C;&#x5BF9;&#x8C61;&#x63D0;&#x4F9B;&#x4E86; close() &#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x6CA1;&#x6709;&#x5B9E;&#x73B0; \</em>_enter__/__exit__ &#x534F;&#x8BAE;&#xFF0C;<br>&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x6784;&#x5EFA;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;|
+|suppress|&#x6784;&#x5EFA;&#x4E34;&#x65F6;&#x5FFD;&#x7565;&#x6307;&#x5B9A;&#x5F02;&#x5E38;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;|
+|ContextDecorator|&#x8FD9;&#x662F;&#x4E2A;&#x57FA;&#x7C7B;&#xFF0C;&#x7528;&#x4E8E;&#x5B9A;&#x4E49;&#x57FA;&#x4E8E;&#x7C7B;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;<br>&#x8FD9;&#x79CD;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x4E5F;&#x80FD;&#x7528;&#x4E8E;&#x88C5;&#x9970;&#x51FD;&#x6570;&#xFF0C;&#x5728;&#x53D7;&#x7BA1;&#x7406;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x8FD0;&#x884C;&#x6574;&#x4E2A;&#x51FD;&#x6570;|
+|ExitStack|&#x8FD9;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x80FD;&#x8FDB;&#x5165;&#x591A;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;<br>with &#x5757;&#x7ED3;&#x675F;&#x65F6;&#xFF0C;&#x6309;&#x7167;&#x540E;&#x8FDB;&#x5148;&#x51FA;&#x7684;&#x987A;&#x5E8F;&#x8C03;&#x7528;&#x6808;&#x4E2D;&#x5404;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x7684; __exit__ &#x65B9;&#x6CD5;<br>&#x5982;&#x679C;&#x4E8B;&#x5148;&#x4E0D;&#x77E5;&#x9053; with &#x5757;&#x8981;&#x8FDB;&#x5165;&#x591A;&#x5C11;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x7C7B;<br>&#x4F8B;&#x5982;&#xFF0C;&#x540C;&#x65F6;&#x6253;&#x5F00;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;|</p>
+<h3 id="22-contextmanager">2.2 @contextmanager</h3>
+<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;<ul>
+<li>&#x628A;&#x7B80;&#x5355;&#x7684;&#x751F;&#x6210;&#x5668;&#x51FD;&#x6570;&#x53D8;&#x6210;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#xFF0C;&#x4E0D;&#x7528;&#x521B;&#x5EFA;&#x7C7B;&#x53BB;&#x5B9E;&#x73B0;&#x7BA1;&#x7406;&#x5668;&#x534F;&#x8BAE;</li>
+</ul>
+</li>
+<li>&#x65B9;&#x6CD5;&#xFF1A;<ol>
+<li>&#x53EA;&#x9700;&#x5B9E;&#x73B0;&#x6709;&#x4E00;&#x4E2A; yield &#x8BED;&#x53E5;&#x7684;&#x751F;&#x6210;&#x5668;&#xFF0C;&#x751F;&#x6210;&#x60F3;&#x8BA9;__enter__ &#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;&#x503C;</li>
+<li>yield &#x8BED;&#x53E5;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x628A;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x4F53;&#x5206;&#x6210;&#x4E24;&#x90E8;&#x5206;<ul>
+<li>yield &#x8BED;&#x53E5;&#x524D;&#x9762;&#x7684;&#x6240;&#x6709;&#x4EE3;&#x7801;&#x5728; with &#x5757;&#x5F00;&#x59CB;&#x65F6;&#xFF08;&#x5373;&#x89E3;&#x91CA;&#x5668;&#x8C03;&#x7528; __enter__ &#x65B9;&#x6CD5;&#x65F6;&#xFF09;&#x6267;&#x884C;</li>
+<li>yield &#x8BED;&#x53E5;&#x540E;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5728; with &#x5757;&#x7ED3;&#x675F;&#x65F6;&#xFF08;&#x5373;&#x8C03;&#x7528; __exit__ &#x65B9;&#x6CD5;&#x65F6;&#xFF09;&#x6267;&#x884C;</li>
+</ul>
+</li>
+<li>&#x88C5;&#x9970;&#x5668;&#x4F1A;&#x628A;&#x51FD;&#x6570;&#x5305;&#x88C5;&#x6210;&#x5B9E;&#x73B0; __enter__ &#x548C; __exit__ &#x65B9;&#x6CD5;&#x7684;&#x7C7B;<ul>
+<li>&#x7C7B;&#x7684; __enter__ :<ul>
+<li>&#x8C03;&#x7528;&#x751F;&#x6210;&#x5668;&#x51FD;&#x6570;&#xFF0C;&#x4FDD;&#x5B58;&#x751F;&#x6210;&#x5668;&#x5BF9;&#x8C61;&#xFF08;&#x8FD9;&#x91CC;&#x628A;&#x5B83;&#x79F0;&#x4E3A; gen&#xFF09;&#x3002;</li>
+<li>&#x8C03;&#x7528; next(gen)&#xFF0C;&#x6267;&#x884C;&#x5230; yield &#x5173;&#x952E;&#x5B57;&#x6240;&#x5728;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</li>
+<li>&#x8FD4;&#x56DE; next(gen) &#x4EA7;&#x51FA;&#x7684;&#x503C;&#xFF0C;&#x4EE5;&#x4FBF;&#x628A;&#x4EA7;&#x51FA;&#x7684;&#x503C;&#x7ED1;&#x5B9A;&#x5230; with/as &#x8BED;&#x53E5;&#x4E2D;&#x7684;&#x76EE;&#x6807;&#x53D8;&#x91CF;&#x4E0A;</li>
+</ul>
+</li>
+<li>__exit__ &#x65B9;&#x6CD5;<ul>
+<li>&#x68C0;&#x67E5;&#x6709;&#x6CA1;&#x6709;&#x628A;&#x5F02;&#x5E38;&#x4F20;&#x7ED9; exc_type&#xFF1B;&#x5982;&#x679C;&#x6709;&#xFF0C;&#x8C03;&#x7528; gen.throw(exception)&#xFF0C;
+&#x5728;&#x751F;&#x6210;&#x5668;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x4F53;&#x4E2D;&#x5305;&#x542B; yield &#x5173;&#x952E;&#x5B57;&#x7684;&#x90A3;&#x4E00;&#x884C;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002;</li>
+<li>&#x5426;&#x5219;&#xFF0C;&#x8C03;&#x7528; next(gen)&#xFF0C;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x751F;&#x6210;&#x5668;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x4F53;&#x4E2D; yield &#x8BED;&#x53E5;&#x4E4B;&#x540E;&#x7684;&#x4EE3;&#x7801;</li>
+<li>&#x56E0;&#x6B64;&#x4F7F;&#x7528; @contextmanager &#x88C5;&#x9970;&#x5668;&#x65F6;&#xFF0C;&#x8981;&#x628A; yield &#x8BED;&#x53E5;&#x653E;&#x5728; try/finally
+&#x8BED;&#x53E5;&#x4E2D;&#xFF08;&#x6216;&#x8005;&#x653E;&#x5728; with &#x8BED;&#x53E5;&#x4E2D;&#xFF09;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>&#x5F02;&#x5E38;&#x7BA1;&#x7406;:<ul>
+<li>&#x4F7F;&#x7528; @contextmanager &#x88C5;&#x9970;&#x5668;&#x65F6;&#xFF0C;&#x5F02;&#x5E38;&#x7684;&#x5904;&#x7406;&#x4E0E;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x534F;&#x8BAE;&#x662F;&#x76F8;&#x53CD;&#x7684;</li>
+<li>&#x88C5;&#x9970;&#x5668;&#x63D0;&#x4F9B;&#x7684; __exit__ &#x65B9;&#x6CD5;&#x5047;&#x5B9A;&#x53D1;&#x7ED9;&#x751F;&#x6210;&#x5668;&#x7684;&#x6240;&#x6709;&#x5F02;&#x5E38;&#x90FD;&#x5F97;&#x5230;&#x5904;&#x7406;&#x4E86;&#xFF0C;&#x56E0;&#x6B64;&#x5E94;&#x8BE5;&#x538B;&#x5236;&#x5F02;&#x5E38;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x4E0D;&#x60F3;&#x8BA9; @contextmanager &#x538B;&#x5236;&#x5F02;&#x5E38;&#xFF0C;&#x5FC5;&#x987B;&#x5728;&#x88AB;&#x88C5;&#x9970;&#x7684;&#x51FD;&#x6570;&#x4E2D;&#x663E;&#x5F0F;&#x91CD;&#x65B0;&#x629B;&#x51FA;&#x5F02;&#x5E38;</li>
+</ul>
+</li>
+<li>&#x9644;&#x6CE8;&#xFF1A;<ul>
+<li>&#x5728; @contextmanager &#x88C5;&#x9970;&#x5668;&#x88C5;&#x9970;&#x7684;&#x751F;&#x6210;&#x5668;&#x4E2D;&#xFF0C; yield &#x4E0E;&#x8FED;&#x4EE3;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5173;&#x7CFB;</li>
+<li>&#x751F;&#x6210;&#x5668;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;&#x66F4;&#x50CF;&#x662F;&#x534F;&#x7A0B;&#xFF1A;&#x6267;&#x884C;&#x5230;&#x67D0;&#x4E00;&#x70B9;&#x65F6;&#x6682;&#x505C;&#xFF0C;&#x8BA9;&#x5BA2;&#x6237;&#x4EE3;&#x7801;&#x8FD0;&#x884C;&#xFF0C;&#x76F4;&#x5230;&#x5BA2;&#x6237;&#x8BA9;&#x534F;&#x7A0B;&#x7EE7;&#x7EED;&#x505A;&#x4E8B;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> contextlib
+
+<span class="hljs-meta">@contextlib.contextmanager</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">looking_glass</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">import</span> sys
+    original_write = sys.stdout.write
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reverse_write</span><span class="hljs-params">(text)</span>:</span>
+        original_write(text[::<span class="hljs-number">-1</span>])
+
+    sys.stdout.write = reverse_write
+    msg = <span class="hljs-string">&apos;&apos;</span>
+    <span class="hljs-keyword">try</span>:
+        <span class="hljs-keyword">yield</span> <span class="hljs-string">&apos;JABBERWOCKY&apos;</span> &#x278A;
+    <span class="hljs-keyword">except</span> ZeroDivisionError:
+        msg = <span class="hljs-string">&apos;Please DO NOT divide by zero!&apos;</span>
+    <span class="hljs-keyword">finally</span>:
+        sys.stdout.write = original_write
+        <span class="hljs-keyword">if</span> msg:
+            print(msg)
+
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">with</span> looking_glass() <span class="hljs-keyword">as</span> what:
+<span class="hljs-meta">... </span>print(<span class="hljs-string">&apos;Alice, Kitty and Snowdrop&apos;</span>)
+</code></pre>
+<p>&#x278A; yield &apos;JABBERWOCKY&apos;</p>
+<ul>
+<li>&#x8FD9;&#x4E2A;&#x503C;&#x4F1A;&#x7ED1;&#x5B9A;&#x5230; with &#x8BED;&#x53E5;&#x4E2D; as &#x5B50;&#x53E5;&#x7684;&#x76EE;&#x6807;&#x53D8;&#x91CF;&#x4E0A;</li>
+<li>&#x6267;&#x884C; with &#x5757;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x65F6;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4F1A;&#x5728;&#x8FD9;&#x4E00;&#x70B9;&#x6682;&#x505C;</li>
+<li>&#x63A7;&#x5236;&#x6743;&#x8DF3;&#x51FA; with &#x5757;&#xFF0C;&#x7EE7;&#x7EED;&#x6267;&#x884C; yield &#x8BED;&#x53E5;&#x4E4B;&#x540E;&#x7684;&#x4EE3;&#x7801;</li>
+</ul>
+<h3 id="23-&#x539F;&#x5730;&#x6587;&#x4EF6;&#x91CD;&#x5199;">2.3 &#x539F;&#x5730;&#x6587;&#x4EF6;&#x91CD;&#x5199;</h3>
+<ul>
+<li><a href="http://www.zopatista.com/python/2013/11/26/inplace-file-rewriting/" target="_blank">http://www.zopatista.com/python/2013/11/26/inplace-file-rewriting/</a></li>
+<li>&#x4F7F;&#x7528;  @contextmanager &#x5B9E;&#x73B0;&#x7684;&#x539F;&#x5730;&#x6587;&#x4EF6;&#x91CD;&#x5199;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x7528;&#x4E8E;&#x539F;&#x5730;&#x91CD;&#x5199;&#x6587;&#x4EF6;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;</span>
+<span class="hljs-keyword">import</span> csv
+<span class="hljs-keyword">with</span> inplace(csvfilename, <span class="hljs-string">&apos;r&apos;</span>, newline=<span class="hljs-string">&apos;&apos;</span>) <span class="hljs-keyword">as</span> (infh, outfh):
+    reader = csv.reader(infh)
+    writer = csv.writer(outfh)
+    <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> reader:
+        row += [<span class="hljs-string">&apos;new&apos;</span>, <span class="hljs-string">&apos;columns&apos;</span>]
+        writer.writerow(row)
+</code></pre>
+<p>inplace &#x51FD;&#x6570;</p>
+<ul>
+<li>&#x662F;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#xFF0C;&#x4E3A;&#x540C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x63D0;&#x4F9B;&#x4E86;&#x4E24;&#x4E2A;&#x53E5;&#x67C4;&#xFF08;&#x8FD9;&#x4E2A;&#x793A;&#x4F8B;&#x4E2D;&#x7684; infh &#x548C;outfh&#xFF09;&#xFF0C;&#x4EE5;&#x4FBF;&#x540C;&#x65F6;&#x8BFB;&#x5199;&#x540C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;</li>
+</ul>
 <h2 id="&#x5EF6;&#x4F38;&#x9605;&#x8BFB;">&#x5EF6;&#x4F38;&#x9605;&#x8BFB;</h2>
 <h3 id="python">Python:</h3>
-<p>&#x6807;&#x51C6;&#x5E93;</p>
+<p>Compound statements</p>
+<ul>
+<li>&#x5168;&#x9762;&#x8BF4;&#x660E;&#x4E86; if&#x3001; for&#x3001; while &#x548C; try &#x8BED;&#x53E5;&#x7684; else &#x5B50;&#x53E5;</li>
+<li><a href="https://docs.python.org/3/reference/compound_stmts.html" target="_blank">https://docs.python.org/3/reference/compound_stmts.html</a></li>
+</ul>
+<p>&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x7684;&#x7C7B;&#x578B;</p>
+<ul>
+<li><ol>
+<li>Built-in Types</li>
+</ol>
+</li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#typecontextmanager" target="_blank">https://docs.python.org/3/library/stdtypes.html#typecontextmanager</a></li>
+</ul>
+<p>&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x91CC;&#x5668;</p>
+<ul>
+<li>PEP 343&#x2014;The&#x2018; with&#x2019; Statement&#x201D;</li>
+<li><a href="https://www.python.org/dev/peps/pep-0343/" target="_blank">https://www.python.org/dev/peps/pep-0343/</a></li>
+</ul>
+<p>__enter__/__exit__</p>
+<ul>
+<li>3.3.8. With Statement Context Managers</li>
+<li><a href="https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers" target="_blank">https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers</a></li>
+</ul>
 <h3 id="blog">blog:</h3>
+<p>What Makes Python Awesome?</p>
+<ul>
+<li><a href="http://pyvideo.org/video/1669/keynote-3" target="_blank">http://pyvideo.org/video/1669/keynote-3</a></li>
+</ul>
+<p>Is it a good practice to use try-except-else in Python</p>
+<ul>
+<li>&#x8BA8;&#x8BBA;&#x4E86; try/except &#x8BED;&#x53E5;&#xFF08;&#x6709; else &#x5B50;&#x53E5;&#xFF0C;&#x6216;&#x8005;&#x6CA1;&#x6709;&#xFF09;&#x662F;&#x5426;&#x7B26;&#x5408; Python &#x98CE;&#x683C;</li>
+<li><a href="http://stackoverflow.com/questions/16138232/is-it-a-good-practice-to-use-try-except-else-in-python" target="_blank">http://stackoverflow.com/questions/16138232/is-it-a-good-practice-to-use-try-except-else-in-python</a></li>
+</ul>
+<p>Transforming Code into Beautiful, Idiomatic Python</p>
+<ul>
+<li><a href="https://speakerdeck.com/pyconslides/transforming-code-into-beautiful-idiomatic-python-by-raymond-hettinger-1?slide=34" target="_blank">https://speakerdeck.com/pyconslides/transforming-code-into-beautiful-idiomatic-python-by-raymond-hettinger-1?slide=34</a></li>
+</ul>
 <h3 id="&#x5B9E;&#x7528;&#x5DE5;&#x5177;">&#x5B9E;&#x7528;&#x5DE5;&#x5177;</h3>
+<p>The Python with Statement by Example</p>
+<ul>
+<li><a href="http://preshing.com/20110920/the-python-with-statement-by-example/&#xFF09;&#xFF0C;" target="_blank">http://preshing.com/20110920/the-python-with-statement-by-example/&#xFF09;&#xFF0C;</a></li>
+<li>&#x4E3E;&#x4F8B;&#x8BF4;&#x660E;&#x4E86; pycairo &#x56FE;&#x5F62;&#x5E93;&#x4E2D;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;  </li>
+</ul>
 <h3 id="&#x4E66;&#x7C4D;">&#x4E66;&#x7C4D;:</h3>
+<p>&#x300A; Python &#x6280;&#x672F;&#x624B;&#x518C;&#xFF08;&#x7B2C; 2 &#x7248;&#xFF09;&#x300B;</p>
+<ul>
+<li>&#x6709;&#x4E00;&#x7AE0;&#x662F;&#x5173;&#x4E8E;&#x5F02;&#x5E38;&#x7684;&#xFF0C;&#x90A3;&#x4E00;&#x7AE0;&#x6781;&#x597D;&#x5730;&#x8BA8;&#x8BBA;&#x4E86; EAFP &#x98CE;&#x683C;</li>
+</ul>
+<p>&#x300A; Python Cookbook&#xFF08;&#x7B2C; 3 &#x7248;&#xFF09;&#x4E2D;&#x6587;&#x7248;&#x300B;</p>
+<ul>
+<li>8.3 &#x8BA9;&#x5BF9;&#x8C61;&#x652F;&#x6301;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x534F;&#x8BAE;</li>
+<li>9.22 &#x4EE5;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x5F0F;&#x5B9A;&#x4E49;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;</li>
+</ul>
 <h2 id="&#x9644;&#x6CE8;">&#x9644;&#x6CE8;</h2>
 
                                 
@@ -643,7 +937,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.2 上下文管理器和 else 块","level":"1.5.2","depth":2,"next":{"title":"5. 并发","level":"1.6","depth":1,"path":"concurrency/README.md","ref":"concurrency/README.md","articles":[{"title":"5.1 协程","level":"1.6.1","depth":2,"path":"concurrency/coroutine.md","ref":"concurrency/coroutine.md","articles":[]},{"title":"5.2 期物","level":"1.6.2","depth":2,"path":"concurrency/future.md","ref":"concurrency/future.md","articles":[]},{"title":"5.3 asyncio","level":"1.6.3","depth":2,"path":"concurrency/asyncio.md","ref":"concurrency/asyncio.md","articles":[]}]},"previous":{"title":"4.1 迭代器和生成器","level":"1.5.1","depth":2,"path":"control_flow/iterator.md","ref":"control_flow/iterator.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"control_flow/contextmanager.md","mtime":"2017-10-19T13:44:09.477Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-21T02:02:29.180Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.2 上下文管理器和 else 块","level":"1.5.2","depth":2,"next":{"title":"5. 并发","level":"1.6","depth":1,"path":"concurrency/README.md","ref":"concurrency/README.md","articles":[{"title":"5.1 协程","level":"1.6.1","depth":2,"path":"concurrency/coroutine.md","ref":"concurrency/coroutine.md","articles":[]},{"title":"5.2 期物","level":"1.6.2","depth":2,"path":"concurrency/future.md","ref":"concurrency/future.md","articles":[]},{"title":"5.3 asyncio","level":"1.6.3","depth":2,"path":"concurrency/asyncio.md","ref":"concurrency/asyncio.md","articles":[]}]},"previous":{"title":"4.1 迭代器和生成器","level":"1.5.1","depth":2,"path":"control_flow/iterator.md","ref":"control_flow/iterator.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"control_flow/contextmanager.md","mtime":"2017-10-21T09:30:04.528Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-21T08:42:29.409Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
