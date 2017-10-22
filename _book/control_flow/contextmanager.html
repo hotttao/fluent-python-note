@@ -595,7 +595,7 @@
                                 <h1 id="42-&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x548C;-else-&#x5757;">4.2 &#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x548C; else &#x5757;</h1>
 <p>&#x672C;&#x7AE0;&#x5185;&#x5BB9;</p>
 <ul>
-<li>for&#x3001; while &#x548C; try &#x8BED;&#x53E5;&#x7684; else &#x5B50;&#x53E5;</li>
+<li>for&#x3001;while &#x548C; try &#x8BED;&#x53E5;&#x7684; else &#x5B50;&#x53E5;</li>
 <li>EAFP &#x4E0E; LBYL</li>
 <li>&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x534F;&#x8BAE;</li>
 <li>with &#x8BED;&#x53E5;&#x548C;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;</li>
@@ -738,14 +738,37 @@
 </ol>
 <h2 id="3-contextlib&#x6A21;&#x5757;">3. contextlib&#x6A21;&#x5757;</h2>
 <h3 id="21-&#x5B9E;&#x7528;&#x5DE5;&#x5177;">2.1 &#x5B9E;&#x7528;&#x5DE5;&#x5177;</h3>
-<p>&#x6587;&#x6863;&#xFF1A;<a href="https://docs.python.org/3/library/contextlib.html" target="_blank">https://docs.python.org/3/library/contextlib.html</a>
-|&#x5BF9;&#x8C61;|&#x8BF4;&#x660E;|
-|: ---|: ---|
-|redirect<em>stdout|&#x53EA;&#x9700;&#x4F20;&#x5165;&#x7C7B;&#x4F3C;&#x6587;&#x4EF6;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x7528;&#x4E8E;&#x66FF;&#x4EE3; sys.stdout|
-|closing|&#x5982;&#x679C;&#x5BF9;&#x8C61;&#x63D0;&#x4F9B;&#x4E86; close() &#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x6CA1;&#x6709;&#x5B9E;&#x73B0; \</em>_enter__/__exit__ &#x534F;&#x8BAE;&#xFF0C;<br>&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x6784;&#x5EFA;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;|
-|suppress|&#x6784;&#x5EFA;&#x4E34;&#x65F6;&#x5FFD;&#x7565;&#x6307;&#x5B9A;&#x5F02;&#x5E38;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;|
-|ContextDecorator|&#x8FD9;&#x662F;&#x4E2A;&#x57FA;&#x7C7B;&#xFF0C;&#x7528;&#x4E8E;&#x5B9A;&#x4E49;&#x57FA;&#x4E8E;&#x7C7B;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;<br>&#x8FD9;&#x79CD;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x4E5F;&#x80FD;&#x7528;&#x4E8E;&#x88C5;&#x9970;&#x51FD;&#x6570;&#xFF0C;&#x5728;&#x53D7;&#x7BA1;&#x7406;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x8FD0;&#x884C;&#x6574;&#x4E2A;&#x51FD;&#x6570;|
-|ExitStack|&#x8FD9;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x80FD;&#x8FDB;&#x5165;&#x591A;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;<br>with &#x5757;&#x7ED3;&#x675F;&#x65F6;&#xFF0C;&#x6309;&#x7167;&#x540E;&#x8FDB;&#x5148;&#x51FA;&#x7684;&#x987A;&#x5E8F;&#x8C03;&#x7528;&#x6808;&#x4E2D;&#x5404;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x7684; __exit__ &#x65B9;&#x6CD5;<br>&#x5982;&#x679C;&#x4E8B;&#x5148;&#x4E0D;&#x77E5;&#x9053; with &#x5757;&#x8981;&#x8FDB;&#x5165;&#x591A;&#x5C11;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x7C7B;<br>&#x4F8B;&#x5982;&#xFF0C;&#x540C;&#x65F6;&#x6253;&#x5F00;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;|</p>
+<p>&#x6587;&#x6863;&#xFF1A;<a href="https://docs.python.org/3/library/contextlib.html" target="_blank">https://docs.python.org/3/library/contextlib.html</a></p>
+<table>
+<thead>
+<tr>
+<th>&#x5BF9;&#x8C61;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>redirect_stdout</td>
+<td>&#x53EA;&#x9700;&#x4F20;&#x5165;&#x7C7B;&#x4F3C;&#x6587;&#x4EF6;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x7528;&#x4E8E;&#x66FF;&#x4EE3; sys.stdout</td>
+</tr>
+<tr>
+<td>closing</td>
+<td>&#x5982;&#x679C;&#x5BF9;&#x8C61;&#x63D0;&#x4F9B;&#x4E86; close() &#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x6CA1;&#x6709;&#x5B9E;&#x73B0; __enter__/__exit__ &#x534F;&#x8BAE;&#xFF0C;<br>&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x6784;&#x5EFA;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;</td>
+</tr>
+<tr>
+<td>suppress</td>
+<td>&#x6784;&#x5EFA;&#x4E34;&#x65F6;&#x5FFD;&#x7565;&#x6307;&#x5B9A;&#x5F02;&#x5E38;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;</td>
+</tr>
+<tr>
+<td>ContextDecorator</td>
+<td>&#x8FD9;&#x662F;&#x4E2A;&#x57FA;&#x7C7B;&#xFF0C;&#x7528;&#x4E8E;&#x5B9A;&#x4E49;&#x57FA;&#x4E8E;&#x7C7B;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;<br>&#x8FD9;&#x79CD;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x4E5F;&#x80FD;&#x7528;&#x4E8E;&#x88C5;&#x9970;&#x51FD;&#x6570;&#xFF0C;&#x5728;&#x53D7;&#x7BA1;&#x7406;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x8FD0;&#x884C;&#x6574;&#x4E2A;&#x51FD;&#x6570;</td>
+</tr>
+<tr>
+<td>ExitStack</td>
+<td>&#x8FD9;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x80FD;&#x8FDB;&#x5165;&#x591A;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;<br>with &#x5757;&#x7ED3;&#x675F;&#x65F6;&#xFF0C;&#x6309;&#x7167;&#x540E;&#x8FDB;&#x5148;&#x51FA;&#x7684;&#x987A;&#x5E8F;&#x8C03;&#x7528;&#x6808;&#x4E2D;&#x5404;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x7684; __exit__ &#x65B9;&#x6CD5;<br>&#x5982;&#x679C;&#x4E8B;&#x5148;&#x4E0D;&#x77E5;&#x9053; with &#x5757;&#x8981;&#x8FDB;&#x5165;&#x591A;&#x5C11;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x7C7B;<br>&#x4F8B;&#x5982;&#xFF0C;&#x540C;&#x65F6;&#x6253;&#x5F00;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;</td>
+</tr>
+</tbody>
+</table>
 <h3 id="22-contextmanager">2.2 @contextmanager</h3>
 <ul>
 <li>&#x4F5C;&#x7528;&#xFF1A;<ul>
@@ -937,7 +960,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.2 上下文管理器和 else 块","level":"1.5.2","depth":2,"next":{"title":"5. 并发","level":"1.6","depth":1,"path":"concurrency/README.md","ref":"concurrency/README.md","articles":[{"title":"5.1 协程","level":"1.6.1","depth":2,"path":"concurrency/coroutine.md","ref":"concurrency/coroutine.md","articles":[]},{"title":"5.2 期物","level":"1.6.2","depth":2,"path":"concurrency/future.md","ref":"concurrency/future.md","articles":[]},{"title":"5.3 asyncio","level":"1.6.3","depth":2,"path":"concurrency/asyncio.md","ref":"concurrency/asyncio.md","articles":[]}]},"previous":{"title":"4.1 迭代器和生成器","level":"1.5.1","depth":2,"path":"control_flow/iterator.md","ref":"control_flow/iterator.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"control_flow/contextmanager.md","mtime":"2017-10-21T09:30:04.528Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-21T08:42:29.409Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.2 上下文管理器和 else 块","level":"1.5.2","depth":2,"next":{"title":"5. 并发","level":"1.6","depth":1,"path":"concurrency/README.md","ref":"concurrency/README.md","articles":[{"title":"5.1 协程","level":"1.6.1","depth":2,"path":"concurrency/coroutine.md","ref":"concurrency/coroutine.md","articles":[]},{"title":"5.2 期物","level":"1.6.2","depth":2,"path":"concurrency/future.md","ref":"concurrency/future.md","articles":[]},{"title":"5.3 asyncio","level":"1.6.3","depth":2,"path":"concurrency/asyncio.md","ref":"concurrency/asyncio.md","articles":[]}]},"previous":{"title":"4.1 迭代器和生成器","level":"1.5.1","depth":2,"path":"control_flow/iterator.md","ref":"control_flow/iterator.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"control_flow/contextmanager.md","mtime":"2017-10-22T01:41:42.973Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-22T01:39:11.421Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

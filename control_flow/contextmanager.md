@@ -1,6 +1,6 @@
 # 4.2 上下文管理器和 else 块
 本章内容
-- for、 while 和 try 语句的 else 子句
+- for、while 和 try 语句的 else 子句
 - EAFP 与 LBYL
 - 上下文管理器协议
 - with 语句和上下文管理器
@@ -117,6 +117,7 @@ Python 官方词汇表：https://docs.python.org/3/glossary.html#term-eafp
 ## 3. contextlib模块
 ### 2.1 实用工具
 文档：https://docs.python.org/3/library/contextlib.html
+
 |对象|说明|
 |: ---|: ---|
 |redirect_stdout|只需传入类似文件的对象，用于替代 sys.stdout|
