@@ -121,7 +121,7 @@ del:
 
 \_\_del\_\_:
   - 将销毁实例时， Python 解释器会调用 \_\_del\_\_ 方法，给实例最后的机会，释放外部资源
-  - 不会销毁实例，不应该在代码中调用
+  - 无论程序因什么原因终止，所有对象都会被回收，定义在对象上的 \_\_del\_\_ 方法会被调用
   - 文档:  https://docs.python.org/3/reference/datamodel.html#object.__del__
   - Jesse Jiryu Davis 写的“ PyPy, Garbage Collection, and a Deadlock”
   对 \_\_del\_\_ 方法的恰当用法和不当用法做了讨论 https://emptysqua.re/blog/pypy-garbage-collection-and-a-deadlock/
