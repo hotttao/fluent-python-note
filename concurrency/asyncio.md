@@ -240,7 +240,7 @@ def download_many(cc_list):
     loop.close() # 关闭事件循环
 ```
 附注：
-  - 这些协程对象先使用 asyncio.wait 协程包装, 然后由 loop.run_until_complete 方法驱动
+  - run_until_complete 只接受一个欺物或协程，驱动多个协程需要先由 asyncio.wait 协程包装
 
 ### 3.4 BaseEventLoop
 1. asyncio.get_event_loop():
@@ -250,7 +250,7 @@ def download_many(cc_list):
   - 参数: 一个期物或协程, 如果是协程, 把协程包装进一个 Task 对象中
   - 作用:
     - 事件循环运行的过程中, **阻塞主线程直至传入的协程运行结束**
-    - 否则如果主线程结束，所有的协程都会被垃圾回收程序收回，而不会执行
+    - 否则如果主线程结束，所有的协程都会被垃圾回收程序收回而提前终止
   - 返回:
     - 返回一个元组, 第一个元素是一系列结束的期物, 第二个元素是一系列未结束的期物
     - 返回值中未完成的期物受 wait 函数的 timeout, return_when 参数影响
@@ -382,9 +382,9 @@ class FetchError(Exception):
 def download_one(cc, base_url, semaphore, verbose):
     try:  
         # 如果semaphore 计数器的值是所允许的最大值，只有这个协程会阻塞
+        # 使用 一个 with 和使用 两个 with 有区别么？？？？
         with (yield from semaphore): # <5>
             image = yield from get_flag(base_url, cc)
-        # 两次 yeild form semaphore 不相关，分别对两个协程并发数进行限制
         with (yield from semaphore):
             country = yield from get_country(base_url, cc)
     except web.HTTPNotFound:
