@@ -1,4 +1,4 @@
-# 7.3 本书资源
+# 7.6 本书资源
 
 ## 1. 本书资源
 1. github: <https://github.com/fluentpython/example-code>

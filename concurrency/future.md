@@ -327,23 +327,23 @@ GIL：
 ### 实用工具  
 
 ### 书籍:
-Parallel Programming with Python
+《Parallel Programming with Python》
 
-Python Cookbook(第 3 版)中文版
+《Python Cookbook(第 3 版)中文版》
   - 11.12 理解事件驱动型 I/O
   - 12.7 创建线程池
   - 12.8 实现简单的并行编程
 
-Effective Python：编写高质量 Python 代码的 59 个有效方法
+《Effective Python：编写高质量 Python 代码的 59 个有效方法》
   - 协程；
   - 使用 concurrent.futures 库处理线程和进程；
   - 不使用 ThreadPoolExecutor 类, 而使用锁和队列做线程编程
 
-High Performance Python
+《High Performance Python》
 
-Python 标准库
+《Python 标准库》
 
-七周七并发模型
+《七周七并发模型》
 
 ## 杂谈
 高度并行问题：<https://en.wikipedia.org/wiki/Embarrassingly_parallel>

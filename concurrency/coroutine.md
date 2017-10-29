@@ -516,7 +516,7 @@ ActiveState:
 
 Paul Sokolovsky:
    - <https://dl.dropboxusercontent.com/u/44884329/yield-from.pdf>
-   - < http://flupy.org/resources/yield-from.pdf>
+   - <http://flupy.org/resources/yield-from.pdf>
    - 说明：解说 yield from 结构的工作原理
 
 Greg Ewing

@@ -62,6 +62,17 @@
     Node 提供了异步文件系统 API
   - asyncio 是基于协程的
 
+### 1.3 协程与线程
+  - 线程：
+    - 因为调度程序任何时候都能中断线程。
+    - 所以必须保留锁，保护程序中的重要部分，防止多步操作在执行的过程中中断，导致数据处于无效状态
+  - 协程：
+    - 协程默认会做好全方位保护，以防止中断，必须显式产出才能让程序的余下部分运行
+    - 对协程来说，无需保留锁，协程自身就会同步，因为在任意时刻只有一个协程运行
+    - 想交出控制权时，可以使用 yield 或 yield from 把控制权交还调度程序
+    - 协程只能在暂停的 yield 处取消，因此可以处理 CancelledError 异常，执行清理操作，
+    这就是能够安全地取消协程的原因
+
 ## 2. asyncio
 ### 2.1 asyncio 简介
 asyncio:
@@ -75,10 +86,20 @@ asyncio:
       - 协程需要返回结果, return result 替换成 raise Return(result)
   - 讨论组: <http://groups.google.com/forum/#!forum/python-tulip>
 
-### 2.2 语法:
+### 2.2 异步原理:
+  - 事件循环基于 I/O 多路复用
+  - 委派链的底端是可以被 I/O 多路复用监听的 I/O 操作
+  - yield from foo 能防止阻塞, 因为当前协程(委派生成器)因等待I/O操作暂停后,
+  控制权回到事件循环手中, 再去驱动其他协程  -- 异步阻塞的
+  - 事件循环监听期物或协程是否运行完毕, 并把结果返回给暂停的协程, 将其恢复,
+  即调用 send 方法发送响应重启协程
+
+### 2.3 语法:
 Python3.4:   
 asyncio 处理的协程
-  1. 要使用 @asyncio.coroutine 装饰,
+  1. 要使用 @asyncio.coroutine 装饰
+    - 这样能在一众普通的函数中把协程凸显出来，
+    - 有助于调试：如果还没从中产出值，协程就被垃圾回收了(意味着有操作未完成)那就可以发出警告
   2. 协程在定义体中必须使用 yield from, 而不能使用 yield
   3. 协程要由调用方驱动, 并由调用方通过 yield from 调用,
   或者把协程传给 asyncio 包中的某个函数, 例如 asyncio.async(...)
@@ -99,63 +120,95 @@ async with
 async for
   - 作用: 异步迭代器语法
 
-### 2.3 调用过程:
-  1. 使用 asyncio.Task 对象包装协程, 排定协程的运行时间
-  3. 获取一个事件循环 -- 替代了操作系统的调度职能
-  4. asyncio 事件循环依次激活各个协程
-  5. 客户代码中的协程使用 yield from 把职责委托给库里的协程
-  (如aiohttp.request)时, 控制权交还事件循环, 事件循环得以执行其他排定的协程
+### 2.4 调用过程:
+  1. 使用 asyncio.Task 对象包装协程, 排定协程的运行时间  --  **获取 Task 对象**
+  3. 获取一个事件循环 -- 替代了操作系统的调度职能  --  **获取事件循环**
+  4. asyncio 事件循环依次激活各个协程  -- **激活所有协程**
+  5. 客户代码中的协程使用 yield from 把职责委托给库里的协程(如aiohttp.request)时,
+  控制权交还事件循环, 事件循环得以执行其他排定的协程 -- **执行底层协程**
   6. 事件循环通过基于回调的低层 API, 在阻塞的操作执行完毕后获得通知
-  7. 获得通知后, 主循环把结果发给暂停的协程(.send()), 重启暂停的协程
+  7. 获得通知后, 主循环把结果发给暂停的协程(.send()), 重启暂停的协程  -- **获取返回结果**
   8. 总结: 在一个单线程程序中使用主循环依次激活队列里的协程, 各个协程向前执行几步,
   然后把控制权让给主循环, 主循环再激活队列里的下一个协程
 
 **调用方式**:
    - 只有驱动协程, 协程才能做事
-   - 要么使用 yield from,
-   - 要么传给 asyncio包中某个参数为协程或期物的函数, 例如 run_until_complete
-
-**结果获取**:
-  - 等待异步期物返回结果的两个 API:
-    -  f.add_done_callback(...)
-    - 协程中的 yield from f（期物运行结束后恢复协程, 期物要么返回结果, 要么抛出合适的异常）
-
-### 2.4 异步原理:
-  - 事件循环基于 I/O 多路复用
-  - 委派链的底端是可以被 I/O 多路复用监听的 I/O 操作
-  - yield from foo 能防止阻塞, 因为当前协程(委派生成器)因等待I/O操作暂停后,
-  控制权回到事件循环手中, 再去驱动其他协程  -- 异步阻塞的
-  - 事件循环监听期物或协程是否运行完毕, 并把结果返回给暂停的协程, 将其恢复,
-  即调用 send 方法发送响应重启协程
-
-### 2.5 期物和协程:
-联系:
-  - 可以使用 yield from 驱动协程
-  - 也可以使用 yield from 从 asyncio.Future对象中产出结果
-  - 因此如果 foo 是协程函数（调用后返回协程对象）, 抑或是返
-  回 Future 或 Task 实例的普通函数, 都可以写成:  res = yield from foo()
-  - asyncio 包的 API 中很多地方可以互换协程与期物
+   - 驱动协程要么使用 yield from,要么传给 asyncio包中某个参数为协程或期物的函数, 例如 run_until_complete
+   - yeild from:
+     - 使用 yield from 链接的多个协程最终必须由不是协程的调用方驱动，调用方显式或隐式
+   （例如，在 for 循环中）在最外层委派生成器上调用 next(...) 函数或 .send(...) 方法
+     - 链条中最内层的子生成器必须是简单的生成器（只使用 yield）或可迭代的对象
+  - 使用 asyncio 包时，我们编写的代码不通过调用 next(...) 函数或 .send(...)
+  方法驱动协程——这一点由 asyncio 包实现的事件循环去做
 
 ## 3. asyncio API
 ### 3.1 asyncio 主要对象
 主要对象:
-  - asyncio.Future: 协程的期物对象 与 concurrent.futures.Future 类似
+  - asyncio.Future:
+    - 期物对象，表示异步执行的操作
+    - 与 concurrent.futures.Future 类似
   - asyncio.Task: Future 对象的子类
+    - 与 threading.Thread 对象等效，Task 用于驱动协程， Thread 用于调用可调用的对象
+    - 像是实现协作式多任务的库(例如 gevent)中的绿色线程(green thread)
   - BaseEventLoop: I/O 事件循环
   - 其他函数
 
-### 3.2 Task 对象
-asyncio.Future 对象
-  - 作用: 与 concurrent.futures.Future 接口基本一致
+期物和协程:
+  - 文档： https://docs.python.org/3/library/asyncio-task.html
+  - 可以使用 yield from 驱动协程，也可以使用 yield from 从 asyncio.Future对象中产出结果
+  - 因此如果 foo 是协程函数（调用后返回协程对象）, 抑或是返回 Future 或 Task
+  实例的普通函数, 都可以写成:  res = yield from foo()
+  - 这是asyncio 包的 API 中很多地方可以互换协程与期物的原因之一
 
-asyncio.Task 对象
+### 3.2 asyncio.Future
+- 作用: 与 concurrent.futures.Future 接口基本一致
+- 类似方法:
+  - .done()
+  - .add_done_callback(...)
+- 差异方法:
+  - .result():
+    - 参数: 方法没有参数, 不能指定超时时间。
+    - 作用: 如果调用 .result() 方法时期物还没运行完毕, 不会阻塞去等待结果,
+    而是抛出 asyncio.InvalidStateError 异常
+
+#### 使用方式:
+  - 通常使用 yield from, 获取 asyncio.Future 对象的结果
+  - 使用 yield from 处理期物, 等待期物运行完毕这一步无需我们关心, 而且不会阻塞事件循
+  环, 因为在 asyncio 包中,  yield from 的作用是把控制权还给事件循环
+  - 通常无需调用 my_future.add_done_callback(...), 因为
+  可以直接把想在期物运行结束后执行的操作放在协程中
+  yield from my_future 表达式的后面即可
+  - 通常也无需调用 my_future.result(), 因为 yield from 从期物中产出的值就是结果
+
+### 3.3 asyncio.Task
   - 作用: Future 的子类, 用于包装协程
-  - 对比:
-    - 差不多与 threading.Thread 对象等效
-    - 像是实现协作式多任务的库(例如 gevent)中的绿色线程(green thread)
-  - 附注: 实例化的 Task 实例已经排定了运行时间, 可直接运行, 无需显示使用 yeild from 驱动
+  - 特性:
+    - 为了执行操作，必须排定协程的运行时间，然后使用 asyncio.Task 对象包装协程
+    - 因此**Task 实例相当于一个子线程**，但已排定运行时间, 可直接运行, 无需显示使用 yeild from 驱动
+    - Thread 实例则必须调用 start 方法，明确告知让它运行
+  - 方法：
+    - .cancel():
+      - 作用：终止协程, 在协程内部 yeild 处抛出 CancelledError 异常
+      - 附注：协程可以捕获这个异常，也可以延迟取消，甚至拒绝取消
 
-#### 实例化
+```python
+def test_task():
+    a = async(asyncio.sleep(100)) # 协程不会在此处暂停，因为相当于启动了一个新线程
+    print('-------------')
+    yield from async(asyncio.sleep(1)) # 协程会在此处暂停
+    yield from asyncio.sleep(1) # 协程会在此暂停，yield from Future() 也是同样效果
+    print('+++++') # 在上一个 sleep 返回时，输出
+    a.cancel() # 当前协程运行完毕，a 被销毁，对应的协程也会被销毁，所以整个程序不会运行 100s
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(test_task())
+```
+附注：
+  - 如果想获取 task 实例的返回结果，必需使用 yeild from task
+  - 如果只是想启动另一协程，无需使用 yield from
+  - Future 对象只是要执行的操作，与协程一样，必需使用 yield from 驱动
+
+#### 实例化方式
 1. asyncio.async(coro_or_future,  \*,  loop=None)
   - coro_or_future:
     - 如果是 Future 或Task 对象, 那就原封不动地返回
@@ -168,45 +221,56 @@ asyncio.Task 对象
   - 作用: 排定协程的执行时间, 返回一个 asyncio.Task 对象
   - 附注: 如果在自定义的 BaseEventLoop 子类上调用, 返回的对象可以是外部库
   (如 Tornado)中与 Task 类兼容的某个类的实例
-3. 其他函数或方法(在内部使用 asyncio.async):
-  - asyncio.wait(futures,  \*,  loop=None,  timeout=None,  return_when=ALL_COMPLETED):
-    - 参数:
-      - futures: 一个由期物或协程构成的可迭代对象;
-      - timeout, return_when 如果设定可能会返回未结束的期物
-    - 作用:
-      - 把各个协程包装进一个 Task 对象
-      - wait 是协程函数, 返回一个协程或生成器对象, 会等待传给它的所有协程运行完毕后结束
-  - BaseEventLoop.run_until_complete(...)
-    - 参数: 一个期物或协程, 如果是协程, 把协程包装进一个 Task 对象中
-    - 作用: 事件循环运行的过程中, 阻塞主线程直至协程运行结束
-    - 返回: 返回一个元组, 第一个元素是一系列结束的期物, 第二个元素是一系列未结束的期物
-    - 附注: 返回值中未完成的期物受 wait 函数的 timeout, return_when 参数影响
+  - 版本：create_task(...) 方法只在 Python 3.4.2 及以上版本中可用。
+  如果是 Python 3.3 或 Python 3.4 的旧版，要使用 asyncio.async(...) 函数
+3. asyncio.wait(futures,  \*,  loop=None,  timeout=None,  return_when=ALL_COMPLETED):
+  - 参数:
+    - futures: 一个由期物或协程构成的可迭代对象
+    - timeout, return_when 如果设定可能会返回未结束的期物
+  - 作用:
+    - 把各个协程分别包装进一个 Task 对象(内部使用了 async 函数)
+    - wait 是协程, 返回一个协程或生成器对象, 会等待传给它的所有协程运行完毕后结束
 
-#### 可用方法
-类似方法:
-  - .done()
-  - .add_done_callback(...)
+```python
+def download_many(cc_list):
+    loop = asyncio.get_event_loop()  # 获取事件循环底层实现的引用
+    to_do = [download_one(cc) for cc in sorted(cc_list)]  # <9>
+    wait_coro = asyncio.wait(to_do)  # <10>
+    res,  _ = loop.run_until_complete(wait_coro) # 执行事件循环, 直到 wait_coro 运行结束
+    loop.close() # 关闭事件循环
+```
+附注：
+  - 这些协程对象先使用 asyncio.wait 协程包装, 然后由 loop.run_until_complete 方法驱动
 
-差异方法:
-  - .cancel():
-    - 作用: 终止协程, 在协程内部抛出 CancelledError 异常
-  - .result():
-    - 参数: 方法没有参数, 不能指定超时时间。
-    - 作用: 如果调用 .result() 方法时期物还没运行完毕, 不会阻塞去等待结果,
-    而是抛出 asyncio.InvalidStateError 异常
+### 3.4 BaseEventLoop
+1. asyncio.get_event_loop():
+  - 客户代码绝不会直接创建事件循环
+  - 而是获取事件循环的引用
+2. BaseEventLoop.run_until_complete(...)
+  - 参数: 一个期物或协程, 如果是协程, 把协程包装进一个 Task 对象中
+  - 作用:
+    - 事件循环运行的过程中, **阻塞主线程直至传入的协程运行结束**
+    - 否则如果主线程结束，所有的协程都会被垃圾回收程序收回，而不会执行
+  - 返回:
+    - 返回一个元组, 第一个元素是一系列结束的期物, 第二个元素是一系列未结束的期物
+    - 返回值中未完成的期物受 wait 函数的 timeout, return_when 参数影响
+  - 附注:
+    - 因为参数只接受一个协程，同时启动多个协程时，需要使用 wait 函数将多个协程包装进一个 Task 对象
 
-使用方式:
-  - 通常使用 yield from, 获取 asyncio.Future 对象的结果
-  - 使用 yield from 处理期物, 等待期物运行完毕这一步无需我们关心, 而且不会阻塞事件循
-  环, 因为在 asyncio 包中,  yield from 的作用是把控制权还给事件循环
-  - 通常无需调用 my_future.add_done_callback(...), 因为
-  可以直接把想在期物运行结束后执行的操作放在协程中
-  yield from my_future 表达式的后面即可
-  - 通常也无需调用 my_future.result(), 因为 yield from 从期物中产出的值就是结果
 
-### 3.3 BaseEventLoop
+### 3.5 其他函数和对象
+asyncio.as_completed:
+  - 参数: 一个期物列表
+  - 作用：获取协程运行的返回结果
+  - 返回值: 一个迭代器,  在期物运行结束后产出期物
+  - 附注:
+    - asyncio.as_completed 函数返回的期物与传给 as_completed 函数的期物可能不同,
+  在 asyncio 包内部, 我们提供的期物会被替换成生成相同结果的期物，原因参见
+  Which other futures my come out of asyncio.as_completed?
+  https://groups.google.com/forum/#!msg/python-tulip/PdAEtwpaJHs/7fqbQj2zJoJ
+    - 必须使用 yield from 获取 asyncio.as_completed 函数产出的期物的结果，
+    所以 as_completed 函数必须在协程中调用
 
-### 3.4 其他函数和对象
 asyncio.Semaphore(concur_req):
   - 参数: concur_req - 并发协程数
   - 作用: 同步装置, 用于限制并发请求数量
@@ -224,13 +288,7 @@ with (yield from semaphore):
     image = yield from get_flag(base_url,  cc)
 ```
 
-asyncio.as_completed:
-  - 参数: 一个期物列表
-  - 返回值: 一个迭代器,  在期物运行结束后产出期物
-  - 附注: asyncio.as_completed 函数返回的期物与传给 as_completed 函数的期物可能不同,
-  在 asyncio 包内部, 我们提供的期物会被替换成生成相同结果的期物
-
-### 3.5 使用Executor对象
+### 3.6 使用Executor对象
 背景:
   - 问题:
     - asyncio 不支持异步文件系统I/O
@@ -244,48 +302,163 @@ loop.run_in_executor(executor,  func,  \*args)
     - executor: Executor 实例; 如果设为 None, 使用事件循环默认的 ThreadPoolExecutor 实例
     - func: 可调用对象
     - args: 传递给可调用对象的参数
+  - 文档:  https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.BaseEventLoop.run_in_executor
 
 ```python
 loop = asyncio.get_event_loop()
 loop.run_in_executor(None,  save_flag,  image,  cc.lower() + '.gif')
 ```
 
-### 3.6 asyncio 使用示例
+### 3.7 asyncio 使用示例
+#### aiohttp
 ```python
-@asyncio.coroutine
-def get_flag(cc):
-    url = '{}/{cc}/{cc}.gif'.format(BASE_URL,  cc=cc.lower())
-    resp = yield from aiohttp.request('GET',  url)  #  阻塞的操作通过协程实现
-    image = yield from resp.read()  # 读取响应内容是一项单独的异步操作
-    return image
+import asyncio
+import collections
+import contextlib
+
+import aiohttp
+from aiohttp import web
+import tqdm
+
+from flags2_common import main, HTTPStatus, Result, save_flag
+
+# default set low to avoid errors from remote site, such as
+# 503 - Service Temporarily Unavailable
+DEFAULT_CONCUR_REQ = 5
+MAX_CONCUR_REQ = 1000
 
 
-@asyncio.coroutine
-def download_one(cc):   # download_one 函数也必须是协程, 因为用到了 yield from
-    image = yield from get_flag(cc)  # <7>
-    show(cc)
-    save_flag(image,  cc.lower() + '.gif')
-    return cc
+class FetchError(Exception):
+    # 用于包装其他 HTTP 或网络异常，并获取 country_code，以便报告错误
+    def __init__(self, country_code):
+        self.country_code = country_code
 
 
-def download_many(cc_list):
-    loop = asyncio.get_event_loop()  # 获取事件循环底层实现的引用
-    to_do = [download_one(cc) for cc in sorted(cc_list)]  # <9>
-    wait_coro = asyncio.wait(to_do)  # <10>
-    res,  _ = loop.run_until_complete(wait_coro) # 执行事件循环, 直到 wait_coro 运行结束
-    loop.close() # 关闭事件循环
+  # BEGIN FLAGS3_ASYNCIO
+  @asyncio.coroutine
+  def http_get(url):
+      res = yield from aiohttp.request('GET', url)
+      if res.status == 200:
+          ctype = res.headers.get('Content-type', '').lower()
+          if 'json' in ctype or url.endswith('json'):
+              data = yield from res.json()  # <1>
+          else:
+              data = yield from res.read()  # <2>
+          return data
 
-    return len(res)
+      elif res.status == 404:
+          raise web.HTTPNotFound()
+      else:
+          raise aiohttp.errors.HttpProcessingError(
+              code=res.status, message=res.reason,
+              headers=res.headers)
+
+
+  @asyncio.coroutine
+  def get_country(base_url, cc):
+      url = '{}/{cc}/metadata.json'.format(base_url, cc=cc.lower())
+      metadata = yield from http_get(url)  # <3>
+      return metadata['country']
+
+
+  @asyncio.coroutine
+  def get_flag(base_url, cc):
+      url = '{}/{cc}/{cc}.gif'.format(base_url, cc=cc.lower())
+      # 必须在外层加上括号，直接写 return yield from， Python 解析器会报告句法错误
+      return (yield from http_get(url)) # <4>
+
 ```
 附注:
-  - 每次请求时,  download_many 函数会创建一个 download_one 协程对象;
-  - 这些协程对象先使用 asyncio.wait 协程包装, 然后由 loop.run_until_complete 方法驱动
-  - 我们编写的协程链条始终通过把最外层委派生成器传给 asyncio包 API中的某个函数（如
-loop.run_until_complete(...)）驱动
   - 最内层的子生成器是库中真正执行 I/O 操作的函数, 而不是我们自己编写的函数
-  - 总结: 让 asyncio 事件循环（通过我们编写的协程）驱动执行低层异步 I/O 操作的库函数。
+  - 使用 asyncio 包时，我们编写的异步代码中包含由 asyncio 本身驱动的协程（即委派生成器），
+  而生成器最终把职责委托给 asyncio 包或第三方库（如 aiohttp）中的协程。
+  这种处理方式相当于架起了管道，让 asyncio 事件循环（通过我们编写的协程）
+  驱动执行低层异步 I/O 操作的库函数
 
-## 3. 协程与线程对比
+#### run_in_executor
+```python
+# BEGIN FLAGS2_ASYNCIO_EXECUTOR
+@asyncio.coroutine
+def download_one(cc, base_url, semaphore, verbose):
+    try:  
+        # 如果semaphore 计数器的值是所允许的最大值，只有这个协程会阻塞
+        with (yield from semaphore): # <5>
+            image = yield from get_flag(base_url, cc)
+        # 两次 yeild form semaphore 不相关，分别对两个协程并发数进行限制
+        with (yield from semaphore):
+            country = yield from get_country(base_url, cc)
+    except web.HTTPNotFound:
+        status = HTTPStatus.not_found
+        msg = 'not found'
+    except Exception as exc:
+        # raise X from Y 句法链接原来的异常
+        raise FetchError(cc) from exc
+    else:
+        country = country.replace(' ', '_')
+        filename = '{}-{}.gif'.format(country, cc)
+        loop = asyncio.get_event_loop()
+        loop.run_in_executor(None, save_flag, image, filename)
+        status = HTTPStatus.ok
+        msg = 'OK'
+
+    if verbose and msg:
+        print(cc, msg)
+
+    return Result(status, cc)
+# END FLAGS2_ASYNCIO_EXECUTOR
+```
+
+#### as_completed, Semaphore
+```python
+@asyncio.coroutine
+def downloader_coro(cc_list, base_url, verbose, concur_req):
+    counter = collections.Counter()
+    # 最多允许激活 concur_req 个使用这个计数器的协程
+    semaphore = asyncio.Semaphore(concur_req)
+    to_do = [download_one(cc, base_url, semaphore, verbose)
+             for cc in sorted(cc_list)]
+    #  获取一个迭代器，这个迭代器会在期物运行结束后返回期物
+    to_do_iter = asyncio.as_completed(to_do)
+    if not verbose:
+        to_do_iter = tqdm.tqdm(to_do_iter, total=len(cc_list))
+    for future in to_do_iter:
+        try:
+            # 获取 asyncio.Future 对象的结果，
+            # 最简单的方法是使用 yield from，而不是调用future.result() 方法
+            res = yield from future  
+        except FetchError as exc:
+            # asyncio.as_completed 函数返回的期物与传给 as_completed 函数的期物可能不同
+            # 因此通过 FetchError 包装网络异常，并关联相应的国家代码
+            country_code = exc.country_code
+            try:
+                # 尝试从原来的异常（ __cause__）中获取错误消息
+                error_msg = exc.__cause__.args[0]
+            except IndexError:
+                # 如果在原来的异常中找不到错误消息，使用所链接异常的类名作为错误消息
+                error_msg = exc.__cause__.__class__.__name__
+            if verbose and error_msg:
+                msg = '*** Error for {}: {}'
+                print(msg.format(country_code, error_msg))
+            status = HTTPStatus.error
+        else:
+            status = res.status
+
+        counter[status] += 1
+
+    return counter
+```
+
+#### run_until_complete
+```python
+def download_many(cc_list, base_url, verbose, concur_req):
+    loop = asyncio.get_event_loop()
+    coro = downloader_coro(cc_list, base_url, verbose, concur_req)
+    counts = loop.run_until_complete(coro)
+    loop.close()
+    return counts
+```
+
+### 3.8 协程与线程对比
 
 线程版示例程序
 ```python
@@ -415,7 +588,7 @@ def main(address='127.0.0.1',  port=2323):   # <1>
 
     print('Server shutting down.')
     server.close()  # <7> 关闭服务器
-    # server.wait_closed() 方法返回一个期物
+    # server.wait_closed() 方法返回一个期物，调用 loop.run_until_complete 方法运行期物
     loop.run_until_complete(server.wait_closed())  # <8>  
     loop.close()  # <9> 终止事件循环
 
@@ -425,14 +598,23 @@ if __name__ == '__main__':
 # END TCP_CHARFINDER_MAIN
 ```
 控制权流动:
-  - main 函数在loop.run_forever()处阻塞, 控制权流动到事件循环中, 而且一直待在那里
+  - main 函数几乎会立即显示 Serving on... 消息，然后在调用 loop.run_forever() 时阻塞
+  - 控制权流动到事件循环中, 而且一直待在那里
   - 偶尔会回到handle_queries 协程, 这个协程需要等待网络发送或接收数据时, 控制权又交还事件循环
   - 在事件循环运行期间, 只要有新客户端连接服务器就会启动一个 handle_queries 协程实例
 
 asyncio.start_server:
-  - 作用:  asyncio 包提供的高层流 API, 有现成的服务器可用
-  - 文档:  <http://docs.python.org/3/library/asyncio-stream.html>
-  - 底层流API: <http://docs.python.org/3/library/asyncioprotocol.html>
+  - 返回: start_server 协程运行结束后，返回的协程对象返回一个 asyncio.Server实例，
+  即一个 TCP 套接字服务器
+  - 高层流 API:
+    - asyncio 包提供了高层流 API,有现成的服务器可用
+    - <http://docs.python.org/3/library/asyncio-stream.html>
+  - 底层流API:
+    - asyncio 包受 Twisted 框架中抽象的传送和协议启发，还提供了低层传送和协议 API
+    - <http://docs.python.org/3/library/asyncioprotocol.html>
+
+loop.run_forever()
+  -  运行事件循环； main 函数在这里阻塞，直到在服务器的控制台中按 CTRL-C 键才会关闭
 
 ### 4.2 编写Web服务器
 ```python
@@ -492,8 +674,12 @@ Server 对象:
   - asyncio.start_server函数和loop.create_server方法都是协程, 返回的结果都是
   asyncio.Server对象
   - 为了启动服务器并返回服务器的引用, 这两个协程都要由他人驱动, 完成运行
+    - 在 TCP 示例中，做法是调用 loop.run_until_complete(server_coro)，
+    其中 server_coro 是 asyncio.start_server 函数返回的结果
+    - 在 HTTP 示例中， create_server 方法在 init 协程中的一个 yield from 表达式里调用，
+    而 init 协程则由 main 函数中的 loop.run_until_complete(init(...)) 调用驱动
 
-add_route:
+web.Application.add_route:
   - 文档: <http://aiohttp.readthedocs.org/en/v0.14.4/web_reference.html#aiohttp.web.UrlDispatcher.add_route>
   - 附注: 如果处理程序是普通的函数, 在内部会将其转换成协程
 
@@ -540,9 +726,10 @@ Vaurien
   - 标题: Python’s asyncio Is for Composition,  Not Raw
   - 链接: <http://www.onebigfluke.com/2015/02/asyncio-is-for-composition.html>
 
-示例代码:
-  - <http://github.com/fluentpython/asyncio-tkinter>
-    - 说明: 如何把 asyncio 包集成到 Tkinter 事件循环中
+Using futures for asyncGUI programming in Python 3.3”
+  - 说明: 如何把 asyncio 包集成到 Tkinter 事件循环中
+  - http://pyvideo.org/video/1762/using-futures-for-async-guiprogramming-in-python
+  - http://github.com/fluentpython/asyncio-tkinter
 
 ### 实用工具  
 
