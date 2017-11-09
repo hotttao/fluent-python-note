@@ -1,0 +1,1176 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>6.1 动态属性和特性 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="descriptor.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../structure/">
+            
+                <a href="../structure/">
+            
+                    
+                    1. 数据模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../structure/data_module.html">
+            
+                <a href="../structure/data_module.html">
+            
+                    
+                    1.1 Python 数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../structure/sequence.html">
+            
+                <a href="../structure/sequence.html">
+            
+                    
+                    1.2 序列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../structure/mapping.html">
+            
+                <a href="../structure/mapping.html">
+            
+                    
+                    1.3 字典和集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../structure/string.html">
+            
+                <a href="../structure/string.html">
+            
+                    
+                    1.4 文本和字节序列
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../function/">
+            
+                <a href="../function/">
+            
+                    
+                    2. 函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../function/func_object.html">
+            
+                <a href="../function/func_object.html">
+            
+                    
+                    2.1 一等函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../function/design.html">
+            
+                <a href="../function/design.html">
+            
+                    
+                    2.2 设计模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../function/decorator.html">
+            
+                <a href="../function/decorator.html">
+            
+                    
+                    2.3 函数装饰器和闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../object/">
+            
+                <a href="../object/">
+            
+                    
+                    3. 面向对象
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../object/rubbish_collection.html">
+            
+                <a href="../object/rubbish_collection.html">
+            
+                    
+                    3.1 对象引用与垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../object/py_object.html">
+            
+                <a href="../object/py_object.html">
+            
+                    
+                    3.2 Python风格对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../object/slice.html">
+            
+                <a href="../object/slice.html">
+            
+                    
+                    3.3 序列的散列和切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../object/abstract.html">
+            
+                <a href="../object/abstract.html">
+            
+                    
+                    3.4 抽象基类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../object/inherit.html">
+            
+                <a href="../object/inherit.html">
+            
+                    
+                    3.5 类继承
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../object/overload.html">
+            
+                <a href="../object/overload.html">
+            
+                    
+                    3.6 运算符重载
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../control_flow/">
+            
+                <a href="../control_flow/">
+            
+                    
+                    4. 控制流程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../control_flow/iterator.html">
+            
+                <a href="../control_flow/iterator.html">
+            
+                    
+                    4.1 迭代器和生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../control_flow/contextmanager.html">
+            
+                <a href="../control_flow/contextmanager.html">
+            
+                    
+                    4.2 上下文管理器和 else 块
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../concurrency/">
+            
+                <a href="../concurrency/">
+            
+                    
+                    5. 并发
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../concurrency/coroutine.html">
+            
+                <a href="../concurrency/coroutine.html">
+            
+                    
+                    5.1 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../concurrency/future.html">
+            
+                <a href="../concurrency/future.html">
+            
+                    
+                    5.2 期物
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../concurrency/asyncio.html">
+            
+                <a href="../concurrency/asyncio.html">
+            
+                    
+                    5.3 asyncio
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    6. 元编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.7.1" data-path="dynamic.html">
+            
+                <a href="dynamic.html">
+            
+                    
+                    6.1 动态属性和特性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="descriptor.html">
+            
+                <a href="descriptor.html">
+            
+                    
+                    6.2 属性描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="prepare.html">
+            
+                <a href="prepare.html">
+            
+                    
+                    6.3 类元编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../appendix/">
+            
+                <a href="../appendix/">
+            
+                    
+                    7. 附录
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../appendix/python_standard.html">
+            
+                <a href="../appendix/python_standard.html">
+            
+                    
+                    7.1 Python 标准库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../appendix/python_version.html">
+            
+                <a href="../appendix/python_version.html">
+            
+                    
+                    7.2 Python 版本差异
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../appendix/async.html">
+            
+                <a href="../appendix/async.html">
+            
+                    
+                    7.3 Python 异步编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../appendix/socket.html">
+            
+                <a href="../appendix/socket.html">
+            
+                    
+                    7.4 socket 套接字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../appendix/programming.html">
+            
+                <a href="../appendix/programming.html">
+            
+                    
+                    7.5 程序设计思想
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../appendix/this_book.html">
+            
+                <a href="../appendix/this_book.html">
+            
+                    
+                    7.6 本书资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >6.1 动态属性和特性</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="61-&#x52A8;&#x6001;&#x5C5E;&#x6027;&#x548C;&#x7279;&#x6027;">6.1 &#x52A8;&#x6001;&#x5C5E;&#x6027;&#x548C;&#x7279;&#x6027;</h1>
+<p>Python &#x672F;&#x8BED;</p>
+<ul>
+<li>&#x5C5E;&#x6027;&#xFF1A;&#x6570;&#x636E;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x5904;&#x7406;&#x6570;&#x636E;&#x7684;&#x65B9;&#x6CD5;&#x7EDF;&#x79F0;&#x5C5E;&#x6027;</li>
+<li>&#x7279;&#x6027;&#xFF1A;property&#xFF0C;&#x5728;&#x4E0D;&#x6539;&#x53D8;&#x7C7B;&#x63A5;&#x53E3;&#x7684;&#x524D;&#x63D0;&#x4E0B;&#xFF0C;&#x4F7F;&#x7528;&#x5B58;&#x53D6;&#x65B9;&#x6CD5;&#xFF08;&#x5373;&#x8BFB;&#x503C;&#x65B9;&#x6CD5;&#x548C;&#x8BBE;&#x503C;&#x65B9;&#x6CD5;&#xFF09;&#x4FEE;&#x6539;&#x6570;&#x636E;&#x5C5E;&#x6027;</li>
+</ul>
+<p>&#x672C;&#x7AE0;&#x5185;&#x5BB9;</p>
+<ul>
+<li>&#x7279;&#x6027;</li>
+<li>&#x52A8;&#x6001;&#x5C5E;&#x6027;</li>
+<li>__new__ &#x4E0E;  __init__</li>
+</ul>
+<h2 id="2-&#x7279;&#x6027;">2. &#x7279;&#x6027;</h2>
+<p>&#x7279;&#x6027; - property:</p>
+<ul>
+<li>&#x7C7B;&#x578B;&#xFF1A;&#x7279;&#x6027;&#x662F; <strong>&#x8986;&#x76D6;&#x6027;&#x63CF;&#x8FF0;&#x7B26;</strong>(&#x8BE6;&#x89C1;&#x4E0B;&#x7AE0;)&#xFF0C;&#x662F;&#x5B9E;&#x73B0;&#x4E86;&#x63CF;&#x8FF0;&#x7B26;&#x534F;&#x8BAE;&#x7684;&#x7C7B;</li>
+<li>&#x4F5C;&#x7528;&#xFF1A;<ul>
+<li>&#x7279;&#x6027;&#x90FD;&#x662F;&#x7C7B;&#x5C5E;&#x6027;&#xFF0C;&#x4F46;&#x662F;&#x7279;&#x6027;&#x7BA1;&#x7406;&#x7684;&#x5176;&#x5B9E;&#x662F;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x7684;&#x5B58;&#x53D6;&#xFF0C;&#x4F1A;&#x8986;&#x76D6;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;</li>
+<li>&#x628A;&#x516C;&#x5F00;&#x5C5E;&#x6027;&#x53D8;&#x6210;&#x4F7F;&#x7528;&#x8BFB;&#x503C;&#x65B9;&#x6CD5;&#x548C;&#x8BBE;&#x503C;&#x65B9;&#x6CD5;&#x7BA1;&#x7406;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5728;&#x4E0D;&#x5F71;&#x54CD;&#x5BA2;&#x6237;&#x7AEF;&#x4EE3;&#x7801;&#x7684;&#x524D;&#x63D0;&#x4E0B;&#x5B9E;&#x65BD;&#x4E1A;&#x52A1;&#x89C4;&#x5219;</li>
+</ul>
+</li>
+<li>&#x5E94;&#x7528;&#xFF1A;<ul>
+<li>&#x7279;&#x6027;&#x9002;&#x7528;&#x4E8E;&#x7BA1;&#x7406;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;</li>
+<li>&#x79C1;&#x6709;&#x7C7B;&#x5C5E;&#x6027;&#x9002;&#x5408;&#x4F7F;&#x7528;&#x8BFB;&#x503C;&#x548C;&#x8BBE;&#x503C;&#x65B9;&#x6CD5;&#x7BA1;&#x7406;</li>
+<li>&#x7528;&#x4E8E;&#x4FEE;&#x6539;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x4E0D;&#x80FD;&#x5B9E;&#x73B0;&#x4E3A;&#x7279;&#x6027;</li>
+</ul>
+</li>
+<li>&#x62BD;&#x8C61;&#x65B9;&#x5F0F;&#xFF1A;&#x8BE6;&#x89C1;&#x4E0B;&#x8282;<ol>
+<li>&#x4F7F;&#x7528;&#x7279;&#x6027;&#x5DE5;&#x5382;&#x51FD;&#x6570;</li>
+<li>&#x4F7F;&#x7528;&#x63CF;&#x8FF0;&#x7B26;&#x7C7B;</li>
+</ol>
+</li>
+<li>&#x7248;&#x672C;&#x5DEE;&#x5F02;&#xFF1A;<ul>
+<li>Python2&#xFF1A;<ul>
+<li>&#x53EA;&#x6709;&quot;&#x65B0;&#x5F0F;&quot;&#x7C7B;&#x652F;&#x6301;&#x7279;&#x6027;</li>
+<li>&#x5B9A;&#x4E49;&#x65B0;&#x5F0F;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#xFF0C;&#x76F4;&#x63A5;&#x6216;&#x95F4;&#x63A5;&#x7EE7;&#x627F; object &#x7C7B;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>&#x8BED;&#x6CD5;&#xFF1A;</p>
+<ul>
+<li>&#x4F5C;&#x4E3A;&#x7C7B;&#x4F7F;&#x7528;&#xFF1A;property(fget=None, fset=None, fdel=None, doc=None)<ul>
+<li>&#x6240;&#x6709;&#x53C2;&#x6570;&#x90FD;&#x662F;&#x53EF;&#x9009;&#x7684;</li>
+<li>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x628A;&#x51FD;&#x6570;&#x4F20;&#x7ED9;&#x67D0;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x90A3;&#x4E48;&#x5F97;&#x5230;&#x7684;&#x7279;&#x6027;&#x5BF9;&#x8C61;&#x5C31;&#x4E0D;&#x5141;&#x8BB8;&#x6267;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x64CD;&#x4F5C;</li>
+</ul>
+</li>
+<li>&#x4F5C;&#x4E3A;&#x88C5;&#x9970;&#x5668;&#xFF1A;<ul>
+<li>&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x521B;&#x5EFA; property &#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x8BFB;&#x503C;&#x65B9;&#x6CD5;&#x7684;&#x6587;&#x6863;&#x5B57;&#x7B26;&#x4E32;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x6574;&#x4F53;&#xFF0C;&#x53D8;&#x6210;&#x7279;&#x6027;&#x7684;&#x6587;&#x6863;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-Python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyObj</span>:</span>
+<span class="hljs-meta">  @property</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_propety</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;doc&quot;&quot;&quot;</span>
+    <span class="hljs-keyword">pass</span>
+
+<span class="hljs-meta">  @my_propety.setter</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_property</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-keyword">pass</span>
+
+<span class="hljs-meta">  @my_propety.deleter</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">del_property</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-keyword">pass</span>
+</code></pre>
+</li>
+</ul>
+<h2 id="2-new-&#x4E0E;--init">2. __new__ &#x4E0E;  __init__</h2>
+<h3 id="21-init">2.1 __init__:</h3>
+<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;&#x5B9E;&#x4F8B;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;</li>
+<li>&#x7279;&#x6027;&#xFF1A;&#x7981;&#x6B62;&#x8FD4;&#x56DE;&#x4EFB;&#x4F55;&#x503C;</li>
+</ul>
+<h3 id="22-newcls-arg-kwargs">2.2 __new__(cls, **arg, **kwargs):</h3>
+<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;&#x5B9E;&#x4F8B;&#x6784;&#x9020;&#x65B9;&#x6CD5;</li>
+<li>&#x7279;&#x6027;&#xFF1A;<ul>
+<li>&#x8FD9;&#x662F;&#x4E2A;&#x7C7B;&#x65B9;&#x6CD5;(&#x4F7F;&#x7528;&#x7279;&#x6B8A;&#x65B9;&#x5F0F;&#x5904;&#x7406;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x5FC5;&#x4F7F;&#x7528; @classmethod&#x88C5;&#x9970;&#x5668;&#xFF09;</li>
+<li>&#x5FC5;&#x987B;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x5B9E;&#x4F8B;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF08;&#x5373; self&#xFF09;&#x4F20;&#x7ED9; __init__ &#x65B9;&#x6CD5;</li>
+<li>__new__ &#x65B9;&#x6CD5;<strong>&#x4E5F;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x5176;&#x4ED6;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;</strong>&#xFF0C;&#x6B64;&#x65F6;&#xFF0C;&#x89E3;&#x91CA;&#x5668;&#x4E0D;&#x4F1A;&#x8C03;&#x7528; __init__ &#x65B9;&#x6CD5;</li>
+</ul>
+</li>
+<li>&#x9644;&#x6CE8;&#xFF1A;&#x51E0;&#x4E4E;&#x4E0D;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x7F16;&#x5199; __new__ &#x65B9;&#x6CD5;&#xFF0C;&#x56E0;&#x4E3A;&#x4ECE; object &#x7C7B;&#x7EE7;&#x627F;&#x7684;&#x5B9E;&#x73B0;&#x5DF2;&#x7ECF;&#x8DB3;&#x591F;&#x4E86;</li>
+<li>&#x53C2;&#x6570;&#xFF1A;<ul>
+<li>__new__ &#x662F;&#x7C7B;&#x65B9;&#x6CD5;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x7C7B;&#x672C;&#x8EAB;</li>
+<li>&#x4F59;&#x4E0B;&#x7684;&#x53C2;&#x6570;&#x4E0E; __init__ &#x65B9;&#x6CD5;&#x4E00;&#x6837;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x6CA1;&#x6709; self</li>
+</ul>
+</li>
+</ul>
+<p><strong>Python &#x6784;&#x5EFA;&#x5BF9;&#x8C61;&#x8FC7;&#x7A0B;&#x7684;&#x4F2A;&#x4EE3;&#x7801;</strong></p>
+<pre><code class="lang-Python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">object_maker</span><span class="hljs-params">(the_class, some_arg)</span>:</span>
+    new_object = the_class.__new__(some_arg)
+    <span class="hljs-keyword">if</span> isinstance(new_object, the_class):
+        the_class.__init__(new_object, some_arg)
+    <span class="hljs-keyword">return</span> new_obj
+
+<span class="hljs-comment"># &#x4E0B;&#x8FF0;&#x4E24;&#x4E2A;&#x8BED;&#x53E5;&#x7684;&#x4F5C;&#x7528;&#x57FA;&#x672C;&#x7B49;&#x6548;</span>
+x = Foo(<span class="hljs-string">&apos;bar&apos;</span>)
+x = object_maker(Foo, <span class="hljs-string">&apos;bar&apos;</span>)
+</code></pre>
+<h3 id="23-new-&#x4F7F;&#x7528;&#x793A;&#x4F8B;">2.3 __new__ &#x4F7F;&#x7528;&#x793A;&#x4F8B;</h3>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FrozenJSON</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;A read-only fa&#xE7;ade for navigating a JSON-like object
+       using attribute notation
+    &quot;&quot;&quot;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__new__</span><span class="hljs-params">(cls, arg)</span>:</span>  <span class="hljs-comment"># &lt;1&gt;</span>
+        <span class="hljs-keyword">if</span> isinstance(arg, abc.Mapping):
+            <span class="hljs-keyword">return</span> super().__new__(cls)  <span class="hljs-comment"># &lt;2&gt;</span>
+        <span class="hljs-keyword">elif</span> isinstance(arg, abc.MutableSequence):  <span class="hljs-comment"># &lt;3&gt;</span>
+            <span class="hljs-keyword">return</span> [cls(item) <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> arg]
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">return</span> arg
+</code></pre>
+<p>super().__new__(cls)</p>
+<ul>
+<li>&#x9ED8;&#x8BA4;&#x7684;&#x884C;&#x4E3A;&#x662F;&#x59D4;&#x6258;&#x7ED9;&#x8D85;&#x7C7B;&#x7684; __new__ &#x65B9;&#x6CD5;</li>
+<li>&#x8FD9;&#x91CC;&#x662F;&#x8C03;&#x7528; object.__new__(FrozenJSON)&#xFF0C;</li>
+<li>object &#x7C7B;&#x6784;&#x5EFA;&#x7684;&#x662F; FrozenJSON &#x7684;&#x5B9E;&#x4F8B;</li>
+<li>&#x771F;&#x6B63;&#x7684;&#x6784;&#x5EFA;&#x64CD;&#x4F5C;&#x7531;&#x89E3;&#x91CA;&#x5668;&#x8C03;&#x7528; C &#x8BED;&#x8A00;&#x5B9E;&#x73B0;&#x7684; object.__new__ &#x65B9;&#x6CD5;&#x6267;&#x884C;</li>
+</ul>
+<h3 id="24-super-&#x51FD;&#x6570;">2.4 super() &#x51FD;&#x6570;</h3>
+<h4 id="python2">Python2</h4>
+<p>class super(object)</p>
+<ul>
+<li>super(type)&#xFF1A;&#x8FD4;&#x56DE;&#x975E;&#x7ED1;&#x5B9A;&#x7684;&#x51FD;&#x6570;</li>
+<li>super(type, obj)&#xFF1A;&#x8C03;&#x7528;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#xFF0C;&#x8981;&#x6C42; isinstance(obj, type)</li>
+<li>super(type, type2)&#xFF1A;&#x8C03;&#x7528;&#x7C7B;&#x65B9;&#x6CD5;&#xFF0C;&#x8981;&#x6C42; issubclass(type2, type)</li>
+<li><p>&#x5178;&#x578B;&#x7528;&#x6CD5;:</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span><span class="hljs-params">(B)</span>:</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">meth</span><span class="hljs-params">(self, arg)</span>:</span>
+      super(C, self).meth(arg)
+</code></pre>
+</li>
+</ul>
+<h4 id="python3">Python3</h4>
+<p><a href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c08/p07_calling_method_on_parent_class.html" target="_blank">http://python3-cookbook.readthedocs.io/zh_CN/latest/c08/p07_calling_method_on_parent_class.html</a></p>
+<h2 id="3-&#x52A8;&#x6001;&#x5C5E;&#x6027;">3. &#x52A8;&#x6001;&#x5C5E;&#x6027;</h2>
+<h3 id="31-&#x5C5E;&#x6027;&#x67E5;&#x627E;&#x987A;&#x5E8F;&#xFF1A;">3.1 &#x5C5E;&#x6027;&#x67E5;&#x627E;&#x987A;&#x5E8F;&#xFF1A;</h3>
+<ol>
+<li>&#x7C7B;&#x4E2D;&#x7684;&#x8986;&#x76D6;&#x6027;&#x63CF;&#x8FF0;&#x7B26;</li>
+<li>&#x5B9E;&#x4F8B;&#xFF0C;&#x7C7B;&#xFF0C;&#x8D85;&#x7C7B;</li>
+<li>&#x6240;&#x5C5E;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49;&#x7684; __getattr__ &#x65B9;&#x6CD5;&#xFF0C; &#x4F20;&#x5165; self &#x548C;&#x5C5E;&#x6027;&#x540D;&#x79F0;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5F62;&#x5F0F;</li>
+</ol>
+<h3 id="32-&#x5904;&#x7406;&#x5C5E;&#x6027;&#x7684;&#x7279;&#x6B8A;&#x65B9;&#x6CD5;">3.2 &#x5904;&#x7406;&#x5C5E;&#x6027;&#x7684;&#x7279;&#x6B8A;&#x65B9;&#x6CD5;</h3>
+<p>&#x9644;&#x6CE8;&#xFF1A;</p>
+<ul>
+<li>&#x4F7F;&#x7528;&#x70B9;&#x53F7;&#x6216;&#x5185;&#x7F6E;&#x7684; getattr&#x3001; hasattr &#x548C; setattr &#x51FD;&#x6570;&#x5B58;&#x53D6;&#x5C5E;&#x6027;&#x90FD;&#x4F1A;&#x89E6;&#x53D1;&#x4E0B;&#x8FF0;&#x5217;&#x8868;&#x4E2D;&#x76F8;&#x5E94;&#x7684;&#x7279;&#x6B8A;&#x65B9;&#x6CD5;</li>
+<li>&#x76F4;&#x63A5;&#x901A;&#x8FC7;&#x5B9E;&#x4F8B;&#x7684; __dict__ &#x5C5E;&#x6027;&#x8BFB;&#x5199;&#x5C5E;&#x6027;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&#x8FD9;&#x4E9B;&#x7279;&#x6B8A;&#x65B9;&#x6CD5;&#x2014;&#x2014;&#x5982;&#x679C;&#x9700;&#x8981;&#xFF0C;&#x901A;&#x5E38;&#x4F1A;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x8DF3;&#x8FC7;&#x7279;&#x6B8A;&#x65B9;&#x6CD5;</li>
+<li>&#x7279;&#x6B8A;&#x65B9;&#x6CD5;&#x4ECE;&#x7C7B;&#x4E0A;&#x83B7;&#x53D6;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x4F1A;&#x88AB;&#x540C;&#x540D;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x906E;&#x76D6;</li>
+</ul>
+<p>__delattr__(self, name)</p>
+<ul>
+<li>&#x8C03;&#x7528;&#xFF1A;&#x4F7F;&#x7528; del &#x8BED;&#x53E5;&#x5220;&#x9664;&#x5C5E;&#x6027;&#x65F6;</li>
+<li>&#x4F8B;&#x5982;&#xFF1A;del obj.attr &#x8BED;&#x53E5;&#x89E6;&#x53D1; Class.__delattr__(obj, &apos;attr&apos;) &#x65B9;&#x6CD5;</li>
+</ul>
+<p>__dir__(self)</p>
+<ul>
+<li>&#x8C03;&#x7528;&#xFF1A;&#x4F7F;&#x7528; dir &#x51FD;&#x6570;&#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x65F6;</li>
+<li>&#x4F8B;&#x5982;&#xFF1A;dir(obj) &#x89E6;&#x53D1; Class.__dir__(obj) &#x65B9;&#x6CD5;</li>
+</ul>
+<p>__getattribute__(self, name)</p>
+<ul>
+<li>&#x89E6;&#x53D1;&#xFF1A;&#x5C1D;&#x8BD5;&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x7684;&#x5C5E;&#x6027;&#x65F6;&#x603B;&#x4F1A;&#x8C03;&#x7528;&#xFF0C;&#x5305;&#x62EC;&#x70B9;&#x53F7;&#xFF0C;getattr &#x548C; hasattr &#x5185;&#x7F6E;&#x51FD;&#x6570;</li>
+<li>&#x7279;&#x6027;&#xFF1A;<ul>
+<li>&#x5BFB;&#x627E;&#x7684;&#x5C5E;&#x6027;&#x662F;&#x7279;&#x6B8A;&#x5C5E;&#x6027;&#x6216;&#x7279;&#x6B8A;&#x65B9;&#x6CD5;&#x65F6;&#x9664;&#x5916;</li>
+<li>&#x8C03;&#x7528; __getattribute__ &#x65B9;&#x6CD5;&#x4E14;&#x629B;&#x51FA; AttributeError &#x5F02;&#x5E38;&#x65F6;&#xFF0C;&#x624D;&#x4F1A;&#x8C03;&#x7528; __getattr__ &#x65B9;&#x6CD5;</li>
+</ul>
+</li>
+<li>&#x4F7F;&#x7528;&#xFF1A;&#x4E3A;&#x4E86;&#x5728;&#x83B7;&#x53D6; obj &#x5B9E;&#x4F8B;&#x7684;&#x5C5E;&#x6027;&#x65F6;&#x4E0D;&#x5BFC;&#x81F4;&#x65E0;&#x9650;&#x9012;&#x5F52;&#xFF0C; __getattribute__ &#x65B9;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;&#x8981;&#x4F7F;&#x7528;
+super().__getattribute__(obj, name)</li>
+</ul>
+<p>__getattr__(self, name)</p>
+<ul>
+<li>&#x89E6;&#x53D1;&#xFF1A;&#x4EC5;&#x5F53;&#x5728; obj&#x3001; Class &#x548C;&#x8D85;&#x7C7B;&#x4E2D;&#x627E;&#x4E0D;&#x5230;&#x6307;&#x5B9A;&#x7684;&#x5C5E;&#x6027;&#x65F6;&#x624D;&#x4F1A;&#x89E6;&#x53D1;</li>
+</ul>
+<p>__setattr__(self, name, value)</p>
+<ul>
+<li>&#x89E6;&#x53D1;&#xFF1A;&#x5C1D;&#x8BD5;&#x8BBE;&#x7F6E;&#x6307;&#x5B9A;&#x7684;&#x5C5E;&#x6027;&#x65F6;&#x8C03;&#x7528;&#xFF0C;&#x5305;&#x62EC;&#x70B9;&#x53F7;&#x548C; setattr &#x5185;&#x7F6E;&#x51FD;&#x6570;</li>
+<li>&#x4F8B;&#x5982;&#xFF1A;obj.attr = 42 &#x548C; setattr(obj, &apos;attr&apos;, 42) &#x90FD;&#x4F1A;&#x89E6;&#x53D1;
+Class.__setattr__(obj, &quot;attr&quot; , 42) &#x65B9;&#x6CD5;</li>
+<li>&#x8BF4;&#x660E;&#xFF1A;<ul>
+<li>&#x7279;&#x6B8A;&#x65B9;&#x6CD5; __getattribute__ &#x548C; __setattr__ &#x4E0D;&#x7BA1;&#x600E;&#x6837;&#x90FD;&#x4F1A;&#x8C03;&#x7528;&#xFF0C;&#x51E0;&#x4E4E;&#x4F1A;&#x5F71;&#x54CD;&#x6BCF;&#x4E00;&#x6B21;&#x5C5E;&#x6027;&#x5B58;&#x53D6;&#xFF0C;
+&#x56E0;&#x6B64;&#x6BD4; __getattr__ &#x65B9;&#x6CD5;&#xFF08;&#x53EA;&#x5904;&#x7406;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5C5E;&#x6027;&#x540D;&#xFF09;&#x66F4;&#x96BE;&#x6B63;&#x786E;&#x4F7F;&#x7528;</li>
+<li>&#x4E0E;&#x5B9A;&#x4E49;&#x8FD9;&#x4E9B;&#x7279;&#x6B8A;&#x65B9;&#x6CD5;&#x76F8;&#x6BD4;&#xFF0C;&#x4F7F;&#x7528;&#x7279;&#x6027;&#x6216;&#x63CF;&#x8FF0;&#x7B26;&#x76F8;&#x5BF9;&#x4E0D;&#x6613;&#x51FA;&#x9519;</li>
+</ul>
+</li>
+</ul>
+<h3 id="33-&#x5F71;&#x54CD;&#x5C5E;&#x6027;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x7684;&#x7279;&#x6B8A;&#x5C5E;&#x6027;">3.3 &#x5F71;&#x54CD;&#x5C5E;&#x6027;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x7684;&#x7279;&#x6B8A;&#x5C5E;&#x6027;</h3>
+<p>__class__</p>
+<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;&#x5BF9;&#x8C61;&#x6240;&#x5C5E;&#x7C7B;&#x7684;&#x5F15;&#x7528;&#xFF08;&#x5373; obj.__class__ &#x4E0E; type(obj) &#x7684;&#x4F5C;&#x7528;&#x76F8;&#x540C;)</li>
+<li>&#x7279;&#x6027;&#xFF1A;Python &#x7684;&#x67D0;&#x4E9B;&#x7279;&#x6B8A;&#x65B9;&#x6CD5;&#xFF0C;&#x4F8B;&#x5982; __getattr__&#xFF0C;&#x53EA;&#x5728;&#x5BF9;&#x8C61;&#x7684;&#x7C7B;&#x4E2D;&#x5BFB;&#x627E;&#xFF0C;&#x800C;&#x4E0D;&#x5728;&#x5B9E;&#x4F8B;&#x4E2D;&#x5BFB;&#x627E;</li>
+</ul>
+<p>__dict__</p>
+<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;<ul>
+<li>&#x4E00;&#x4E2A;&#x6620;&#x5C04;&#xFF0C;&#x5B58;&#x50A8;&#x5BF9;&#x8C61;&#x6216;&#x7C7B;&#x7684;&#x53EF;&#x5199;&#x5C5E;&#x6027;</li>
+<li>&#x6709; __dict__ &#x5C5E;&#x6027;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4EFB;&#x4F55;&#x65F6;&#x5019;&#x90FD;&#x80FD;&#x968F;&#x610F;&#x8BBE;&#x7F6E;&#x65B0;&#x5C5E;&#x6027;</li>
+</ul>
+</li>
+</ul>
+<p>__slots__</p>
+<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;&#x7C7B;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x9650;&#x5236;&#x5B9E;&#x4F8B;&#x80FD;&#x6709;&#x54EA;&#x4E9B;&#x5C5E;&#x6027;</li>
+<li>&#x5C5E;&#x6027;&#x503C;&#xFF1A;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x7EC4;&#x6210;&#x7684;&#x5143;&#x7EC4;&#xFF0C;&#x6307;&#x660E;&#x5141;&#x8BB8;&#x6709;&#x7684;&#x5C5E;&#x6027;</li>
+<li>&#x9644;&#x6CE8;&#xFF1A;&#x5982;&#x679C; __slots__ &#x4E2D;&#x6CA1;&#x6709; &apos;__dict__&apos;&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x6CA1;&#x6709;
+__dict__ &#x5C5E;&#x6027;&#xFF0C;&#x5B9E;&#x4F8B;&#x53EA;&#x5141;&#x8BB8;&#x6709;&#x6307;&#x5B9A;&#x540D;&#x79F0;&#x7684;&#x5C5E;&#x6027;</li>
+</ul>
+<h3 id="34-&#x5904;&#x7406;&#x5C5E;&#x6027;&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;">3.4 &#x5904;&#x7406;&#x5C5E;&#x6027;&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;</h3>
+<p>dir([object])</p>
+<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;<ul>
+<li>&#x5217;&#x51FA; object &#x5BF9;&#x8C61;&#x7684;&#x5927;&#x591A;&#x6570;&#x5C5E;&#x6027;</li>
+<li>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x53EF;&#x9009;&#x7684; object &#x53C2;&#x6570;&#xFF0C; dir &#x51FD;&#x6570;&#x4F1A;&#x5217;&#x51FA;&#x5F53;&#x524D;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x7684;&#x540D;&#x79F0;</li>
+</ul>
+</li>
+<li>&#x6587;&#x6863;&#xFF1A; <a href="https://docs.python.org/3/library/functions.html#dir" target="_blank">https://docs.python.org/3/library/functions.html#dir</a></li>
+<li>&#x7279;&#x6027;&#xFF1A;<ul>
+<li>&#x76EE;&#x7684;&#x662F;&#x4EA4;&#x4E92;&#x5F0F;&#x4F7F;&#x7528;&#xFF0C;&#x56E0;&#x6B64;&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#x5B8C;&#x6574;&#x7684;&#x5C5E;&#x6027;&#x5217;&#x8868;&#xFF0C;&#x53EA;&#x5217;&#x51FA;&#x4E00;&#x7EC4;&#x201C;&#x91CD;&#x8981;&#x7684;&quot;&#x5C5E;&#x6027;&#x540D;</li>
+<li>&#x80FD;&#x5BA1;&#x67E5;&#x6709;&#x6216;&#x6CA1;&#x6709; __dict__ &#x5C5E;&#x6027;&#x7684;&#x5BF9;&#x8C61;</li>
+<li>&#x4E0D;&#x4F1A;&#x5217;&#x51FA; __dict__ &#x5C5E;&#x6027;&#x672C;&#x8EAB;&#xFF0C;&#x4F46;&#x4F1A;&#x5217;&#x51FA;&#x5176;&#x4E2D;&#x7684;&#x952E;&#x3002;</li>
+<li>&#x4E5F;&#x4E0D;&#x4F1A;&#x5217;&#x51FA;&#x7C7B;&#x7684;&#x51E0;&#x4E2A;&#x7279;&#x6B8A;&#x5C5E;&#x6027;&#xFF0C;&#x4F8B;&#x5982;__mro__&#x3001; __bases__ &#x548C; __name__</li>
+</ul>
+</li>
+</ul>
+<p>vars([object])</p>
+<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;<ul>
+<li>&#x8FD4;&#x56DE; object &#x5BF9;&#x8C61;&#x7684; __dict__ &#x5C5E;&#x6027;</li>
+<li>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x53C2;&#x6570;&#xFF0C;var() &#x4E0E; locals() &#x51FD;&#x6570;&#x4E00;&#x6837;&#xFF0C;&#x8FD4;&#x56DE;&#x8868;&#x793A;&#x672C;&#x5730;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x5B57;&#x5178;</li>
+</ul>
+</li>
+<li>&#x7279;&#x6027;&#xFF1A;<ul>
+<li>&#x5982;&#x679C;&#x5B9E;&#x4F8B;&#x6240;&#x5C5E;&#x7684;&#x7C7B;&#x5B9A;&#x4E49;&#x4E86; __slots__ &#x5C5E;&#x6027;&#xFF0C;&#x5B9E;&#x4F8B;&#x6CA1;&#x6709; __dict__ &#x5C5E;&#x6027;&#xFF0C;
+&#x90A3;&#x4E48; vars &#x51FD;&#x6570;&#x4E0D;&#x80FD;&#x5904;&#x7406;&#x90A3;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x76F8;&#x53CD;&#xFF0C; dir &#x51FD;&#x6570;&#x80FD;&#x5904;&#x7406;&#x8FD9;&#x6837;&#x7684;&#x5B9E;&#x4F8B;</li>
+</ul>
+</li>
+</ul>
+<p>getattr(object, name[, default])</p>
+<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;&#x4ECE; object &#x5BF9;&#x8C61;&#x4E2D;&#x83B7;&#x53D6; name &#x5B57;&#x7B26;&#x4E32;&#x5BF9;&#x5E94;&#x7684;&#x5C5E;&#x6027;</li>
+<li>&#x8FD4;&#x56DE;&#xFF1A;<ul>
+<li>&#x83B7;&#x53D6;&#x7684;&#x5C5E;&#x6027;&#x53EF;&#x80FD;&#x6765;&#x81EA;&#x5BF9;&#x8C61;&#x6240;&#x5C5E;&#x7684;&#x7C7B;&#x6216;&#x8D85;&#x7C7B;</li>
+<li>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x7684;&#x5C5E;&#x6027;&#xFF0C; getattr &#x51FD;&#x6570;&#x629B;&#x51FA; AttributeError &#x5F02;&#x5E38;&#xFF0C;
+&#x6216;&#x8005;&#x8FD4;&#x56DE; default&#x53C2;&#x6570;&#x7684;&#x503C;&#xFF08;&#x5982;&#x679C;&#x8BBE;&#x5B9A;&#x4E86;&#x7684;&#x8BDD;&#xFF09;</li>
+</ul>
+</li>
+</ul>
+<p>hasattr(object, name)</p>
+<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;&#x68C0;&#x67E5; object &#x5BF9;&#x8C61;&#x662F;&#x5426;&#x62E5;&#x6709;&#x6307;&#x5B9A;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x6709;&#x8FD4;&#x56DE;True</li>
+<li>&#x539F;&#x7406;&#xFF1A;&#x8C03;&#x7528; getattr(object, name) &#x51FD;&#x6570;&#xFF0C;&#x68C0;&#x67E5;&#x662F;&#x5426;&#x629B;&#x51FA; AttributeError &#x5F02;&#x5E38;</li>
+<li>&#x6587;&#x6863;&#xFF1A;<a href="https://docs.python.org/3/library/functions.html#hasattr" target="_blank">https://docs.python.org/3/library/functions.html#hasattr</a></li>
+</ul>
+<p>setattr(object, name, value)</p>
+<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;&#x628A; object &#x5BF9;&#x8C61;&#x6307;&#x5B9A;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x8BBE;&#x4E3A; value</li>
+<li>&#x524D;&#x63D0;&#xFF1A;object &#x5BF9;&#x8C61;&#x80FD;&#x63A5;&#x53D7;&#x90A3;&#x4E2A;&#x503C;&#x3002;</li>
+<li>&#x9644;&#x6CE8;&#xFF1A;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x53EF;&#x80FD;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x5C5E;&#x6027;&#xFF0C;&#x6216;&#x8005;&#x8986;&#x76D6;&#x73B0;&#x6709;&#x7684;&#x5C5E;&#x6027;</li>
+</ul>
+<h3 id="35-&#x52A8;&#x6001;&#x5C5E;&#x6027;&#x793A;&#x4F8B;-1">3.5 &#x52A8;&#x6001;&#x5C5E;&#x6027;&#x793A;&#x4F8B; 1</h3>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> abc
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FrozenJSON</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, mapping)</span>:</span>
+        self.__data = dict(mapping)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__getattr__</span><span class="hljs-params">(self, name)</span>:</span>
+        <span class="hljs-keyword">if</span> hasattr(self.__data, name):
+            <span class="hljs-keyword">return</span> getattr(self.__data, name)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">return</span> FrozenJSON(self.__data[name])  <span class="hljs-comment"># &lt;4&gt;</span>
+</code></pre>
+<p>__getattr__:</p>
+<ul>
+<li>&#x9996;&#x5148;&#x67E5;&#x770B; self.__data &#x5B57;&#x5178;&#x6709;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x540D;&#x79F0;&#x7684;&#x5C5E;&#x6027;&#xFF08;&#x4E0D;&#x662F;&#x952E;&#xFF09;&#xFF0C;
+&#x8FD9;&#x6837; FrozenJSON &#x5B9E;&#x4F8B;&#x4FBF;&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x5B57;&#x5178;&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;</li>
+<li>&#x5982;&#x679C; self.__data &#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x540D;&#x79F0;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x90A3;&#x4E48; __getattr__ &#x65B9;&#x6CD5;&#x4EE5;&#x90A3;&#x4E2A;&#x540D;&#x79F0;&#x4E3A;&#x952E;&#xFF0C;
+&#x4ECE; self.__data &#x4E2D;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x5E76;&#x8FDB;&#x884C;&#x5B9E;&#x4F8B;&#x6784;&#x9020;</li>
+</ul>
+<h3 id="36-&#x52A8;&#x6001;&#x5C5E;&#x6027;&#x793A;&#x4F8B;-2">3.6 &#x52A8;&#x6001;&#x5C5E;&#x6027;&#x793A;&#x4F8B; 2</h3>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Record</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, **kwargs)</span>:</span>
+        self.__dict__.update(kwargs)   <span class="hljs-comment"># &#x5FEB;&#x901F;&#x5730;&#x5728;&#x5B9E;&#x4F8B;&#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x5806;&#x5C5E;&#x6027;</span>
+                                       <span class="hljs-comment"># &#x524D;&#x63D0;&#x662F;&#x7C7B;&#x4E2D;&#x6CA1;&#x6709;&#x58F0;&#x660E; __slots__ &#x5C5E;&#x6027;</span>
+<span class="hljs-comment"># END SCHEDULE2_RECORD</span>
+</code></pre>
+<p>self.__dict__.update(kwargs)</p>
+<ul>
+<li>&#x5FEB;&#x901F;&#x5730;&#x5728;&#x5B9E;&#x4F8B;&#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x5806;&#x5C5E;&#x6027;&#xFF0C;&#x524D;&#x63D0;&#x662F;&#x7C7B;&#x4E2D;&#x6CA1;&#x6709;&#x58F0;&#x660E; <strong>slots</strong> &#x5C5E;&#x6027;</li>
+<li>&#x4ECE;&#x6570;&#x636E;&#x4E2D;&#x521B;&#x5EFA;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x79F0;&#x65F6;&#x80AF;&#x5B9A;&#x6709;&#x53EF;&#x80FD;&#x4F1A;&#x5F15;&#x5165;&#x7F3A;&#x9677;&#xFF0C;&#x56E0;&#x4E3A;&#x7C7B;&#x5C5E;&#x6027;&#xFF08;&#x4F8B;&#x5982;&#x65B9;&#x6CD5;&#xFF09;&#x53EF;&#x80FD;&#x88AB;&#x906E;&#x76D6;&#xFF0C;
+&#x6216;&#x8005;&#x7531;&#x4E8E;&#x610F;&#x5916;&#x8986;&#x76D6;&#x73B0;&#x6709;&#x7684;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x800C;&#x4E22;&#x5931;&#x6570;&#x636E;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># BEGIN SCHEDULE2_DBRECORD</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DbRecord</span><span class="hljs-params">(Record)</span>:</span>  <span class="hljs-comment">#</span>
+
+    __db = <span class="hljs-keyword">None</span>  <span class="hljs-comment"># __db &#x7C7B;&#x5C5E;&#x6027;&#x5B58;&#x50A8;&#x4E00;&#x4E2A;&#x6253;&#x5F00;&#x7684; shelve.Shelf &#x6570;&#x636E;&#x5E93;&#x5F15;&#x7528;&#x3002;</span>
+
+<span class="hljs-meta">    @staticmethod  # &lt;4&gt;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_db</span><span class="hljs-params">(db)</span>:</span>
+        DbRecord.__db = db  <span class="hljs-comment"># __db &#x662F; DbRecord &#x7C7B;&#x7684;&#x79C1;&#x6709;&#x5C5E;&#x6027;</span>
+
+<span class="hljs-meta">    @staticmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_db</span><span class="hljs-params">()</span>:</span>
+        <span class="hljs-keyword">return</span> DbRecord.__db
+
+<span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fetch</span><span class="hljs-params">(cls, ident)</span>:</span>
+        db = cls.get_db()
+        <span class="hljs-keyword">try</span>:
+            <span class="hljs-keyword">return</span> db[ident]
+        <span class="hljs-keyword">except</span> TypeError:
+            <span class="hljs-keyword">if</span> db <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+                msg = <span class="hljs-string">&quot;database not set; call &apos;{}.set_db(my_db)&apos;&quot;</span>
+                <span class="hljs-keyword">raise</span> MissingDatabaseError(msg.format(cls.__name__))
+            <span class="hljs-keyword">else</span>:       <span class="hljs-comment"># &#x91CD;&#x65B0;&#x629B;&#x51FA; TypeError &#x5F02;&#x5E38;</span>
+                <span class="hljs-keyword">raise</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">if</span> hasattr(self, <span class="hljs-string">&apos;serial&apos;</span>):  <span class="hljs-comment"># &lt;11&gt;</span>
+            cls_name = self.__class__.__name__
+            <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;&lt;{} serial={!r}&gt;&apos;</span>.format(cls_name, self.serial)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">return</span> super().__repr__()  <span class="hljs-comment"># &lt;12&gt;</span>
+<span class="hljs-comment"># END SCHEDULE2_DBRECORD</span>
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Event</span><span class="hljs-params">(DbRecord)</span>:</span>
+<span class="hljs-meta">    @property</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">speakers</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> hasattr(self, <span class="hljs-string">&apos;_speaker_objs&apos;</span>):
+            <span class="hljs-comment"># &#x4ECE; __dict__ &#x4E2D;&#x83B7;&#x53D6; &apos;speakers&apos;&#xFF0C;&#x9632;&#x6B62;&#x65E0;&#x9650;&#x9012;&#x5F52;&#xFF0C;&#x56E0;&#x4E3A;&#x7279;&#x6027;&#x7684;&#x516C;&#x5F00;&#x540D;&#x79F0;&#x4E5F;&#x662F; speakers</span>
+            spkr_serials = self.__dict__[<span class="hljs-string">&apos;speakers&apos;</span>]  
+            fetch = self.__class__.fetch  <span class="hljs-comment"># &#x83B7;&#x53D6; fetch &#x7C7B;&#x65B9;&#x6CD5;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x907F;&#x514D;&#x88AB;&#x5B9E;&#x4F8B;&#x540C;&#x540D;&#x5C5E;&#x6027;&#x8986;&#x76D6;</span>
+            self._speaker_objs = [fetch(<span class="hljs-string">&apos;speaker.{}&apos;</span>.format(key))
+                                  <span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> spkr_serials]  <span class="hljs-comment"># &lt;6&gt;</span>
+        <span class="hljs-keyword">return</span> self._speaker_objs
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># BEGIN SCHEDULE2_LOAD</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">load_db</span><span class="hljs-params">(db)</span>:</span>
+    raw_data = osconfeed.load()
+    warnings.warn(<span class="hljs-string">&apos;loading &apos;</span> + DB_NAME)
+    <span class="hljs-keyword">for</span> collection, rec_list <span class="hljs-keyword">in</span> raw_data[<span class="hljs-string">&apos;Schedule&apos;</span>].items():
+        record_type = collection[:<span class="hljs-number">-1</span>]
+        cls_name = record_type.capitalize()
+        cls = globals().get(cls_name, DbRecord)  &#x278C;
+        <span class="hljs-keyword">if</span> inspect.isclass(cls) <span class="hljs-keyword">and</span> issubclass(cls, DbRecord):  &#x278D;
+            factory = cls
+        <span class="hljs-keyword">else</span>:
+            factory = DbRecord
+        <span class="hljs-keyword">for</span> record <span class="hljs-keyword">in</span> rec_list:  <span class="hljs-comment"># &lt;7&gt;</span>
+            key = <span class="hljs-string">&apos;{}.{}&apos;</span>.format(record_type, record[<span class="hljs-string">&apos;serial&apos;</span>])
+            record[<span class="hljs-string">&apos;serial&apos;</span>] = key
+            db[key] = factory(**record)  <span class="hljs-comment"># &lt;8&gt;</span>
+</code></pre>
+<ul>
+<li>&#x278C; &#x4ECE;&#x6A21;&#x5757;&#x7684;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x83B7;&#x53D6;&#x90A3;&#x4E2A;&#x540D;&#x79F0;&#x5BF9;&#x5E94;&#x7684;&#x5BF9;&#x8C61;&#xFF1B;&#x5982;&#x679C;&#x627E;&#x4E0D;&#x5230;&#x5BF9;&#x8C61;&#xFF0C;&#x4F7F;&#x7528; DbRecord&#x3002;</li>
+<li>&#x278D; &#x5982;&#x679C;&#x83B7;&#x53D6;&#x7684;&#x5BF9;&#x8C61;&#x662F;&#x7C7B;&#xFF0C;&#x800C;&#x4E14;&#x662F; DbRecord &#x7684;&#x5B50;&#x7C7B;</li>
+</ul>
+<h2 id="&#x5EF6;&#x4F38;&#x9605;&#x8BFB;">&#x5EF6;&#x4F38;&#x9605;&#x8BFB;</h2>
+<h3 id="python">Python:</h3>
+<p>Builtin Functions</p>
+<ul>
+<li>&#x5C5E;&#x6027;&#x5904;&#x7406;&#x548C;&#x5185;&#x7F6E;&#x7684;&#x5185;&#x7701;&#x51FD;&#x6570;&#x7684;&#x5B98;&#x65B9;&#x6587;&#x6863;</li>
+<li><a href="https://docs.python.org/3/library/functions.html" target="_blank">https://docs.python.org/3/library/functions.html</a></li>
+</ul>
+<p>3.3.9. Special method lookup</p>
+<ul>
+<li>&#x8C03;&#x7528;&#x7279;&#x6B8A;&#x65B9;&#x6CD5;&#x4F1A;&#x8DF3;&#x8FC7;&#x5B9E;&#x4F8B;&#x7684;&#x8BED;&#x610F;&#x539F;&#x56E0;</li>
+<li><a href="https://docs.python.org/3/reference/datamodel.html#special-method-lookup&#xFF09;" target="_blank">https://docs.python.org/3/reference/datamodel.html#special-method-lookup&#xFF09;</a></li>
+</ul>
+<p>4.13. Special Attributes</p>
+<ul>
+<li>&#x8BF4;&#x660E;&#x4E86; __class__ &#x548C; __dict__ &#x5C5E;&#x6027;</li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#special-attributes&#xFF09;" target="_blank">https://docs.python.org/3/library/stdtypes.html#special-attributes&#xFF09;</a></li>
+</ul>
+<p>__slots__ &#x5C5E;&#x6027;</p>
+<ul>
+<li><a href="https://docs.python.org/3/reference/datamodel.html#customizing-attribute-access" target="_blank">https://docs.python.org/3/reference/datamodel.html#customizing-attribute-access</a></li>
+</ul>
+<h3 id="blog">blog:</h3>
+<p>The simple but handy &#x2018; collector of a bunch of named stuff&#x2019;class</p>
+<ul>
+<li><a href="http://code.activestate.com/recipes/52308-the-simple-but-handy-collector-of-a-bunch-of-named/" target="_blank">http://code.activestate.com/recipes/52308-the-simple-but-handy-collector-of-a-bunch-of-named/</a></li>
+</ul>
+<p>Class-level read only properties in Python</p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/1735434/class-level-read-only-properties-in-python" target="_blank">http://stackoverflow.com/questions/1735434/class-level-read-only-properties-in-python</a></li>
+<li>&#x4E3A;&#x7C7B;&#x4E2D;&#x7684;&#x53EA;&#x8BFB;&#x5C5E;&#x6027;&#x63D0;&#x4F9B;&#x4E86;&#x89E3;&#x51B3;&#x65B9;&#x6848;</li>
+</ul>
+<h3 id="&#x5B9E;&#x7528;&#x5DE5;&#x5177;">&#x5B9E;&#x7528;&#x5DE5;&#x5177;</h3>
+<p>keyword &#x6A21;&#x5757;</p>
+<ul>
+<li>keyword.iskeyword(value): &#x5224;&#x65AD;value &#x662F;&#x5426;&#x662F; Python &#x5173;&#x952E;&#x5B57;</li>
+<li>str.isidentifier(): &#x6839;&#x636E;&#x8BED;&#x8A00;&#x7684;&#x8BED;&#x6CD5;&#x5224;&#x65AD; str &#x662F;&#x5426;&#x4E3A;&#x6709;&#x6548;&#x7684; Python &#x6807;&#x8BC6;&#x7B26;</li>
+</ul>
+<p>shelve &#x6A21;&#x5757;</p>
+<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;&#x63D0;&#x4F9B;&#x4E86; pickle &#x5B58;&#x50A8;&#x65B9;&#x5F0F;</li>
+<li>shelve.open:<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; shelve.Shelf &#x5B9E;&#x4F8B;&#xFF0C;&#x8FD9;&#x662F;&#x7B80;&#x5355;&#x7684;&#x952E;&#x503C;&#x5BF9;&#x8C61;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x80CC;&#x540E;&#x7531;dbm &#x6A21;&#x5757;&#x652F;&#x6301;</li>
+</ul>
+</li>
+<li>Shelf:<ul>
+<li>&#x662F; abc.MutableMapping &#x7684;&#x5B50;&#x7C7B;&#xFF0C;&#x56E0;&#x6B64;&#x63D0;&#x4F9B;&#x4E86;&#x5904;&#x7406;&#x6620;&#x5C04;&#x7C7B;&#x578B;&#x7684;&#x91CD;&#x8981;&#x65B9;&#x6CD5;</li>
+<li>&#x63D0;&#x4F9B;&#x4E86;&#x51E0;&#x4E2A;&#x7BA1;&#x7406; I/O &#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5982; sync &#x548C; close&#xFF1B;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;</li>
+<li>&#x53EA;&#x8981;&#x628A;&#x65B0;&#x503C;&#x8D4B;&#x4E88;&#x952E;&#xFF0C;&#x5C31;&#x4F1A;&#x4FDD;&#x5B58;&#x952E;&#x548C;&#x503C;</li>
+<li>&#x952E;&#x5FC5;&#x987B;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x3002;</li>
+<li>&#x503C;&#x5FC5;&#x987B;&#x662F; pickle &#x6A21;&#x5757;&#x80FD;&#x5904;&#x7406;&#x7684;&#x5BF9;&#x8C61;</li>
+</ul>
+</li>
+<li>&#x6587;&#x6863;&#xFF1A;<ul>
+<li>shelve: <a href="https://docs.python.org/3/library/shelve.html" target="_blank">https://docs.python.org/3/library/shelve.html</a></li>
+<li>dbm: <a href="https://docs.python.org/3/library/dbm.html" target="_blank">https://docs.python.org/3/library/dbm.html</a></li>
+<li>pickle: <a href="https://docs.python.org/3/library/pickle.html" target="_blank">https://docs.python.org/3/library/pickle.html</a></li>
+</ul>
+</li>
+</ul>
+<p>&#x4EE5;&#x4E0B;&#x7C7B;&#x5B9E;&#x4F8B;&#x53EF;&#x4EE5;&#x6709;&#x4EFB;&#x610F;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x7531;&#x4F20;&#x7ED9;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x7684;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;&#x6784;&#x5EFA;&#xFF1A;</p>
+<ul>
+<li>multiprocessing.Namespace &#x7C7B;<ul>
+<li>&#x6587;&#x6863;: <a href="https://docs.python.org/3/library/multiprocessing.html?highlight=namespace#namespaceobjects" target="_blank">https://docs.python.org/3/library/multiprocessing.html?highlight=namespace#namespaceobjects</a></li>
+<li>&#x6E90;&#x7801;: <a href="https://hg.python.org/cpython/file/50d581f69a73/Lib/multiprocessing/managers.py#l909" target="_blank">https://hg.python.org/cpython/file/50d581f69a73/Lib/multiprocessing/managers.py#l909</a></li>
+</ul>
+</li>
+<li>argparse.Namespace &#x7C7B;<ul>
+<li>&#x6587;&#x6863;: <a href="https://docs.python.org/3/library/argpa-rse.html#argparse.Namespace" target="_blank">https://docs.python.org/3/library/argpa-rse.html#argparse.Namespace</a></li>
+<li>&#x6E90;&#x7801;: <a href="https://hg.python.org/cpython/file/50d581f69a73/Lib/argparse.py#l1196" target="_blank">https://hg.python.org/cpython/file/50d581f69a73/Lib/argparse.py#l1196</a></li>
+</ul>
+</li>
+</ul>
+<p><code>python -i schedule1.py</code>: &#x542F;&#x52A8;&#x52A0;&#x8F7D;&#x4E86; schedule1 &#x6A21;&#x5757;&#x7684;&#x63A7;&#x5236;&#x53F0;</p>
+<h3 id="&#x4E66;&#x7C4D;">&#x4E66;&#x7C4D;:</h3>
+<p>&#x300A; Python Cookbook&#xFF08;&#x7B2C; 3 &#x7248;&#xFF09;&#x4E2D;&#x6587;&#x7248;&#x300B;</p>
+<ul>
+<li>8.8 &#x5728;&#x5B50;&#x7C7B;&#x4E2D;&#x6269;&#x5C55;&#x5C5E;&#x6027;: &#x89E3;&#x51B3;&#x4E86;&#x5728;&#x7EE7;&#x627F;&#x81EA;&#x8D85;&#x7C7B;&#x7684;&#x7279;&#x6027;&#x4E2D;&#x8986;&#x76D6;&#x65B9;&#x6CD5;&#x8FD9;&#x4E2A;&#x68D8;&#x624B;&#x95EE;&#x9898;</li>
+<li>8.15 &#x59D4;&#x6258;&#x5C5E;&#x6027;&#x7684;&#x8BBF;&#x95EE;: &#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x4EE3;&#x7406;&#x7C7B;</li>
+<li>9.21 &#x907F;&#x514D;&#x51FA;&#x73B0;&#x91CD;&#x590D;&#x7684;&#x5C5E;&#x6027;&#x65B9;&#x6CD5;</li>
+</ul>
+<p>&#x300A; Python &#x6280;&#x672F;&#x624B;&#x518C;&#xFF08;&#x7B2C; 2 &#x7248;&#xFF09;&#x300B;</p>
+<h2 id="&#x9644;&#x6CE8;">&#x9644;&#x6CE8;</h2>
+<p>&#x7EDF;&#x4E00;&#x8BBF;&#x95EE;&#x539F;&#x5219;(Unifrom Access Principle)</p>
+<ul>
+<li>&#x76F8;&#x5173;&#x6587;&#x7AE0;&#xFF1A;<ul>
+<li><a href="http://c2.com/cgi/wiki?UniformAccessPrinciple" target="_blank">http://c2.com/cgi/wiki?UniformAccessPrinciple</a></li>
+<li><a href="http://c2.com/cgi/wiki?WelcomeVisitors" target="_blank">http://c2.com/cgi/wiki?WelcomeVisitors</a></li>
+</ul>
+</li>
+<li>Python&#xFF1A;<ul>
+<li>&#x5728; Python &#x4E2D;&#x8FD8;&#x6709;&#x4E00;&#x5904;&#x4F53;&#x73B0;&#x4E86;&#x7EDF;&#x4E00;&#x8BBF;&#x95EE;&#x539F;&#x5219;(&#x6216;&#x8005;&#x5B83;&#x7684;&#x53D8;&#x4F53;)&#xFF1A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x548C;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x5316;
+&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x53E5;&#x6CD5;&#x2014;&#x2014;my_obj = foo()&#xFF0C;&#x5176;&#x4E2D; foo &#x662F;&#x7C7B;&#x6216;&#x5176;&#x4ED6;&#x53EF;&#x8C03;&#x7528;&#x7684;&#x5BF9;&#x8C61;</li>
+</ul>
+</li>
+</ul>
+<p>__new__ &#x65B9;&#x6CD5;</p>
+<ul>
+<li>&#x4F5C;&#x7528;&#xFF1A;&#x53EF;&#x4EE5;&#x628A;&#x7C7B;&#x53D8;&#x6210;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#xFF0C;&#x751F;&#x6210;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x6216;&#x8005;&#x8FD4;&#x56DE;&#x4E8B;&#x5148;&#x6784;&#x5EFA;&#x597D;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6BCF;&#x6B21;&#x90FD;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x5B9E;&#x4F8B;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 6. 元编程">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="descriptor.html" class="navigation navigation-next " aria-label="Next page: 6.2 属性描述符">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"6.1 动态属性和特性","level":"1.7.1","depth":2,"next":{"title":"6.2 属性描述符","level":"1.7.2","depth":2,"path":"abc/descriptor.md","ref":"abc/descriptor.md","articles":[]},"previous":{"title":"6. 元编程","level":"1.7","depth":1,"path":"abc/README.md","ref":"abc/README.md","articles":[{"title":"6.1 动态属性和特性","level":"1.7.1","depth":2,"path":"abc/dynamic.md","ref":"abc/dynamic.md","articles":[]},{"title":"6.2 属性描述符","level":"1.7.2","depth":2,"path":"abc/descriptor.md","ref":"abc/descriptor.md","articles":[]},{"title":"6.3 类元编程","level":"1.7.3","depth":2,"path":"abc/prepare.md","ref":"abc/prepare.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"abc/dynamic.md","mtime":"2017-10-27T14:00:53.086Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-09T05:37:36.156Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

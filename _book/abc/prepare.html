@@ -1,0 +1,1052 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>6.3 类元编程 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../appendix/" />
+    
+    
+    <link rel="prev" href="descriptor.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../structure/">
+            
+                <a href="../structure/">
+            
+                    
+                    1. 数据模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../structure/data_module.html">
+            
+                <a href="../structure/data_module.html">
+            
+                    
+                    1.1 Python 数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../structure/sequence.html">
+            
+                <a href="../structure/sequence.html">
+            
+                    
+                    1.2 序列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../structure/mapping.html">
+            
+                <a href="../structure/mapping.html">
+            
+                    
+                    1.3 字典和集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../structure/string.html">
+            
+                <a href="../structure/string.html">
+            
+                    
+                    1.4 文本和字节序列
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../function/">
+            
+                <a href="../function/">
+            
+                    
+                    2. 函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../function/func_object.html">
+            
+                <a href="../function/func_object.html">
+            
+                    
+                    2.1 一等函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../function/design.html">
+            
+                <a href="../function/design.html">
+            
+                    
+                    2.2 设计模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../function/decorator.html">
+            
+                <a href="../function/decorator.html">
+            
+                    
+                    2.3 函数装饰器和闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../object/">
+            
+                <a href="../object/">
+            
+                    
+                    3. 面向对象
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../object/rubbish_collection.html">
+            
+                <a href="../object/rubbish_collection.html">
+            
+                    
+                    3.1 对象引用与垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../object/py_object.html">
+            
+                <a href="../object/py_object.html">
+            
+                    
+                    3.2 Python风格对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../object/slice.html">
+            
+                <a href="../object/slice.html">
+            
+                    
+                    3.3 序列的散列和切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../object/abstract.html">
+            
+                <a href="../object/abstract.html">
+            
+                    
+                    3.4 抽象基类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../object/inherit.html">
+            
+                <a href="../object/inherit.html">
+            
+                    
+                    3.5 类继承
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../object/overload.html">
+            
+                <a href="../object/overload.html">
+            
+                    
+                    3.6 运算符重载
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../control_flow/">
+            
+                <a href="../control_flow/">
+            
+                    
+                    4. 控制流程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../control_flow/iterator.html">
+            
+                <a href="../control_flow/iterator.html">
+            
+                    
+                    4.1 迭代器和生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../control_flow/contextmanager.html">
+            
+                <a href="../control_flow/contextmanager.html">
+            
+                    
+                    4.2 上下文管理器和 else 块
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../concurrency/">
+            
+                <a href="../concurrency/">
+            
+                    
+                    5. 并发
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../concurrency/coroutine.html">
+            
+                <a href="../concurrency/coroutine.html">
+            
+                    
+                    5.1 协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../concurrency/future.html">
+            
+                <a href="../concurrency/future.html">
+            
+                    
+                    5.2 期物
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../concurrency/asyncio.html">
+            
+                <a href="../concurrency/asyncio.html">
+            
+                    
+                    5.3 asyncio
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    6. 元编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="dynamic.html">
+            
+                <a href="dynamic.html">
+            
+                    
+                    6.1 动态属性和特性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="descriptor.html">
+            
+                <a href="descriptor.html">
+            
+                    
+                    6.2 属性描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.3" data-path="prepare.html">
+            
+                <a href="prepare.html">
+            
+                    
+                    6.3 类元编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../appendix/">
+            
+                <a href="../appendix/">
+            
+                    
+                    7. 附录
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../appendix/python_standard.html">
+            
+                <a href="../appendix/python_standard.html">
+            
+                    
+                    7.1 Python 标准库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../appendix/python_version.html">
+            
+                <a href="../appendix/python_version.html">
+            
+                    
+                    7.2 Python 版本差异
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../appendix/async.html">
+            
+                <a href="../appendix/async.html">
+            
+                    
+                    7.3 Python 异步编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../appendix/socket.html">
+            
+                <a href="../appendix/socket.html">
+            
+                    
+                    7.4 socket 套接字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../appendix/programming.html">
+            
+                <a href="../appendix/programming.html">
+            
+                    
+                    7.5 程序设计思想
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../appendix/this_book.html">
+            
+                <a href="../appendix/this_book.html">
+            
+                    
+                    7.6 本书资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >6.3 类元编程</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="63-&#x7C7B;&#x5143;&#x7F16;&#x7A0B;">6.3 &#x7C7B;&#x5143;&#x7F16;&#x7A0B;</h1>
+<p>&#x672C;&#x7AE0;&#x5185;&#x5BB9;:</p>
+<ul>
+<li>&#x7C7B;&#x5DE5;&#x5382;<ul>
+<li>&#x5143;&#x7C7B;</li>
+<li>exec &#x51FD;&#x6570;</li>
+</ul>
+</li>
+<li>&#x7C7B;&#x88C5;&#x9970;&#x5668;</li>
+<li>&#x5BFC;&#x5165;&#x65F6;&#x548C;&#x8FD0;&#x884C;&#x65F6;</li>
+<li>&#x7C7B;&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;</li>
+</ul>
+<h2 id="1-&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;">1. &#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;</h2>
+<p>&#x5143;&#x7C7B;:</p>
+<ul>
+<li>&#x5B9A;&#x4E49;: &#x521B;&#x5EFA;&#x7C7B;&#x7684;&#x7C7B;&#xFF0C;&#x7C7B;&#x662F;&#x5143;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;</li>
+<li>&#x7279;&#x6027;: &#x8D85;&#x7C7B;&#x7684;&#x5143;&#x7C7B;&#x4F1A;&#x88AB;&#x5B50;&#x7C7B;&#x7EE7;&#x627F;&#xFF0C;&#x56E0;&#x6B64;&#x5143;&#x7C7B;&#x53EF;&#x4EE5;&#x5B9A;&#x5236;&#x7C7B;&#x7684;&#x5C42;&#x6B21;&#x7ED3;&#x6784;</li>
+</ul>
+<h3 id="11-&#x7C7B;&#xFF0C;object&#xFF0C;type">1.1 &#x7C7B;&#xFF0C;object&#xFF0C;type:</h3>
+<p><img src="../image/metaclass_object.png" alt="collections.abc"></p>
+<ul>
+<li>&#x7C7B;&#x7684;&#x89D2;&#x5EA6;: &#x6240;&#x6709;&#x7C7B;&#x5305;&#x62EC; type &#x90FD;&#x662F; object &#x7C7B;&#x7684;&#x5B50;&#x7C7B;</li>
+<li>&#x5B9E;&#x4F8B;&#x89D2;&#x5EA6;: Python &#x4E2D;&#x5927;&#x591A;&#x6570;&#x5185;&#x7F6E;&#x7684;&#x7C7B;&#x548C;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;&#x7C7B;&#x90FD;&#x662F; type &#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5305;&#x62EC; type &#x548C; object</li>
+<li>object &#x4E0E; type:<ul>
+<li>object &#x662F; type &#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x800C; type &#x662F; object &#x7684;&#x5B50;&#x7C7B;</li>
+<li>type &#x662F;&#x81EA;&#x8EAB;&#x7684;&#x5B9E;&#x4F8B;</li>
+</ul>
+</li>
+</ul>
+<h3 id="12-&#x5143;&#x7C7B;&#x4E0E;type">1.2 &#x5143;&#x7C7B;&#x4E0E;type</h3>
+<p><img src="../image/metaclass_metaclass.png" alt="collections.abc"></p>
+<ul>
+<li>&#x6240;&#x6709;&#x7C7B;&#x90FD;&#x76F4;&#x63A5;&#x6216;&#x95F4;&#x63A5;&#x5730;&#x662F; type &#x7684;&#x5B9E;&#x4F8B;</li>
+<li>&#x53EA;&#x6709;&#x5143;&#x7C7B;&#x540C;&#x65F6;&#x4E5F;&#x662F; type &#x7684;&#x5B50;&#x7C7B;&#xFF0C;&#x4ECE; type &#x7C7B;&#x7EE7;&#x627F;&#x4E86;&#x6784;&#x5EFA;&#x7C7B;&#x7684;&#x80FD;&#x529B;(&#x5982;ABCMeta)</li>
+</ul>
+<pre><code class="lang-python">&gt;&gt;&gt; import collections
+&gt;&gt;&gt; collections.Iterable.__class__  # &#x6240;&#x6709;&#x62BD;&#x8C61;&#x57FA;&#x7C7B;&#x7684;&#x5143;&#x7C7B;&#x90FD;&#x662F; abc.ABCMeta
+&lt;class &apos;abc.ABCMeta&apos;&gt;
+&gt;&gt;&gt; import abc
+&gt;&gt;&gt; abc.ABCMeta.__class__
+&lt;class &apos;type&apos;&gt;
+&gt;&gt;&gt; abc.ABCMeta.__mro__
+(&lt;class &apos;abc.ABCMeta&apos;&gt;, &lt;class &apos;type&apos;&gt;, &lt;class &apos;object&apos;&gt;)
+</code></pre>
+<h2 id="2-&#x5143;&#x7C7B;&#x7684;&#x4F7F;&#x7528;">2. &#x5143;&#x7C7B;&#x7684;&#x4F7F;&#x7528;</h2>
+<h3 id="21-type">2.1 type</h3>
+<ul>
+<li>&#x4F5C;&#x4E3A;&#x51FD;&#x6570;: &#x8C03;&#x7528; type(my<em>object)&#xFF0C;&#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x6240;&#x5C5E;&#x7684;&#x7C7B;&#xFF0C;&#x4E0E; my_object.\</em>_class__ &#x76F8;&#x540C;</li>
+<li><p>&#x4F5C;&#x4E3A;&#x7C7B;: &#x8C03;&#x7528; type(name,bases,dict) &#x53EF;&#x4EE5;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x7C7B;</p>
+<ul>
+<li>name: &#x7C7B;&#x7684;&#x540D;&#x79F0;</li>
+<li>base: &#x8D85;&#x7C7B;&#x7684;&#x5143;&#x7EC4;</li>
+<li>dict: &#x5B57;&#x5178;&#xFF0C;&#x6307;&#x5B9A;&#x65B0;&#x7C7B;&#x7684;&#x5C5E;&#x6027;&#x540D;&#x548C;&#x503C;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x4EE5;&#x4E0B;&#x521B;&#x5EFA;&#x7C7B;&#x7684;&#x6548;&#x679C;&#x7B49;&#x540C;</span>
+MyClass = type(<span class="hljs-string">&apos;MyClass&apos;</span>, (MySuperClass, MyMixin),
+               {<span class="hljs-string">&apos;x&apos;</span>:  <span class="hljs-number">42</span>, <span class="hljs-string">&apos;x2&apos;</span>:  <span class="hljs-keyword">lambda</span> self:  self.x * <span class="hljs-number">2</span>})
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span><span class="hljs-params">(MySuperClass, MyMixin)</span>:</span>
+    x = <span class="hljs-number">42</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">x2</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.x * <span class="hljs-number">2</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="22-&#x81EA;&#x5B9A;&#x4E49;&#x5143;&#x7C7B;">2.2 &#x81EA;&#x5B9A;&#x4E49;&#x5143;&#x7C7B;</h3>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x5B9A;&#x4E49;&#x5143;&#x7C7B;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EntityMeta</span><span class="hljs-params">(type)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;Metaclass for business entities with validated fields&quot;&quot;&quot;</span>
+
+<span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__prepare__</span><span class="hljs-params">(cls, name, bases)</span>:</span>
+        <span class="hljs-keyword">return</span> collections.OrderedDict()  <span class="hljs-comment"># &lt;1&gt;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(cls, name, bases, attr_dict)</span>:</span>
+        super().__init__(name, bases, attr_dict)
+        cls._field_names = []
+        <span class="hljs-keyword">for</span> key, attr <span class="hljs-keyword">in</span> attr_dict.items():
+            <span class="hljs-keyword">if</span> isinstance(attr, Validated):
+                type_name = type(attr).__name__
+                attr.storage_name = <span class="hljs-string">&apos;_{}#{}&apos;</span>.format(type_name, key)
+                cls._field_names.append(key)  <span class="hljs-comment"># &lt;4&gt;</span>
+
+<span class="hljs-comment"># &#x4F7F;&#x7528;&#x5143;&#x7C7B;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Entity</span><span class="hljs-params">(metaclass=EntityMeta)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;Business entity with validated fields&quot;&quot;&quot;</span>
+
+<span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">field_names</span><span class="hljs-params">(cls)</span>:</span>   <span class="hljs-comment"># &lt;5&gt;</span>
+        <span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> cls._field_names:
+            <span class="hljs-keyword">yield</span> name
+
+<span class="hljs-comment"># &#x4F7F;&#x7528;&#x5143;&#x7C7B;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LineItem</span><span class="hljs-params">(Entity)</span>:</span>
+    description = model.NonBlank()
+    weight = model.Quantity()
+    price = model.Quantity()
+</code></pre>
+<ol>
+<li>__prepare__ &#x65B9;&#x6CD5;&#x8BE6;&#x89C1;&#x4E0B;</li>
+<li>&#x5143;&#x7C7B;&#x7EE7;&#x627F;&#x81EA; type &#x7C7B;</li>
+<li>&#x5143;&#x7C7B;&#x521D;&#x59CB;&#x5316;&#x53C2;&#x6570;:<ul>
+<li>cls: &#x8981;&#x521D;&#x59CB;&#x5316;&#x7684;&#x7C7B;&#x5BF9;&#x8C61;</li>
+<li>name&#x3001;bases&#x3001;dic: &#x4E0E;&#x6784;&#x5EFA;&#x7C7B;&#x65F6;&#x4F20;&#x7ED9; type &#x7684;&#x53C2;&#x6570;&#x76F8;&#x540C;</li>
+</ul>
+</li>
+<li>&#x628A;&#x7C7B;&#x94FE;&#x63A5;&#x5230;&#x5143;&#x7C7B;:<ul>
+<li>Python3 &#x4E2D;&#x4F7F;&#x7528; <code>class Entity(metaclass=EntityMeta)</code></li>
+<li>Pytohn2 &#x4E2D;&#x4F7F;&#x7528; <code>__metaclass__ = EntityMeta</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="23-&#x7279;&#x6B8A;&#x65B9;&#x6CD5;prepare">2.3 &#x7279;&#x6B8A;&#x65B9;&#x6CD5;__prepare__</h3>
+<p>__prepare__(cls, name, bases):</p>
+<ul>
+<li>&#x7248;&#x672C;: Python3</li>
+<li>&#x76EE;&#x7684;: &#x77E5;&#x9053;&#x7C7B;&#x7684;&#x5C5E;&#x6027;&#x5B9A;&#x4E49;&#x7684;&#x987A;&#x5E8F;</li>
+<li>&#x80CC;&#x666F;:<ul>
+<li>type &#x6784;&#x9020;&#x65B9;&#x6CD5;&#x53CA;&#x5143;&#x7C7B;&#x7684; __new__ &#x548C; __init__ &#x65B9;&#x6CD5;&#x90FD;&#x4F1A;&#x6536;&#x5230;&#x7C7B;&#x5C5E;&#x6027;&#x540D;&#x5230;&#x503C;&#x7684;&#x6620;&#x5C04;</li>
+<li>&#x4F46;&#x662F;&#x6620;&#x5C04;&#x662F;&#x5B57;&#x5178;&#xFF1B;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5143;&#x7C7B;&#x6216;&#x7C7B;&#x88C5;&#x9970;&#x5668;&#x83B7;&#x5F97;&#x6620;&#x5C04;&#x65F6;&#xFF0C;&#x5C5E;&#x6027;&#x5728;&#x7C7B;&#x5B9A;&#x4E49;&#x4F53;&#x4E2D;&#x7684;&#x987A;&#x5E8F;&#x5DF2;&#x7ECF;&#x4E22;&#x5931;&#x4E86;</li>
+</ul>
+</li>
+<li>&#x8C03;&#x7528;:<ul>
+<li>&#x89E3;&#x91CA;&#x5668;&#x8C03;&#x7528;&#x5143;&#x7C7B;&#x7684; __new__ &#x65B9;&#x6CD5;&#x4E4B;&#x524D;&#x4F1A;&#x5148;&#x8C03;&#x7528; __prepare__ &#x65B9;&#x6CD5;</li>
+<li>&#x5143;&#x7C7B;&#x6784;&#x5EFA;&#x65B0;&#x7C7B;&#x65F6;&#xFF0C;__prepare__ &#x8FD4;&#x56DE;&#x7684;&#x6620;&#x5C04;&#x4F1A;&#x4F20;&#x7ED9; __new__ &#x518D;&#x4F20;&#x7ED9; __init__</li>
+<li><strong>&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x5728; __prepare__ &#x8FD4;&#x56DE;&#x7684;&#x6620;&#x5C04;&#x4E2D;&#x586B;&#x5145;&#x7C7B;&#x5C5E;&#x6027;</strong></li>
+</ul>
+</li>
+<li>&#x8BED;&#x6CD5;:<ul>
+<li>&#x8FD9;&#x4E2A;&#x7279;&#x6B8A;&#x65B9;&#x6CD5;&#x53EA;&#x5728;&#x5143;&#x7C7B;&#x4E2D;&#x6709;&#x7528;</li>
+<li>&#x800C;&#x4E14;&#x5FC5;&#x987B;&#x58F0;&#x660E;&#x4E3A;&#x7C7B;&#x65B9;&#x6CD5;(&#x5373;&#xFF0C;&#x8981;&#x4F7F;&#x7528; @classmethod &#x88C5;&#x9970;&#x5668;&#x5B9A;&#x4E49;)</li>
+</ul>
+</li>
+<li>&#x53C2;&#x6570;:<ul>
+<li>cls: &#x5143;&#x7C7B;</li>
+<li>name: &#x7C7B;&#x7684;&#x540D;&#x79F0;</li>
+<li>bases: &#x57FA;&#x7C7B;&#x7EC4;&#x6210;&#x7684;&#x5143;&#x7EC4;</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;: &#x5FC5;&#x987B;&#x662F;&#x6620;&#x5C04;</li>
+<li>&#x5B9E;&#x4F8B;: &#x89C1;&#x4E0A;</li>
+</ul>
+<h2 id="3-&#x7C7B;&#x5DE5;&#x5382;&#x51FD;&#x6570;">3. &#x7C7B;&#x5DE5;&#x5382;&#x51FD;&#x6570;</h2>
+<h3 id="31-type">3.1 type</h3>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">record_factory</span><span class="hljs-params">(cls_name, field_names)</span>:</span>
+    <span class="hljs-keyword">try</span>:
+        field_names = field_names.replace(<span class="hljs-string">&apos;,&apos;</span>, <span class="hljs-string">&apos; &apos;</span>).split()  <span class="hljs-comment"># &lt;1&gt;</span>
+    <span class="hljs-keyword">except</span> AttributeError:   <span class="hljs-comment"># no .replace or .split</span>
+        <span class="hljs-keyword">pass</span>  <span class="hljs-comment"># assume it&apos;s already a sequence of identifiers</span>
+    field_names = tuple(field_names)  <span class="hljs-comment"># &lt;2&gt;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, *args, **kwargs)</span>:</span>   <span class="hljs-comment"># &lt;3&gt;</span>
+        attrs = dict(zip(self.__slots__, args))
+        attrs.update(kwargs)
+        <span class="hljs-keyword">for</span> name, value <span class="hljs-keyword">in</span> attrs.items():
+            setattr(self, name, value)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__iter__</span><span class="hljs-params">(self)</span>:</span>   <span class="hljs-comment"># &lt;4&gt;</span>
+        <span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> self.__slots__:
+            <span class="hljs-keyword">yield</span> getattr(self, name)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>   <span class="hljs-comment"># &lt;5&gt;</span>
+        values = <span class="hljs-string">&apos;, &apos;</span>.join(<span class="hljs-string">&apos;{}={!r}&apos;</span>.format(*i) <span class="hljs-keyword">for</span> i
+                           <span class="hljs-keyword">in</span> zip(self.__slots__, self))
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;{}({})&apos;</span>.format(self.__class__.__name__, values)
+
+    cls_attrs = dict(__slots__ = field_names,  <span class="hljs-comment"># &lt;6&gt;</span>
+                     __init__  = __init__,
+                     __iter__  = __iter__,
+                     __repr__  = __repr__)
+
+    <span class="hljs-keyword">return</span> type(cls_name, (object,), cls_attrs)  <span class="hljs-comment"># &lt;7&gt;</span>
+</code></pre>
+<h3 id="32-exec">3.2 exec</h3>
+<p>collections.namedtuple &#x5B9E;&#x73B0;</p>
+<ul>
+<li>&#x5B9E;&#x73B0;: &#x4F7F;&#x7528;&#x4E86; exec &#x51FD;&#x6570;</li>
+<li>&#x76EE;&#x7684;: &#x4E3A;&#x4E86;&#x8BA9;&#x751F;&#x6210;&#x7684;&#x7C7B;&#x4EE3;&#x7801;&#x80FD;&#x901A;&#x8FC7; ._source &#x5C5E;&#x6027;&#x83B7;&#x53D6;</li>
+<li>&#x6587;&#x6863;:<ul>
+<li><a href="https://hg.python.org/cpython/file/3.4/Lib/collections/__init__.py#l236" target="_blank">https://hg.python.org/cpython/file/3.4/Lib/collections/__init__.py#l236</a></li>
+<li><a href="https://docs.python.org/3/library/collections.html#collections.somenamedtuple._source" target="_blank">https://docs.python.org/3/library/collections.html#collections.somenamedtuple._source</a></li>
+</ul>
+</li>
+<li>&#x65B9;&#x6CD5;:<ul>
+<li>&#x5148;&#x58F0;&#x660E;&#x4E00;&#x4E2A; _class_template &#x53D8;&#x91CF;&#xFF0C;&#x5176;&#x503C;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x5F62;&#x5F0F;&#x7684;&#x6E90;&#x7801;&#x6A21;&#x677F;&#xFF1B;</li>
+<li>&#x7136;&#x540E;&#x5728; namedtuple &#x51FD;&#x6570;&#x4E2D;&#x8C03;&#x7528; _class_template.format(...) &#x65B9;&#x6CD5;&#xFF0C;&#x586B;&#x5145;&#x6A21;&#x677F;&#x91CC;&#x7684;&#x7A7A;&#x767D;&#xFF1B;</li>
+<li>&#x6700;&#x540E;&#xFF0C;&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x7684; exec &#x51FD;&#x6570;&#x8BA1;&#x7B97;&#x5F97;&#x5230;&#x7684;&#x6E90;&#x7801;&#x5B57;&#x7B26;&#x4E32;</li>
+</ul>
+</li>
+</ul>
+<p>exec(eval) &#x7F3A;&#x70B9;: &#x5982;&#x679C;&#x63A5;&#x6536;&#x7684;&#x5B57;&#x7B26;&#x4E32;(&#x6216;&#x7247;&#x6BB5;)&#x6765;&#x81EA;&#x4E0D;&#x53EF;&#x4FE1;&#x7684;&#x6E90;&#xFF0C;&#x90A3;&#x4E48;&#x4F1A;&#x5E26;&#x6765;&#x4E25;&#x91CD;&#x7684;&#x5B89;&#x5168;&#x98CE;&#x9669;</p>
+<h2 id="4-&#x7C7B;&#x88C5;&#x9970;&#x5668;">4. &#x7C7B;&#x88C5;&#x9970;&#x5668;</h2>
+<p>&#x7C7B;&#x88C5;&#x9970;&#x5668;</p>
+<ul>
+<li>&#x5B9A;&#x4E49;: &#x53C2;&#x6570;&#x4E3A;&#x7C7B;&#x5BF9;&#x8C61;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x539F;&#x6765;&#x7684;&#x7C7B;&#x6216;&#x4FEE;&#x6539;&#x540E;&#x7684;&#x7C7B;</li>
+<li>&#x4F5C;&#x7528;: &#x521B;&#x5EFA;&#x7C7B;&#x65F6;&#x5B9A;&#x5236;&#x7C7B;</li>
+<li>&#x7F3A;&#x70B9;:<ul>
+<li>&#x53EA;&#x5BF9;&#x76F4;&#x63A5;&#x4F9D;&#x9644;&#x7684;&#x7C7B;&#x6709;&#x6548;</li>
+<li>&#x88AB;&#x88C5;&#x9970;&#x7684;&#x7C7B;&#x7684;&#x5B50;&#x7C7B;&#x53EF;&#x80FD;&#x7EE7;&#x627F;,&#x4E5F;&#x53EF;&#x80FD;&#x4E0D;&#x7EE7;&#x627F;&#x88C5;&#x9970;&#x5668;&#x6240;&#x505A;&#x7684;&#x6539;&#x52A8;&#xFF0C;&#x5177;&#x4F53;&#x60C5;&#x51B5;&#x89C6;&#x6539;&#x52A8;&#x7684;&#x65B9;&#x5F0F;&#x800C;&#x5B9A;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">entity</span><span class="hljs-params">(cls)</span>:</span>
+    <span class="hljs-keyword">for</span> key, attr <span class="hljs-keyword">in</span> cls.__dict__.items():
+        <span class="hljs-keyword">if</span> isinstance(attr, Validated):
+            type_name = type(attr).__name__
+            attr.storage_name = <span class="hljs-string">&apos;_{}#{}&apos;</span>.format(type_name, key)  <span class="hljs-comment"># &lt;4&gt;</span>
+    <span class="hljs-keyword">return</span> cls
+
+<span class="hljs-meta">@model.entity</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LineItem</span>:</span>
+    description = model.NonBlank()
+    weight = model.Quantity()
+    price = model.Quantity()
+</code></pre>
+<h2 id="5-&#x5BFC;&#x5165;&#x65F6;&#x4E0E;&#x8FD0;&#x884C;&#x65F6;">5. &#x5BFC;&#x5165;&#x65F6;&#x4E0E;&#x8FD0;&#x884C;&#x65F6;</h2>
+<p>Python &#x89E3;&#x91CA;&#x5668;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x8BA1;&#x7B97;&#x5404;&#x4E2A;&#x4EE3;&#x7801;&#x5757;</p>
+<ul>
+<li>&#x5BFC;&#x5165;&#x65F6;&#xFF0C;&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x4ECE;&#x4E0A;&#x5230;&#x4E0B;&#x4E00;&#x6B21;&#x6027;&#x89E3;&#x6790;&#x5B8C; .py &#x6A21;&#x5757;&#x7684;&#x6E90;&#x7801;&#xFF0C;&#x7136;&#x540E;&#x751F;&#x6210;&#x7528;&#x4E8E;&#x6267;&#x884C;&#x7684;&#x5B57;&#x8282;&#x7801;&#x3002;&#x5982;&#x679C;&#x53E5;&#x6CD5;&#x6709;&#x9519;&#x8BEF;&#xFF0C;&#x5C31;&#x5728;&#x6B64;&#x65F6;&#x62A5;&#x544A;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x672C;&#x5730;&#x7684; __pycache__ &#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x6709;&#x6700;&#x65B0;&#x7684; .pyc &#x6587;&#x4EF6;&#xFF0C;&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x8DF3;&#x8FC7;&#x4E0A;&#x8FF0;&#x6B65;&#x9AA4;&#xFF0C;&#x56E0;&#x4E3A;&#x5DF2;&#x7ECF;&#x6709;&#x8FD0;&#x884C;&#x6240;&#x9700;&#x7684;&#x5B57;&#x8282;&#x7801;</li>
+<li>import&#x8BED;&#x53E5;&#xFF0C;&#x5B83;&#x4E0D;&#x53EA;&#x662F;&#x58F0;&#x660E;&#xFF0C;&#x5728;&#x8FDB;&#x7A0B;&#x4E2D;&#x9996;&#x6B21;&#x5BFC;&#x5165;&#x6A21;&#x5757;&#x65F6;&#xFF0C;&#x8FD8;&#x4F1A;&#x8FD0;&#x884C;&#x6240;&#x5BFC;&#x5165;&#x6A21;&#x5757;&#x4E2D;&#x7684;&#x5168;&#x90E8;&#x9876;&#x5C42;&#x4EE3;&#x7801; &#x2014;&#x2014;
+&#x4EE5;&#x540E;&#x5BFC;&#x5165;&#x76F8;&#x540C;&#x7684;&#x6A21;&#x5757;&#x5219;&#x4F7F;&#x7528;&#x7F13;&#x5B58;&#xFF0C;&#x53EA;&#x505A;&#x540D;&#x79F0;&#x7ED1;&#x5B9A;</li>
+<li>&#x6A21;&#x5757;&#x4E2D;&#x7684;&#x9876;&#x5C42;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x505A;&#x4EFB;&#x4F55;&#x4E8B;&#xFF0C;&#x5305;&#x62EC;&#x901A;&#x5E38;&#x5728;&quot;&#x8FD0;&#x884C;&#x65F6;&quot;&#x505A;&#x7684;&#x4E8B;&#xFF0C;&#x4F8B;&#x5982;&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;</li>
+<li>&#x56E0;&#x6B64;&#xFF0C;&quot;&#x5BFC;&#x5165;&#x65F6;&quot;&#x4E0E;&quot;&#x8FD0;&#x884C;&#x65F6;&quot;&#x4E4B;&#x95F4;&#x7684;&#x754C;&#x7EBF;&#x662F;&#x6A21;&#x7CCA;&#x7684;:  import &#x8BED;&#x53E5;&#x53EF;&#x4EE5;&#x89E6;&#x53D1;&#x4EFB;&#x4F55;&quot;&#x8FD0;&#x884C;&#x65F6;&quot;&#x884C;&#x4E3A;</li>
+</ul>
+<p>&#x51FD;&#x6570;:</p>
+<ul>
+<li>&#x5BFC;&#x5165;&#x6A21;&#x5757;&#x65F6;&#xFF0C;&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x6267;&#x884C;&#x9876;&#x5C42;&#x7684; def &#x8BED;&#x53E5;&#xFF0C;&#x7F16;&#x8BD1;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x4F53;&#xFF0C;&#x628A;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x7ED1;&#x5B9A;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x5168;&#x5C40;&#x540D;&#x79F0;&#x4E0A;&#xFF0C;
+&#x4F46;&#x4E0D;&#x4F1A;&#x6267;&#x884C;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x4F53;</li>
+<li>&#x610F;&#x5473;&#x7740;&#x89E3;&#x91CA;&#x5668;&#x5728;&#x5BFC;&#x5165;&#x65F6;&#x5B9A;&#x4E49;&#x9876;&#x5C42;&#x51FD;&#x6570;&#xFF0C;&#x4F46;&#x662F;&#x4EC5;&#x5F53;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x65F6;&#x624D;&#x4F1A;&#x6267;&#x884C;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x4F53;</li>
+</ul>
+<p>&#x7C7B;:</p>
+<ul>
+<li>&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x6267;&#x884C;&#x6BCF;&#x4E2A;&#x7C7B;&#x7684;&#x5B9A;&#x4E49;&#x4F53;&#xFF0C;&#x751A;&#x81F3;&#x4F1A;&#x6267;&#x884C;&#x5D4C;&#x5957;&#x7C7B;&#x7684;&#x5B9A;&#x4E49;&#x4F53;&#x3002;</li>
+<li>&#x6267;&#x884C;&#x7C7B;&#x5B9A;&#x4E49;&#x4F53;&#x7684;&#x7ED3;&#x679C;&#x662F;&#xFF0C;&#x5B9A;&#x4E49;&#x4E86;&#x7C7B;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x6784;&#x5EFA;&#x4E86;&#x7C7B;&#x5BF9;&#x8C61;&#x3002;</li>
+<li>&#x4ECE;&#x8FD9;&#x4E2A;&#x610F;&#x4E49;&#x4E0A;&#x7406;&#x89E3;&#xFF0C;&#x7C7B;&#x7684;&#x5B9A;&#x4E49;&#x4F53;&#x5C5E;&#x4E8E;&quot;&#x9876;&#x5C42;&#x4EE3;&#x7801;&quot;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5728;&#x5BFC;&#x5165;&#x65F6;&#x8FD0;&#x884C;</li>
+<li>&#x89E3;&#x91CA;&#x5668;&#x5148;&#x8BA1;&#x7B97;&#x7C7B;&#x7684;&#x5B9A;&#x4E49;&#x4F53;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;&#x4F9D;&#x9644;&#x5728;&#x7C7B;&#x4E0A;&#x7684;&#x88C5;&#x9970;&#x5668;&#x51FD;&#x6570;</li>
+</ul>
+<h2 id="6-&#x7C7B;&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;">6. &#x7C7B;&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;</h2>
+<p>&#x6587;&#x6863;:  <a href="https://docs.python.org/3/library/stdtypes.html#special-attributes" target="_blank">https://docs.python.org/3/library/stdtypes.html#special-attributes</a></p>
+<p>cls.__bases__</p>
+<ul>
+<li>&#x503C;: &#x7531;&#x7C7B;&#x7684;&#x57FA;&#x7C7B;&#x7EC4;&#x6210;&#x7684;&#x5143;&#x7EC4;</li>
+</ul>
+<p>cls.__qualname__</p>
+<ul>
+<li>Python 3.3 &#x65B0;&#x5F15;&#x5165;&#x7684;&#x5C5E;&#x6027;</li>
+<li>&#x503C;: &#x7C7B;&#x6216;&#x51FD;&#x6570;&#x7684;&#x9650;&#x5B9A;&#x540D;&#x79F0;&#xFF0C;&#x5373;&#x4ECE;&#x6A21;&#x5757;&#x7684;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x5230;&#x7C7B;&#x7684;&#x70B9;&#x5206;&#x8DEF;&#x5F84;</li>
+<li>&#x6587;&#x6863;: PEP 3155&#x2014;Qualified name for classes and functions<br><a href="https://www.python.org/dev/peps/pep-3155/" target="_blank">https://www.python.org/dev/peps/pep-3155/</a></li>
+</ul>
+<p>cls.__subclasses__()</p>
+<ul>
+<li>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5217;&#x8868;&#xFF0C;&#x5305;&#x542B;&#x5185;&#x5B58;&#x91CC;&#x73B0;&#x5B58;&#x7684;&#x5B50;&#x7C7B;</li>
+<li>&#x5B9E;&#x73B0;: &#x4F7F;&#x7528;&#x5F31;&#x5F15;&#x7528;&#xFF0C;&#x9632;&#x6B62;&#x5728;&#x8D85;&#x7C7B;&#x548C;&#x5B50;&#x7C7B;&#x4E4B;&#x95F4;&#x51FA;&#x73B0;&#x5FAA;&#x73AF;&#x5F15;&#x7528;</li>
+<li>&#x9644;&#x6CE8;: &#x5B50;&#x7C7B;&#x5728; __bases__ &#x5C5E;&#x6027;&#x4E2D;&#x50A8;&#x5B58;&#x6307;&#x5411;&#x8D85;&#x7C7B;&#x7684;&#x5F3A;&#x5F15;&#x7528;</li>
+</ul>
+<p>cls.mro()</p>
+<ul>
+<li>&#x6784;&#x5EFA;&#x7C7B;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x83B7;&#x53D6;&#x50A8;&#x5B58;&#x5728;&#x7C7B;&#x5C5E;&#x6027; __mro__ &#x4E2D;&#x7684;&#x8D85;&#x7C7B;&#x5143;&#x7EC4;&#xFF0C;&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;</li>
+<li>&#x5143;&#x7C7B;&#x53EF;&#x4EE5;&#x8986;&#x76D6;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x5B9A;&#x5236;&#x8981;&#x6784;&#x5EFA;&#x7684;&#x7C7B;&#x89E3;&#x6790;&#x65B9;&#x6CD5;&#x7684;&#x987A;&#x5E8F;</li>
+</ul>
+<p>cls.__init_subclass__()</p>
+<ul>
+<li>&#x4F5C;&#x7528;: &#x8BA9;&#x666E;&#x901A;&#x7684;&#x7C7B;(&#x5373;&#xFF0C;&#x4E0D;&#x662F;&#x5143;&#x7C7B;)&#x5B9A;&#x5236;&#x5B50;&#x7C7B;&#x7684;&#x521D;&#x59CB;&#x5316;</li>
+<li>&#x7248;&#x672C;: Python36</li>
+</ul>
+<h2 id="&#x5EF6;&#x4F38;&#x9605;&#x8BFB;">&#x5EF6;&#x4F38;&#x9605;&#x8BFB;</h2>
+<h3 id="python">Python:</h3>
+<p>Customizing class creation</p>
+<ul>
+<li><a href="https://docs.python.org/3/reference/datamodel.html#metaclasses" target="_blank">https://docs.python.org/3/reference/datamodel.html#metaclasses</a></li>
+</ul>
+<p>type &#x7C7B;</p>
+<ul>
+<li><a href="https://docs.python.org/3/library/functions.html#type" target="_blank">https://docs.python.org/3/library/functions.html#type</a></li>
+</ul>
+<p>Special Attributes</p>
+<ul>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#special-attributes" target="_blank">https://docs.python.org/3/library/stdtypes.html#special-attributes</a></li>
+</ul>
+<p>types &#x6A21;&#x5757;</p>
+<ul>
+<li><a href="https://docs.python.org/3/library/types.html" target="_blank">https://docs.python.org/3/library/types.html</a></li>
+<li>&#x8BF4;&#x660E;&#x4E86; Python3.3 &#x5F15;&#x5165;&#x7684;&#x4E24;&#x4E2A;&#x65B0;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#x7528;&#x4E8E;&#x8F85;&#x52A9;&#x7C7B;&#x5143;&#x7F16;&#x7A0B;:<ul>
+<li>types.new_class(...)</li>
+<li>types.prepare_class(...)</li>
+</ul>
+</li>
+</ul>
+<p>Class Decorators</p>
+<ul>
+<li><p><a href="https://www.python.org/dev/peps/pep-3129/" target="_blank">https://www.python.org/dev/peps/pep-3129/</a></p>
+<p>__prepare__</p>
+<ul>
+<li>PEP 3115&#x2014;Metaclasses in Python3000</li>
+<li><a href="https://www.python.org/dev/peps/pep-3115/" target="_blank">https://www.python.org/dev/peps/pep-3115/</a></li>
+</ul>
+</li>
+</ul>
+<p>__init_subclass__</p>
+<ul>
+<li>&#x4F5C;&#x7528;: &#x8BA9;&#x666E;&#x901A;&#x7684;&#x7C7B;(&#x5373;&#xFF0C;&#x4E0D;&#x662F;&#x5143;&#x7C7B;)&#x5B9A;&#x5236;&#x5B50;&#x7C7B;&#x7684;&#x521D;&#x59CB;&#x5316;</li>
+<li>&#x7248;&#x672C;: Python36</li>
+</ul>
+<h3 id="blog">blog:</h3>
+<p>Class Decorators:  Radically Simple &#x7684;&#x6F14;&#x8BB2;</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=cAGliEJV9_o" target="_blank">https://www.youtube.com/watch?v=cAGliEJV9_o</a></li>
+</ul>
+<p>Meta-classes Made Easy: Eliminating self with Metaclasses</p>
+<ul>
+<li>&#x526F;&#x6807;&#x9898;(&quot;&#x501F;&#x52A9;&#x5143;&#x7C7B;&#x53BB;&#x6389; self&quot;)</li>
+<li><a href="http://www.voidspace.org.uk/python/articles/metaclasses.shtml" target="_blank">http://www.voidspace.org.uk/python/articles/metaclasses.shtml</a></li>
+</ul>
+<p>Unifying types and classes in Python 2.2</p>
+<ul>
+<li><a href="https://www.python.org/download/releases/2.2.3/descrintro/" target="_blank">https://www.python.org/download/releases/2.2.3/descrintro/</a></li>
+<li>&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E5F;&#x9002;&#x7528;&#x4E8E; Python 3&#xFF0C;&#x8C08;&#x5230;&#x4E86;&#x540E;&#x6765;&#x79F0;&#x4E3A;&quot;&#x65B0;&#x5F0F;&#x7C7B;&quot;&#x7684;&#x8BED;&#x4E49;&#xFF0C;&#x5305;&#x62EC;&#x63CF;&#x8FF0;&#x7B26;&#x548C;&#x5143;&#x7C7B;</li>
+</ul>
+<h3 id="&#x5B9E;&#x7528;&#x5DE5;&#x5177;">&#x5B9E;&#x7528;&#x5DE5;&#x5177;</h3>
+<p>MacroPy</p>
+<ul>
+<li><a href="https://github.com/lihaoyi/macropy" target="_blank">https://github.com/lihaoyi/macropy</a></li>
+</ul>
+<h3 id="&#x4E66;&#x7C4D;">&#x4E66;&#x7C4D;:</h3>
+<p>&#x300A; Python &#x6280;&#x672F;&#x624B;&#x518C;(&#x7B2C;2&#x7248;)&#x300B;</p>
+<p>&#x300A; Python Cookbook(&#x7B2C; 3 &#x7248;)&#x4E2D;&#x6587;&#x7248;&#x300B;</p>
+<p>&#x300A;Putting Metaclasses to Work:  a New Dimension in Object-Oriented Programming&#x300B;</p>
+<h2 id="&#x9644;&#x6CE8;">&#x9644;&#x6CE8;</h2>
+<ol>
+<li>Python &#x628A;&#x51FD;&#x6570;&#x5F53;&#x4F5C;&#x4E00;&#x7B49;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4E3A;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#x94FA;&#x5E73;&#x4E86;&#x9053;&#x8DEF;&#x3002;</li>
+<li>&#x63CF;&#x8FF0;&#x7B26;&#x548C;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#x5408;&#x5728;&#x4E00;&#x8D77;&#x5B9E;&#x73B0;&#xFF0C;&#x4F7F;&#x5F97;&#x51FD;&#x6570;&#x548C;&#x65B9;&#x6CD5;&#x7684;&#x7EDF;&#x4E00;&#x6210;&#x4E3A;&#x53EF;&#x80FD;&#x3002;</li>
+<li>&#x51FD;&#x6570;&#x7684; __get__ &#x65B9;&#x6CD5;&#x80FD;&#x5373;&#x65F6;&#x751F;&#x6210;&#x65B9;&#x6CD5;&#x5BF9;&#x8C61;&#xFF0C;&#x628A;&#x5B9E;&#x4F8B;&#x7ED1;&#x5B9A;&#x5230; self &#x53C2;&#x6570;&#x4E0A;&#x3002;&#x8FD9;&#x79CD;&#x505A;&#x6CD5;&#x76F8;&#x5F53;&#x4F18;&#x96C5;</li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="descriptor.html" class="navigation navigation-prev " aria-label="Previous page: 6.2 属性描述符">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../appendix/" class="navigation navigation-next " aria-label="Next page: 7. 附录">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"6.3 类元编程","level":"1.7.3","depth":2,"next":{"title":"7. 附录","level":"1.8","depth":1,"path":"appendix/README.md","ref":"appendix/README.md","articles":[{"title":"7.1 Python 标准库","level":"1.8.1","depth":2,"path":"appendix/python_standard.md","ref":"appendix/python_standard.md","articles":[]},{"title":"7.2 Python 版本差异","level":"1.8.2","depth":2,"path":"appendix/python_version.md","ref":"appendix/python_version.md","articles":[]},{"title":"7.3 Python 异步编程","level":"1.8.3","depth":2,"path":"appendix/async.md","ref":"appendix/async.md","articles":[]},{"title":"7.4 socket 套接字","level":"1.8.4","depth":2,"path":"appendix/socket.md","ref":"appendix/socket.md","articles":[]},{"title":"7.5 程序设计思想","level":"1.8.5","depth":2,"path":"appendix/programming.md","ref":"appendix/programming.md","articles":[]},{"title":"7.6 本书资源","level":"1.8.6","depth":2,"path":"appendix/this_book.md","ref":"appendix/this_book.md","articles":[]}]},"previous":{"title":"6.2 属性描述符","level":"1.7.2","depth":2,"path":"abc/descriptor.md","ref":"abc/descriptor.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"abc/prepare.md","mtime":"2017-10-25T15:31:16.640Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-09T05:37:36.156Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
